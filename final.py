@@ -108,8 +108,10 @@ def normalize_platform_list(platforms) -> List[str]:
     for p in platforms:
         if not p:
             continue
-
-        s = p.lower().replace(" ", "_").replace("/", "_")
+        s = str(p).strip().lower()
+        s = s.replace("osx","macos").replace("mac os x","macos").replace("mac os","macos")
+        s = s.replace("microsoft windows","windows")
+        s = s.replace("/", "_").replace(" ", "_")
         if s and s not in out:
             out.append(s)
     if not out:
