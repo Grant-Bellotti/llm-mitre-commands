@@ -238,7 +238,7 @@ def create_local_llm_pipeline():
         "text-generation",
         model=model,
         tokenizer=tokenizer,
-        max_new_tokens=64,
+        max_new_tokens=128,
         do_sample=False
         # temperature=0.8,
         # top_p=0.5
