@@ -249,26 +249,26 @@ def main():
         # Sanitize and enforce one-line, non-actionable
         safe_line = sanitize_and_enforce_one_line(raw)
 
-        # If the LLM generated redaction or empty, fallback to a concise summary from the stored data:
-        if safe_line.startswith("[REDACTED") or safe_line in ("", "[NO_OUTPUT]"):
-            # Fallback: create a single non-actionable sentence from the stored description
-            desc = (t.get("description") or "").strip().split(".")[0]
-            if desc:
-                # sanitize desc heavily: remove tool names / executable-looking tokens
-                # desc_clean = re.sub(_COMMAND_RE, "[redacted_tool_or_command]", desc)
-                # desc_clean = re.sub(r"\s+", " ", desc_clean).strip()
-                # ensure short
-                if len(desc_clean) > 300:
-                    desc_clean = desc_clean[:300].rsplit(" ",1)[0] + "..."
-                safe_line = desc_clean
-            else:
-                safe_line = "[NO_SUMMARY_AVAILABLE]"
+        # # If the LLM generated redaction or empty, fallback to a concise summary from the stored data:
+        # if safe_line.startswith("[REDACTED") or safe_line in ("", "[NO_OUTPUT]"):
+        #     # Fallback: create a single non-actionable sentence from the stored description
+        #     desc = (t.get("description") or "").strip().split(".")[0]
+        #     if desc:
+        #         # sanitize desc heavily: remove tool names / executable-looking tokens
+        #         # desc_clean = re.sub(_COMMAND_RE, "[redacted_tool_or_command]", desc)
+        #         # desc_clean = re.sub(r"\s+", " ", desc_clean).strip()
+        #         # ensure short
+        #         if len(desc_clean) > 300:
+        #             desc_clean = desc_clean[:300].rsplit(" ",1)[0] + "..."
+        #         safe_line = desc_clean
+        #     else:
+        #         safe_line = "[NO_SUMMARY_AVAILABLE]"
 
         record = {
             "mitre_id": mitre_id,
             "name": name,
             "platform": chosen_platform,
-            "description": safe_line
+            "command": safe_line
         }
 
         with open(OUTFILE, "a", encoding="utf-8") as fh:
