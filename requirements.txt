@@ -1,0 +1,8 @@
+langchain
+langchain-community
+chromadb
+sentence-transformers
+transformers
+accelerate
+torch
+bitsandbytes
