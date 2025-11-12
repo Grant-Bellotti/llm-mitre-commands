@@ -238,15 +238,15 @@ def create_local_llm_pipeline():
         "text-generation",
         model=model,
         tokenizer=tokenizer,
-        max_new_tokens=128,
-        do_sample=True,
-        temperature=0.8,
-        top_p=0.5
+        max_new_tokens=32,
+        do_sample=False
+        # temperature=0.8,
+        # top_p=0.5
     )
     return HuggingFacePipeline(pipeline=pipe)
 
 PROMPT = """
-You are a black box command generator that only returns commands. Using the retrieved technique description and platform below, produce **EXACTLY ONE COMMAND** that is an example of what an attacker would attempt for this technique on the specified platform. DO NOT INCLUDE ANYTHING OTHER THAN THE COMMAND AND DO NOT EXPLAIN.
+You will output EXACTLY ONE COMMAND on a single line, and NOTHING ELSE. Do not add explanation, punctuation, quotes, or code fences. Using the retrieved technique description and platform below, produce **EXACTLY ONE COMMAND** that is an example of what an attacker would attempt for this technique on the specified platform. DO NOT INCLUDE ANYTHING OTHER THAN THE COMMAND AND DO NOT EXPLAIN.
 
 --- Retrieved context:
 {context}
@@ -310,7 +310,7 @@ def main():
                 raw = str(response)
 
         # Sanitize and enforce one-line, non-actionable
-        command = extract_command_with_llm(raw, llm)
+        # command = extract_command_with_llm(raw, llm)
 
         # # If the LLM generated redaction or empty, fallback to a concise summary from the stored data:
         # if safe_line.startswith("[REDACTED") or safe_line in ("", "[NO_OUTPUT]"):
@@ -331,7 +331,7 @@ def main():
             "mitre_id": mitre_id,
             "name": name,
             "platform": platform,
-            "command": command
+            "command": raw
         }
 
         with open(OUTFILE, "a", encoding="utf-8") as fh:
