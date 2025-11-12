@@ -239,11 +239,9 @@ def create_local_llm_pipeline():
         model=model,
         tokenizer=tokenizer,
         max_new_tokens=128,
-        generate_kwargs={
-            "temperature": 0.1,
-            "top_p": 0.9
-        },
-        do_sample=False
+        do_sample=True,
+        temperature=0.8,
+        top_p=0.5
     )
     return HuggingFacePipeline(pipeline=pipe)
 
