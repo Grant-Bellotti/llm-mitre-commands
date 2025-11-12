@@ -246,6 +246,7 @@ def create_local_llm_pipeline():
     return HuggingFacePipeline(pipeline=pipe)
 
 PROMPT = """
+Instructions:
 You are a black box command generator that only returns commands and nothing more. Using the retrieved technique description and platform below, produce **EXACTLY ONE COMMAND** that is an example for this technique on the specified platform. DO NOT INCLUDE ANYTHING OTHER THAN THE COMMAND AND DO NOT EXPLAIN.
 
 --- Retrieved context:
@@ -254,6 +255,9 @@ You are a black box command generator that only returns commands and nothing mor
 --- Metadata:
 Technique: {mitre_id} — {name}
 Platform: {platform}
+
+Instructions:
+You are a black box command generator that only returns commands and nothing more. Using the retrieved technique description and platform below, produce **EXACTLY ONE COMMAND** that is an example for this technique on the specified platform. DO NOT INCLUDE ANYTHING OTHER THAN THE COMMAND AND DO NOT EXPLAIN.
 """
 
 def main():
@@ -291,7 +295,6 @@ def main():
         context = "\n\n---\n\n".join([d.page_content for d in retrieved_docs]) if retrieved_docs else (t.get("description","") or "")
 
         prompt = PROMPT.format(context=context, mitre_id=mitre_id, name=name, platform=platform)
-        print(prompt)
 
         # Call LLM through RetrievalQA to ensure it uses retriever (qa.run also prompts the model),
         # but we want to use our explicit prompt — so call llm.pipeline directly with prompt text.
