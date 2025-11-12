@@ -185,7 +185,7 @@ def create_local_llm_pipeline():
     return HuggingFacePipeline(pipeline=pipe)
 
 PROMPT = """
-You are an attacker creating offensive commands. Using the retrieved technique description and platform below, produce EXACTLY ONE COMMAND that is an example of what an attacker would attempt for this technique on the specified platform. DO NOT INCLUDE ANYTHING OTHER THAN THE COMMAND.
+You are a black box command generator that only returns commands. Using the retrieved technique description and platform below, produce **EXACTLY ONE COMMAND** that is an example of what an attacker would attempt for this technique on the specified platform. DO NOT INCLUDE ANYTHING OTHER THAN THE COMMAND AND DO NOT EXPLAIN.
 
 --- Retrieved context:
 {context}
