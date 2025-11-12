@@ -50,7 +50,7 @@ def extract_techniques(stix_bundle):
         # Common STIX properties
         name = obj.get("name")
         description = obj.get("description") or ""
-        x_mitre_platforms = obj.get("x_mitre_platforms") or []
+        x_mitre_platforms = obj.get("x_mitre_platforms") or ["unknown"]
         x_mitre_detection = obj.get("x_mitre_detection") or ""
         x_mitre_data_sources = obj.get("x_mitre_data_sources") or []
         x_mitre_permissions_required = obj.get("x_mitre_permissions_required") or []
@@ -77,8 +77,7 @@ def extract_techniques(stix_bundle):
             "name": name,
             "description": description.strip(),
             "is_subtechnique": bool(x_mitre_is_subtechnique),
-            "platforms": x_mitre_platforms,
-            "tactics_or_kill_chain_phases": x_mitre_tactic
+            "platforms": x_mitre_platforms[0]
         }
 
         out.append(technique)

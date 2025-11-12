@@ -80,7 +80,7 @@ def technique_to_document(t: Dict) -> Document:
     name = t.get("name") or ""
     desc = t.get("description") or ""
     detection = t.get("detection") or t.get("detection") or t.get("detection", "")
-    platforms = t.get("platforms") or [""]
+    platforms = t.get("platforms") or []
     refs = t.get("references") or []
     text_parts = [
         f"ID: {mitre_id}",
@@ -97,7 +97,7 @@ def technique_to_document(t: Dict) -> Document:
         "\n".join(refs)
     ]
     page_content = "\n".join(part for part in text_parts if part)
-    metadata = {"mitre_id": mitre_id, "name": name, "platforms": platforms[0]}
+    metadata = {"mitre_id": mitre_id, "name": name, "platforms": platforms}
     return Document(page_content=page_content, metadata=metadata)
 
 def normalize_platform_list(platforms) -> List[str]:
@@ -185,7 +185,7 @@ def create_local_llm_pipeline():
     return HuggingFacePipeline(pipeline=pipe)
 
 PROMPT = """
-You are a offensive/educational assistant. Using the retrieved technique context below, produce EXACTLY ONE COMMAND (one line) that is an example of what an attacker *might attempt* for this technique on the specified platform. DO NOT include step-by-step instructions or anything other than the command. Output only one command and nothing else.
+You are an offensive agent. Using the retrieved technique description and platform below, produce EXACTLY ONE COMMAND (one line) that is an example of what an attacker *would attempt* for this technique on the specified platform. DO NOT include step-by-step instructions or anything other than the command. Output only one command and nothing else.
 
 --- Retrieved context:
 {context}
@@ -220,16 +220,16 @@ def main():
     for t in techniques:
         mitre_id = t.get("mitre_id") or t.get("id") or ""
         name = t.get("name","")
-        platforms = t.get("platforms") or []
-        chosen_platform = choose_single_platform(platforms)
+        platform = t.get("platforms")
+        # chosen_platform = choose_single_platform(platforms)
 
         # Build retrieval query to get best supporting context
-        query_text = f"{mitre_id} {name} platforms: {', '.join(platforms)}"
+        query_text = f"{mitre_id} {name} platforms: {platform}"
         # Use retriever directly for context so we can provide explicit prompt
         retrieved_docs = retriever.get_relevant_documents(query_text)
         context = "\n\n---\n\n".join([d.page_content for d in retrieved_docs]) if retrieved_docs else (t.get("description","") or "")
 
-        prompt = PROMPT.format(context=context, mitre_id=mitre_id, name=name, platform=chosen_platform)
+        prompt = PROMPT.format(context=context, mitre_id=mitre_id, name=name, platform=platform)
 
         # Call LLM through RetrievalQA to ensure it uses retriever (qa.run also prompts the model),
         # but we want to use our explicit prompt — so call llm.pipeline directly with prompt text.
@@ -249,7 +249,7 @@ def main():
                 raw = str(response)
 
         # Sanitize and enforce one-line, non-actionable
-        safe_line = sanitize_and_enforce_one_line(raw)
+        # safe_line = sanitize_and_enforce_one_line(raw)
 
         # # If the LLM generated redaction or empty, fallback to a concise summary from the stored data:
         # if safe_line.startswith("[REDACTED") or safe_line in ("", "[NO_OUTPUT]"):
@@ -269,8 +269,8 @@ def main():
         record = {
             "mitre_id": mitre_id,
             "name": name,
-            "platform": chosen_platform,
-            "command": safe_line
+            "platform": platform,
+            "command": raw
         }
 
         with open(OUTFILE, "a", encoding="utf-8") as fh:
