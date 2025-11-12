@@ -126,6 +126,67 @@ def choose_single_platform(platforms: List[str]) -> str:
             return p
     return normalized[0]
 
+def extract_command_with_llm(text: str, llm) -> str:
+    """
+    Use an LLM to detect/extract a single shell/PowerShell/CLI command from `text`.
+    Returns the command as a single-line string, or '[NO_COMMAND]' if none found.
+    This function expects `llm` to be your HuggingFacePipeline-wrapped LangChain LLM.
+    """
+    if not text:
+        return "[NO_COMMAND]"
+
+    # Very explicit instruction: return EXACTLY one line with command or the literal [NO_COMMAND].
+    prompt = f"""
+    You are a strict parser. Inspect the text below and determine whether it contains a single
+    shell/PowerShell/command-line instruction. If it DOES, output ONLY the command on a single line,
+    with no explanation, no surrounding quotes, and no extra text. If there is NO command, output exactly:
+    [NO_COMMAND]
+
+    Text:
+    \"\"\"{text}\"\"\"
+    """
+
+    # Call the LLM (handle different return shapes)
+    try:
+        response = llm(prompt)
+        if isinstance(response, str):
+            raw = response.strip()
+        elif isinstance(response, dict):
+            raw = response.get("text") or response.get("generated_text") or str(response)
+        elif isinstance(response, list) and response and isinstance(response[0], dict):
+            raw = response[0].get("generated_text", "") or response[0].get("text", "")
+        else:
+            raw = str(response)
+    except Exception:
+        # If LLM call fails for any reason, fallback to no command
+        return "[NO_COMMAND]"
+
+    # Normalize: take first non-empty line
+    lines = [ln.strip() for ln in raw.splitlines() if ln.strip()]
+    if not lines:
+        return "[NO_COMMAND]"
+    first = lines[0]
+
+    # If the model returned something like 'Command: <cmd>' remove leading label (very conservative).
+    # Keep only what's plausible: no code fences, no multi-line content.
+    first = re.sub(r"^command\s*[:\-]\s*", "", first, flags=re.IGNORECASE).strip()
+    first = first.replace("```", "").replace("`", "").strip()
+
+    # If the model explicitly says NO_COMMAND, respect that
+    if first.upper().startswith("[NO_COMMAND]") or first.lower().startswith("no command"):
+        return "[NO_COMMAND]"
+
+    # Heuristic check: if it still doesn't look command-like, treat as no command.
+    # We'll allow typical characters used in shell/cli (letters, digits, punctuation, pipes, redirects).
+    if len(first.splitlines()) > 1:
+        return "[NO_COMMAND]"
+
+    # Trim overly long single-token nonsense
+    if len(first) > 400:
+        first = first[:400].rsplit(" ", 1)[0] + "..."
+
+    return first
+
 def sanitize_and_enforce_one_line(text: str) -> str:
     """
     Keep only first non-empty line, strip, and redact if it's command-like or contains
@@ -249,7 +310,7 @@ def main():
                 raw = str(response)
 
         # Sanitize and enforce one-line, non-actionable
-        # safe_line = sanitize_and_enforce_one_line(raw)
+        command = extract_command_with_llm(raw, llm)
 
         # # If the LLM generated redaction or empty, fallback to a concise summary from the stored data:
         # if safe_line.startswith("[REDACTED") or safe_line in ("", "[NO_OUTPUT]"):
@@ -270,7 +331,7 @@ def main():
             "mitre_id": mitre_id,
             "name": name,
             "platform": platform,
-            "command": raw
+            "command": command
         }
 
         with open(OUTFILE, "a", encoding="utf-8") as fh:
