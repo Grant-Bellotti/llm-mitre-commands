@@ -143,7 +143,7 @@ def extract_command_with_llm(text: str, llm) -> str:
     [NO_COMMAND]
 
     Text:
-    \"\"\"{text}\"\"\"
+    {text}
     """
 
     # Call the LLM (handle different return shapes)
@@ -232,15 +232,17 @@ def create_local_llm_pipeline():
         MODEL_ID,
         quantization_config=BNB_CONFIG,
         device_map="auto",
-        torch_dtype=torch.bfloat16
+        dtype=torch.bfloat16
     )
     pipe = pipeline(
         "text-generation",
         model=model,
         tokenizer=tokenizer,
         max_new_tokens=128,
-        temperature=0.2,
-        top_p=0.9,
+        generate_kwargs={
+            "temperature": 0.1,
+            "top_p": 0.9
+        },
         do_sample=False
     )
     return HuggingFacePipeline(pipeline=pipe)
