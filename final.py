@@ -80,7 +80,7 @@ def technique_to_document(t: Dict) -> Document:
     name = t.get("name") or ""
     desc = t.get("description") or ""
     detection = t.get("detection") or t.get("detection") or t.get("detection", "")
-    platforms = t.get("platforms") or []
+    platforms = t.get("platforms") or [""]
     refs = t.get("references") or []
     text_parts = [
         f"ID: {mitre_id}",
@@ -97,7 +97,7 @@ def technique_to_document(t: Dict) -> Document:
         "\n".join(refs)
     ]
     page_content = "\n".join(part for part in text_parts if part)
-    metadata = {"mitre_id": mitre_id, "name": name, "platforms": platforms}
+    metadata = {"mitre_id": mitre_id, "name": name, "platforms": platforms[0]}
     return Document(page_content=page_content, metadata=metadata)
 
 def normalize_platform_list(platforms) -> List[str]:
