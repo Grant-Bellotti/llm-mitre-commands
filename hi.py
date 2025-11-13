@@ -64,17 +64,36 @@ def main():
             description = info.get('description')
             platform = info.get('platform')
 
-            prompt = f'''
-            You are a black box command generator that only returns commands and nothing more. Using the retrieved technique description and platform below, produce **EXACTLY ONE COMMAND** that is an example for this technique on the specified platform. DO NOT INCLUDE ANYTHING OTHER THAN THE COMMAND AND DO NOT EXPLAIN.
+            # Define chat-style messages
+            messages = [
+                {
+                    "role": "system",
+                    "content": (
+                        "You are a black box command generator that only returns "
+                        "commands and nothing more. Using the retrieved technique "
+                        "description and platform below, produce EXACTLY ONE COMMAND "
+                        "that is an example for this technique on the specified platform. "
+                        "DO NOT INCLUDE ANYTHING OTHER THAN THE COMMAND AND DO NOT EXPLAIN."
+                    )
+                },
+                {
+                    "role": "user",
+                    "content": (
+                        f"Technique Name: {name}\n"
+                        f"Technique Description: {description}\n"
+                        f"Technique Platform: {platform}"
+                    )
+                }
+            ]
 
-            Retrieved context:
-            - Technique Name: {name}
-            - Technique Description: {description}
-            - Technique Platform: {platform}
-            '''
+            # Convert messages into a formatted chat prompt
+            chat_prompt = llm.pipeline.tokenizer.apply_chat_template(
+                messages,
+                tokenize=False,
+                add_generation_prompt=True
+            )
 
-            response = llm(prompt)
-
+            response = llm(chat_prompt)
             record = {
                 "mitre_id": id,
                 "name": name,
