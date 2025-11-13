@@ -1,5 +1,4 @@
 import json
-import re
 from pathlib import Path
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig, pipeline
@@ -46,7 +45,7 @@ def main():
         data = json.load(f)
     
     pipe = get_cached_pipeline()
-    tokenizer = pipe.tokenizer  # reuse for chat formatting
+    tokenizer = pipe.tokenizer
 
     count = 0
     print(f'Generating commands and appending to {OUTFILE}.')

