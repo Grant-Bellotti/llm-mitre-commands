@@ -73,11 +73,13 @@ def extract_techniques(stix_bundle):
         # (Note: full parent linking is available via Relationship objects in STIX; we skip full graph traversal
         # to keep output self-contained. See USAGE if you want parent-child resolved.)
         technique = {
-            "mitre_id": external_id,
-            "name": name,
-            "description": description.strip(),
-            "is_subtechnique": bool(x_mitre_is_subtechnique),
-            "platforms": x_mitre_platforms[0]
+            external_id : {
+                "mitre_id": external_id,
+                "name": name,
+                "description": description.strip(),
+                "is_subtechnique": bool(x_mitre_is_subtechnique),
+                "platforms": x_mitre_platforms[0]
+            }
         }
 
         out.append(technique)
