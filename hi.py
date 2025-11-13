@@ -47,69 +47,56 @@ def main():
     
     pipe = get_cached_pipeline()
     tokenizer = pipe.tokenizer  # reuse for chat formatting
-    
-    out_path = Path(OUTFILE)
-    existing_ids = set()
-    if out_path.exists():
-        print(f"Found existing {OUTFILE}, loading cached IDs to skip duplicates...")
-        with open(out_path, "r", encoding="utf-8") as fh:
-            for line in fh:
-                try:
-                    existing_ids.add(json.loads(line)["mitre_id"])
-                except Exception:
-                    pass
 
     count = 0
     print(f'Generating commands and appending to {OUTFILE}.')
 
-    with open(out_path, "a", encoding="utf-8") as fh:
-        for item in data:
-            for id, info in item.items():
-                if id in existing_ids:
-                    continue  # skip already processed entries
+    for item in data:
+        for id, info in item.items():
+            name = info.get("name")
+            description = info.get("description")
+            platform = info.get("platforms")
 
-                name = info.get("name")
-                description = info.get("description")
-                platform = info.get("platforms")
+            messages = [
+                {
+                    "role": "system",
+                    "content": (
+                        "You are a black box command generator that only returns commands. "
+                        "Given the technique description and platform below, produce EXACTLY ONE COMMAND "
+                        "example for this technique on the specified platform. "
+                        "Output ONLY the command. Do NOT explain."
+                    ),
+                },
+                {
+                    "role": "user",
+                    "content": (
+                        f"Technique Name: {name}\n"
+                        f"Technique Description: {description}\n"
+                        f"Technique Platform: {platform}"
+                    ),
+                },
+            ]
 
-                messages = [
-                    {
-                        "role": "system",
-                        "content": (
-                            "You are a black box command generator that only returns commands. "
-                            "Given the technique description and platform below, produce EXACTLY ONE COMMAND "
-                            "example for this technique on the specified platform. "
-                            "Output ONLY the command. Do NOT explain."
-                        ),
-                    },
-                    {
-                        "role": "user",
-                        "content": (
-                            f"Technique Name: {name}\n"
-                            f"Technique Description: {description}\n"
-                            f"Technique Platform: {platform}"
-                        ),
-                    },
-                ]
+            chat_prompt = tokenizer.apply_chat_template(
+                messages, tokenize=False, add_generation_prompt=True
+            )
 
-                chat_prompt = tokenizer.apply_chat_template(
-                    messages, tokenize=False, add_generation_prompt=True
-                )
+            output = pipe(chat_prompt, max_new_tokens=128)[0]["generated_text"]
+            command = output[len(chat_prompt):].strip()
 
-                output = pipe(chat_prompt, max_new_tokens=128)[0]["generated_text"]
-                command = output[len(chat_prompt):].strip()
+            record = {
+                "mitre_id": id,
+                "name": name,
+                "platform": platform,
+                "command": command,
+            }
 
-                record = {
-                    "mitre_id": id,
-                    "name": name,
-                    "platform": platform,
-                    "command": command,
-                }
+            with open(OUTFILE, "a", encoding="utf-8") as fh:
                 fh.write(json.dumps(record, ensure_ascii=False) + "\n")
 
-                count += 1
-                if count % 50 == 0:
-                    print(f"Processed {count} new techniques...")
+            count += 1
+            if count % 50 == 0:
+                print(f"Processed {count} new techniques...")
 
     print(f"Done. Added {count} new entries to {OUTFILE}.")
 
