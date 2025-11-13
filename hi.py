@@ -112,3 +112,6 @@ def main():
                     print(f"Processed {count} new techniques...")
 
     print(f"Done. Added {count} new entries to {OUTFILE}.")
+
+if __name__ == "__main__":
+    main()
