@@ -11,11 +11,7 @@ from transformers import (
     pipeline
 )
 
-from langchain.schema import Document
-from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain_community.vectorstores import Chroma
 from langchain_community.llms import HuggingFacePipeline
-from langchain.chains import RetrievalQA
 
 MITRE_DATA_FILE = "mitre_enterprise_techniques.json"
 OUTFILE = "mitre_technique_descriptions.jsonl"
