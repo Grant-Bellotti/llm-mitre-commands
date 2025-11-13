@@ -62,7 +62,7 @@ def main():
         for id, info in item.items():
             name = info.get('name')
             description = info.get('description')
-            platform = info.get('platform')
+            platform = info.get('platforms')
 
             # Define chat-style messages
             messages = [
@@ -93,12 +93,14 @@ def main():
                 add_generation_prompt=True
             )
 
-            response = llm(chat_prompt)
+            response = llm.invoke(chat_prompt)
+            commandText = str(response)
+
             record = {
                 "mitre_id": id,
                 "name": name,
                 "platform": platform,
-                "command": response
+                "command": commandText
             }
 
             with open(OUTFILE, "a", encoding="utf-8") as fh:
