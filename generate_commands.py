@@ -78,7 +78,7 @@ def main():
                         "You are a black box command generator that only returns commands. "
                         "Given the technique name, description, and platform below, produce EXACTLY ONE COMMAND "
                         "example for this technique on the specified platform. "
-                        "Output ONLY the command. Do NOT explain or include code blocks."
+                        "Output ONLY the command. Do NOT explain, include code blocks, or add a ` if the command does not require it."
                     ),
                 },
                 {
@@ -101,7 +101,7 @@ def main():
                         "You are a professional command verifier whose job is to check and fix incorrect commands. "
                         "Given the command below, correct the command if needed. "
                         "If the command is already syntatically correct, output the exact same command. "
-                        "Output ONLY the command. Do NOT explain or include code blocks."
+                        "Output ONLY the command. Do NOT explain, include code blocks, or add a ` if the command does not require it."
                     ),
                 },
                 {
