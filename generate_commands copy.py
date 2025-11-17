@@ -64,14 +64,14 @@ def main():
             description = info.get("description")
             platform = info.get("platforms")
 
-            commandPrompt = [
+            messages = [
                 {
                     "role": "system",
                     "content": (
                         "You are a black box command generator that only returns commands. "
-                        "Given the technique name, description, and platform below, produce EXACTLY ONE COMMAND "
+                        "Given the technique description and platform below, produce EXACTLY ONE COMMAND "
                         "example for this technique on the specified platform. "
-                        "Output ONLY the command. Do NOT explain or include code blocks."
+                        "Output ONLY the command. Do NOT explain."
                     ),
                 },
                 {
@@ -84,33 +84,19 @@ def main():
                 },
             ]
 
-            command = generateText(commandPrompt, pipe, tokenizer)
+            chat_prompt = tokenizer.apply_chat_template(
+                messages, tokenize=False, add_generation_prompt=True
+            )
 
-            checkCommandPrompt = [
-                {
-                    "role": "system",
-                    "content": (
-                        "You are a professional command verifier whose job is to check and fix incorrect commands. "
-                        "Given the command below, correct the command if needed. "
-                        "If the command is already syntatically correct, output the exact same command. "
-                        "Output ONLY the command. Do NOT explain or include code blocks."
-                    ),
-                },
-                {
-                    "role": "user",
-                    "content": (
-                        f"Command: {command}\n"
-                    ),
-                },
-            ]
-
-            verifiedCommand = generateText(checkCommandPrompt, pipe, tokenizer)
+            output = pipe(chat_prompt, max_new_tokens=128)[0]["generated_text"]
+            command = output[len(chat_prompt):].strip()
+            command = generateText(messages, pipe, tokenizer)
 
             record = {
                 "Name": name,
                 "ID": id,
                 "Platform": platform,
-                "Command": verifiedCommand,
+                "Command": command,
             }
 
             with open(OUTFILE, "a", encoding="utf-8") as fh:
