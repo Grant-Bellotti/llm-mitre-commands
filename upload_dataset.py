@@ -4,7 +4,7 @@ import os
 api = HfApi(token=os.getenv("HF_TOKEN"))
 
 api.upload_file(
-    path_or_fileobj="./mitre_technique_descriptions.jsonl",
+    path_or_fileobj="./data.parquet",
     path_in_repo="dataset/data.jsonl",
     repo_id="gbellott/test_dataset",
     repo_type="dataset"

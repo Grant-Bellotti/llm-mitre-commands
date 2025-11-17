@@ -7,3 +7,5 @@ accelerate
 torch
 bitsandbytes
 requests
+huggingface
+pyarrow
