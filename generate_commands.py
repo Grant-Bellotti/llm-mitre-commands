@@ -3,7 +3,7 @@ import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig, pipeline
 
 MITRE_DATA_FILE = "mitre_enterprise_techniques.json"
-OUTFILE = "mitre_technique_descriptions.json"
+OUTFILE = "mitre_technique_descriptions.jsonl"
 MODEL_ID = "meta-llama/Llama-3.1-8B-Instruct"
 
 BNB_CONFIG = BitsAndBytesConfig(
@@ -18,7 +18,7 @@ _PIPELINE = None
 
 def getCachedPipeline():
     global _PIPELINE
-    
+
     if _PIPELINE is None:
         print("Loading local model into memory...")
 
