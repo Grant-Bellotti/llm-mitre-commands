@@ -39,6 +39,7 @@ def getCachedPipeline():
     return _PIPELINE
 # -------------------------------------------
 
+# Call the llm with a prompt and return the output
 def generateText(prompt, pipe, tokenizer):
     chatPrompt = tokenizer.apply_chat_template(
         prompt, tokenize=False, add_generation_prompt=True
@@ -49,6 +50,7 @@ def generateText(prompt, pipe, tokenizer):
 
 def main():
     print(f'Opening {MITRE_DATA_FILE}.')
+    # Open the Mitre Techniques file
     with open(MITRE_DATA_FILE, "r", encoding="utf-8") as f:
         data = json.load(f)
     
@@ -58,12 +60,14 @@ def main():
     count = 0
     print(f'Generating commands and appending to {OUTFILE}.')
 
+    # Create a prompt for each Mitre attack technique and have the LLM generate a command
     for item in data:
         for id, info in item.items():
             name = info.get("name")
             description = info.get("description")
             platform = info.get("platforms")
 
+            # Prompt to generate the command
             commandPrompt = [
                 {
                     "role": "system",
@@ -86,6 +90,7 @@ def main():
 
             command = generateText(commandPrompt, pipe, tokenizer)
 
+            # Prompt to verify and fix the command if needed
             checkCommandPrompt = [
                 {
                     "role": "system",
@@ -106,9 +111,14 @@ def main():
 
             verifiedCommand = generateText(checkCommandPrompt, pipe, tokenizer)
 
+            # Sometimes the 2nd LLM for checking the command correctness says it is unable to create the command because it may cause harm. Switch to first one if so.
+            if "can't" in verifiedCommand or "cannot" in verifiedCommand:
+                verifiedCommand = command
+
+            # Create the record to write to data file
             record = {
-                "Name": name,
                 "ID": id,
+                "Name": name,
                 "Platform": platform,
                 "Command": verifiedCommand,
             }
