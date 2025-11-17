@@ -1,5 +1,4 @@
 import json
-from pathlib import Path
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig, pipeline
 
@@ -19,8 +18,10 @@ _PIPELINE = None
 
 def getCachedPipeline():
     global _PIPELINE
+    
     if _PIPELINE is None:
         print("Loading local model into memory...")
+
         tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
         model = AutoModelForCausalLM.from_pretrained(
             MODEL_ID,
@@ -35,7 +36,9 @@ def getCachedPipeline():
             max_new_tokens=128,
             do_sample=False
         )
+
         print("Model loaded and cached in memory.")
+
     return _PIPELINE
 # -------------------------------------------
 
