@@ -1,0 +1,1 @@
+Here is all the code I used in this project. run.sh does everything but format the output into a .parquet file and upload to huggingface. My modal notebook was set to 4 cores, 16 GiB of ram, and the Nvidia L40S, which was overkill but finished the generation quick.
