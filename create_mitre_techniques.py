@@ -43,17 +43,19 @@ def extractTechniques(data):
         subtechnique = obj.get("x_mitre_is_subtechnique", False)
         externalID = getID(obj.get("external_references", []))
 
-        technique = {
-            externalID : {
-                "mitre_id": externalID,
-                "name": name,
-                "description": description.strip(),
-                "is_subtechnique": bool(subtechnique),
-                "platforms": platforms[0]
+        # Limit the amount of techniques to only non subtechniques or techniques with specified platforms
+        if (not subtechnique) or (platforms[0] in ["Linux", "Windows", "macOS"]):
+            technique = {
+                externalID : {
+                    "mitre_id": externalID,
+                    "name": name,
+                    "description": description.strip(),
+                    "is_subtechnique": bool(subtechnique),
+                    "platforms": platforms[0]
+                }
             }
-        }
 
-        outData.append(technique)
+            outData.append(technique)
 
     return outData
 
