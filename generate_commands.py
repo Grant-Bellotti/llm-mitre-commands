@@ -4,7 +4,8 @@ from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 
 MITRE_DATA_FILE = "mitre_enterprise_techniques.json"
 OUTFILE = "mitre_technique_descriptions.jsonl"
-MODEL_ID = "meta-llama/Llama-3.1-8B-Instruct"
+# MODEL_ID = "meta-llama/Llama-3.1-8B-Instruct"
+MODEL_ID = "meta-llama/Llama-3.3-70B-Instruct"
 
 BNB_CONFIG = BitsAndBytesConfig(
     load_in_4bit=True,
