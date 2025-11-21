@@ -34,7 +34,7 @@ def getCachedPipeline():
             "text-generation",
             model=model,
             tokenizer=tokenizer,
-            max_new_tokens=128,
+            max_new_tokens=256,
             do_sample=False
         )
 
@@ -79,6 +79,8 @@ def main():
                         "You are a black box command generator that only returns commands. "
                         "Given the technique name, description, and platform below, produce EXACTLY ONE COMMAND "
                         "example for this technique on the specified platform. "
+                        "Use your knowledge of the platform and it's commands to create a new command that you have not seen before."
+                        "If giving an example using a Python script, write the python code as a one liner command."
                         "Output ONLY the command. Do NOT explain or include code blocks."
                     ),
                 },
@@ -102,7 +104,7 @@ def main():
                         "You are a professional command verifier whose job is to check and fix incorrect commands. "
                         "Given the command below, correct the command if needed. "
                         "If the command is already syntatically correct, output the exact same command. "
-                        "Output ONLY the command. Do NOT explain or include code blocks."
+                        "Output ONLY the ONE command. Do NOT explain or include code blocks."
                     ),
                 },
                 {
